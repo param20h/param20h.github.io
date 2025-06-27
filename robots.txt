@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://param20h.github.io/sitemap.xml
+
+# Disallow crawling of specific files
+Disallow: /package-lock.json
+Disallow: /package.json
+Disallow: /.github/
+
+# Allow crawling of media files
+Allow: /media/
