@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramjit Singh - Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="github-stats.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="icon" href="media/profile.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-circle">
+                    <div class="logo-inner">P</div>
+                </div>
+            </div>
+            <div class="loading-text">Loading Portfolio...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+        <div class="loading-particles"></div>
+    </div>
+    
+    <div class="cursor"></div>
+    <div class="particles"></div>
+    <div class="floating-shapes"></div>
+    
+    <!-- Liquid Morphing Background -->
+    <canvas id="liquid-canvas" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -2;
+        opacity: 0.3;
+    "></canvas>
+    
+
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Param20h</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-bg-animation"></div>
+        
+        <!-- Floating Coffee Button -->
+        <div class="floating-coffee">
+            <a href="https://www.buymeacoffee.com/param20h" target="_blank" class="coffee-float-btn">
+                <i class="fas fa-coffee"></i>
+                <span class="coffee-text">Buy me a coffee</span>
+                <div class="coffee-steam">
+                    <div class="steam steam-1"></div>
+                    <div class="steam steam-2"></div>
+                    <div class="steam steam-3"></div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Random Quote Generator -->
+        <div class="floating-quote">
+            <div id="quote-widget" class="quote-float-btn">
+                <i class="fas fa-quote-left"></i>
+                <span id="quote-text" class="quote-text">Click for inspiration!</span>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="profile-photo-wrapper">
+                    <div class="profile-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                    </div>
+                    <div class="profile-photo">
+                        <div class="profile-glow"></div>
+                        <img src="media/circle-photo.png" alt="Profile Photo" class="profile-img">
+                        <img src="media/hover-image.png" alt="Hover Image" class="hover-img">
+                        <div class="profile-overlay">
+                            <div class="profile-text"></div>
+                        </div>
+                    </div>
+                    <div class="floating-icons">
+                        <i class="fab fa-python floating-icon icon-1"></i>
+                        <i class="fas fa-gamepad floating-icon icon-2"></i>
+                        <i class="fas fa-brain floating-icon icon-3"></i>
+                        <i class="fas fa-code floating-icon icon-4"></i>
+                    </div>
+                </div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-word">Hi,</span> 
+                <span class="title-word">I'm</span> 
+                <span class="highlight title-word">Paramjit</span> 
+                <span class="highlight title-word">Singh</span>
+            </h1>
+            <div class="typing-container">
+                <span class="typing-text"></span>
+                <span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-description">
+                Developer passionate about <span class="highlight-text">Web3</span>, <span class="highlight-text">AI</span>, and creating <span class="highlight-text">innovative solutions</span>
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <span class="btn-text">View My Work</span>
+                    <div class="btn-particles"></div>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get In Touch</span>
+                    <div class="btn-particles"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Hello! I'm <strong>Paramjit Singh</strong>, a passionate developer with expertise in Web3 game development, AI, and innovative solution building.
+                    </p>
+                    <p>
+                        I have hands-on experience working with NGOs and leveraging technology to solve real-world problems. My journey in tech has led me to explore cutting-edge technologies and create impactful solutions.
+                    </p>
+                    <p>
+                        Currently, I'm developing an AI-based financial identification system and planning an exciting Unity-based Web3 game that combines blockchain technology with immersive gaming experiences.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Projects Completed</p>   
+                        </div>
+                        <div class="stat">
+                            <h3>5+</h3>
+                            <p>Technologies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Frontend</h3>
+                    <div class="skill-item">
+                        <span>HTML/CSS/JavaScript</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>React/Next.js</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="55"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>C++</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>C</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Java</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="50"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cube"></i> Web3 & AI</h3>
+                    <div class="skill-item">
+                        <span>Blockchain/Smart Contracts</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="40"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Machine Learning/AI</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="65"></div></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-gamepad"></i> Game Dev</h3>
+                    <div class="skill-item">
+                        <span>Unity</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="20"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Pygame</span>
+                        <div class="skill-bar"><div class="skill-progress" data-width="50"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="github-stats" class="github-stats">
+        <div class="container">
+            <h2 class="section-title">GitHub Statistics</h2>
+            <div class="github-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fab fa-github"></i>
+                        <h3 id="repos-count">--</h3>
+                        <p>Repositories</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3 id="stars-count">--</h3>
+                        <p>Stars</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h3 id="forks-count">--</h3>
+                        <p>Forks</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="followers-count">--</h3>
+                        <p>Followers</p>
+                    </div>
+                </div>
+                <div class="github-info">
+                    <div class="languages-chart">
+                        <h3>Top Languages</h3>
+                        <div id="languages-list">Loading...</div>
+                    </div>
+                    <div class="recent-activity">
+                        <h3>Recent Repositories</h3>
+                        <div id="recent-repos">Loading...</div>
+                    </div>
+                </div>
+                <button class="refresh-btn" id="refresh-github">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh Data
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card upcoming-project">
+                    <div class="project-image">
+                        <i class="fas fa-rocket project-icon"></i>
+                        <div class="coming-soon-badge">Coming Soon</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Upcoming Projects <span class="sparkle">✨</span></h3>
+                        <p>Exciting new projects in development! Including advanced AI applications, innovative game mechanics, and cutting-edge web technologies. Stay tuned for amazing releases!</p>
+                        <div class="project-tech">
+                            <span class="tech-tag upcoming">AI/ML</span>
+                            <span class="tech-tag upcoming">Unity</span>
+                            <span class="tech-tag upcoming">Python</span>
+                            <span class="tech-tag upcoming">Innovation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#contact" class="project-link"><i class="fas fa-bell"></i> Get Notified</a>
+                            <a href="https://github.com/param20h" class="project-link"><i class="fab fa-github"></i> Follow Updates</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-brain project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Financial Identification System</h3>
+                        <p>An intelligent AI system designed for the Indian Department of Posts to identify financial and insurance needs based on comprehensive demographic and economic data analysis.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/param20h" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-rocket project-icon"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Python Space Invaders Game</h3>
+                        <p>A classic Space Invaders arcade game built with Python and Pygame. Features smooth gameplay, collision detection, scoring system, and progressive difficulty levels with retro-style graphics and sound effects.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pygame</span>
+                            <span class="tech-tag">Game Development</span>
+                            <span class="tech-tag">OOP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Play Game</a>
+                            <a href="https://github.com/param20h" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:parambrar862@gmail.com">paramjit.offical34@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Available for Remote Work</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required minlength="2" maxlength="50">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required minlength="10" maxlength="1000"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Param20h. All rights reserved.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.buymeacoffee.com/param20h" target="_blank" class="coffee-btn">
+                        <i class="fas fa-coffee"></i>
+                        <span>Buy me a coffee</span>
+                    </a>
+                    <a href="https://www.instagram.com/param.060/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/param20h" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/param20h" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Visitor Counter -->
+    <div id="visitor-counter" style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+        color: white;
+        padding: 12px 18px;
+        border-radius: 25px;
+        font-size: 13px;
+        font-weight: 600;
+        z-index: 9999;
+        box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    ">
+        <div>👥 Visitors: <span id="visitor-count">1</span></div>
+        <div style="font-size: 11px; opacity: 0.8; margin-top: 2px;">📊 Live Counter</div>
+    </div>
+    
+    <!-- Holographic Profile Card -->
+    <div id="holo-card" style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateY(0deg);
+        width: 350px;
+        height: 200px;
+        background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+        border: 2px solid rgba(0, 212, 255, 0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        z-index: 10000;
+        display: none;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3), inset 0 0 50px rgba(255, 255, 255, 0.1);
+        animation: holoFloat 4s ease-in-out infinite;
+        cursor: pointer;
+    ">
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: holoScan 3s linear infinite;
+        "></div>
+        
+        <div style="padding: 20px; position: relative; z-index: 2;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div style="
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24px;
+                    font-weight: bold;
+                    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+                ">P</div>
+                <div>
+                    <h3 style="margin: 0; font-size: 18px; background: linear-gradient(45deg, #00d4ff, #4ecdc4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Paramjit Singh</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">Python Developer & AI Enthusiast</p>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                <div>
+                    <div style="margin-bottom: 5px;">🚀 <strong>15</strong> Projects</div>
+                    <div>⭐ <strong>42</strong> Stars</div>
+                </div>
+                <div>
+                    <div style="margin-bottom: 5px;">👥 <strong>25</strong> Followers</div>
+                    <div>🔥 <strong>Active</strong> Developer</div>
+                </div>
+            </div>
+            
+            <div style="
+                position: absolute;
+                bottom: 10px;
+                right: 15px;
+                font-size: 10px;
+                opacity: 0.6;
+            ">Click to close</div>
+        </div>
+    </div>
+    
+    <!-- AI Agent Chat Widget -->
+    <div id="ai-chat-widget" style="
+        position: fixed;
+        bottom: 100px;
+        left: 20px;
+        background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 9996;
+        box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        animation: aiPulse 2s infinite;
+    ">
+        <i class="fas fa-robot" style="margin-right: 8px;"></i>
+        Ask AI about me!
+    </div>
+    
+    <!-- AI Chat Window -->
+    <div id="ai-chat-window" style="
+        position: fixed;
+        bottom: 160px;
+        left: 20px;
+        width: 350px;
+        height: 450px;
+        background: rgba(0, 0, 0, 0.95);
+        border: 2px solid #9b59b6;
+        border-radius: 15px;
+        z-index: 10001;
+        display: none;
+        flex-direction: column;
+        backdrop-filter: blur(20px);
+    ">
+        <div style="
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 15px;
+            border-radius: 13px 13px 0 0;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        ">
+            <span>🤖 AI Assistant - Ask about Paramjit</span>
+            <button id="close-ai-chat" style="
+                background: none;
+                border: none;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+            ">&times;</button>
+        </div>
+        
+        <div id="ai-chat-messages" style="
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            color: white;
+            font-size: 14px;
+        ">
+            <div class="ai-message" style="margin-bottom: 15px; padding: 10px; background: rgba(155, 89, 182, 0.2); border-radius: 10px;">
+                <strong>🤖 AI:</strong> Hi! I'm Paramjit's AI assistant. Ask me anything about his skills, projects, or experience!
+            </div>
+        </div>
+        
+        <div style="
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 10px;
+        ">
+            <input id="ai-chat-input" type="text" placeholder="Ask about Paramjit's skills..." style="
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #9b59b6;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                outline: none;
+            ">
+            <button id="send-ai-message" style="
+                background: linear-gradient(45deg, #9b59b6, #8e44ad);
+                border: none;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: 600;
+            ">🤖</button>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script src="holo-card.js"></script>
+    <script src="email.js"></script>
+    <script src="quotes.js"></script>
+    <script src="github-real.js"></script>
+    <script src="ai-agent.js"></script>
+    <script src="liquid-bg.js"></script>
+    <script src="particle-cursor-mobile.js"></script>
+    <script>
+        // Simple visitor counter update
+        const visitorCount = parseInt(localStorage.getItem('visitorCount') || '0') + 1;
+        localStorage.setItem('visitorCount', visitorCount.toString());
+        document.getElementById('visitor-count').textContent = visitorCount;
+        
+        // Add click effect
+        document.getElementById('visitor-counter').addEventListener('click', function() {
+            this.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+            
+            // Show notification if function exists
+            if (typeof showNotification === 'function') {
+                showNotification('Thanks for visiting! 🚀', 'success');
+            } else {
+                alert('Thanks for visiting! 🚀');
+            }
+        });
+        
+        // Add hover effect
+        document.getElementById('visitor-counter').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        document.getElementById('visitor-counter').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
