@@ -144,7 +144,6 @@
         <div class="loading-particles"></div>
     </div>
     
-    <div class="cursor"></div>
     <div class="particles"></div>
     <div class="floating-shapes"></div>
     
@@ -173,9 +172,6 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <button class="theme-toggle" id="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -263,29 +259,38 @@
     <section id="about" class="about" role="region" aria-labelledby="about-heading">
         <div class="container">
             <h2 id="about-heading" class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        Hello! I'm <strong>Paramjit Singh</strong> from <strong>LPU (Lovely Professional University)</strong>, a passionate developer with expertise in Web3 game development, AI, and innovative solution building.
-                    </p>
-                    <p>
-                        I have <strong>hands-on experience working with NGOs</strong> and leveraging <strong>Python programming and AI technologies</strong> to solve real-world problems. My journey in tech has led me to explore <strong>cutting-edge technologies like Machine Learning, Web3 Blockchain, and Unity Game Development</strong> to create impactful solutions.
-                    </p>
-                    <p>
-                        Currently, I'm developing an <strong>AI-based financial identification system using Python and TensorFlow</strong> and planning an exciting <strong>Unity-based Web3 game</strong> that combines <strong>blockchain technology with immersive gaming experiences</strong>. Available for <strong>freelance Python development, AI/ML consulting, and Web3 projects</strong>.
-                    </p>
+            <div class="holo-about-card">
+                <div class="holo-scan"></div>
+                <div class="about-content">
+                    <div class="about-header">
+                        <div class="about-avatar">
+                            <div class="avatar-glow"></div>
+                            <span class="avatar-initial">P</span>
+                        </div>
+                        <div class="about-title">
+                            <h3>Paramjit Singh</h3>
+                            <p>Python Developer • AI Enthusiast • LPU Student</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-description">
+                        <p>🚀 Passionate <strong>Python Developer</strong> from <strong>Lovely Professional University</strong> specializing in cutting-edge technologies.</p>
+                        <p>💡 Expert in <strong>AI/ML, Web3 Blockchain, and Game Development</strong> with real-world experience in NGO projects and innovative solutions.</p>
+                        <p>🎯 Currently developing <strong>AI Financial Systems</strong> and exploring <strong>Unity Web3 Gaming</strong> - always pushing the boundaries of technology.</p>
+                    </div>
+                    
                     <div class="about-stats">
-                        <div class="stat">
-                            <h3>2+</h3>
-                            <p>Years Experience</p>
+                        <div class="stat-item">
+                            <div class="stat-number">2+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                        <div class="stat">
-                            <h3>10+</h3>
-                            <p>Projects Completed</p>   
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Projects</div>
                         </div>
-                        <div class="stat">
-                            <h3>5+</h3>
-                            <p>Technologies</p>
+                        <div class="stat-item">
+                            <div class="stat-number">24+</div>
+                            <div class="stat-label">Technologies</div>
                         </div>
                     </div>
                 </div>
@@ -296,59 +301,31 @@
     <section id="skills" class="skills" role="region" aria-labelledby="skills-heading">
         <div class="container">
             <h2 id="skills-heading" class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Frontend</h3>
-                    <div class="skill-item">
-                        <span>HTML/CSS/JavaScript</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>React/Next.js</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="55"></div></div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="skill-item">
-                        <span>Python</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>C++</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>C</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Java</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="50"></div></div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cube"></i> Web3 & AI</h3>
-                    <div class="skill-item">
-                        <span>Blockchain/Smart Contracts</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="40"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Machine Learning/AI</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="65"></div></div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-gamepad"></i> Game Dev</h3>
-                    <div class="skill-item">
-                        <span>Unity</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="20"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <span>Pygame</span>
-                        <div class="skill-bar"><div class="skill-progress" data-width="50"></div></div>
-                    </div>
-                </div>
+            <div class="skills-container">
+                <div class="skill-square" data-skill="HTML5"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                <div class="skill-square" data-skill="CSS3"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                <div class="skill-square" data-skill="JavaScript"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                <div class="skill-square" data-skill="Python"><i class="fab fa-python"></i><span>Python</span></div>
+                <div class="skill-square" data-skill="C++"><i class="fas fa-code"></i><span>C++</span></div>
+                <div class="skill-square" data-skill="C"><i class="fas fa-code"></i><span>C</span></div>
+                <div class="skill-square" data-skill="Java"><i class="fab fa-java"></i><span>Java</span></div>
+                <div class="skill-square" data-skill="Linux"><i class="fab fa-linux"></i><span>Linux</span></div>
+                <div class="skill-square" data-skill="VS Code"><i class="fas fa-code"></i><span>VS Code</span></div>
+                <div class="skill-square" data-skill="Figma"><i class="fab fa-figma"></i><span>Figma</span></div>
+                <div class="skill-square" data-skill="TensorFlow"><i class="fas fa-robot"></i><span>TensorFlow</span></div>
+                <div class="skill-square" data-skill="Google Cloud"><i class="fab fa-google"></i><span>Google Cloud</span></div>
+                <div class="skill-square" data-skill="Postman"><i class="fas fa-paper-plane"></i><span>Postman</span></div>
+                <div class="skill-square" data-skill="Git"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                <div class="skill-square" data-skill="GitHub"><i class="fab fa-github"></i><span>GitHub</span></div>
+                <div class="skill-square" data-skill="React"><i class="fab fa-react"></i><span>React</span></div>
+                <div class="skill-square" data-skill="Vite"><i class="fas fa-bolt"></i><span>Vite</span></div>
+                <div class="skill-square" data-skill="AWS"><i class="fab fa-aws"></i><span>AWS</span></div>
+                <div class="skill-square" data-skill="Next.js"><i class="fas fa-code"></i><span>Next.js</span></div>
+                <div class="skill-square" data-skill="Node.js"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                <div class="skill-square" data-skill="Express.js"><i class="fas fa-server"></i><span>Express.js</span></div>
+                <div class="skill-square" data-skill="Socket.IO"><i class="fas fa-plug"></i><span>Socket.IO</span></div>
+                <div class="skill-square" data-skill="API"><i class="fas fa-exchange-alt"></i><span>API</span></div>
+                <div class="skill-square" data-skill="SQL"><i class="fas fa-database"></i><span>SQL</span></div>
             </div>
         </div>
     </section>
@@ -422,23 +399,23 @@
                     </div>
                 </div>
                 
-                <div class="project-card upcoming-project">
+                <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-project-diagram project-icon"></i>
-                        <div class="coming-soon-badge">Coming Soon</div>
+                        <div class="coming-soon-badge" style="background: rgba(46, 204, 113, 0.9);">Open Source</div>
                     </div>
                     <div class="project-content">
                         <h3>DSA Visualizer - React Data Structures & Algorithms Tool</h3>
-                        <p>Interactive <strong>Data Structures and Algorithms visualizer</strong> built with <strong>React and modern JavaScript</strong>. Features algorithm animations, step-by-step execution, sorting visualizations, graph traversals, and educational interface. Demonstrates <strong>React development, algorithm implementation, and educational technology</strong> expertise.</p>
+                        <p>Interactive <strong>Data Structures and Algorithms visualizer</strong> built with <strong>React and modern JavaScript</strong>. Features algorithm animations, step-by-step execution, sorting visualizations, graph traversals, and educational interface. <strong>Open Source project - contributions welcome!</strong></p>
                         <div class="project-tech">
-                            <span class="tech-tag upcoming">React</span>
-                            <span class="tech-tag upcoming">JavaScript</span>
-                            <span class="tech-tag upcoming">Algorithms</span>
-                            <span class="tech-tag upcoming">Data Structures</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">Open Source</span>
                         </div>
                         <div class="project-links">
-                            <a href="#contact" class="project-link"><i class="fas fa-bell"></i> Get Notified</a>
-                            <a href="https://github.com/param20h" class="project-link"><i class="fab fa-github"></i> Follow Updates</a>
+                            <a href="https://dsa-visualizer-hazel-two.vercel.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/param20h" class="project-link"><i class="fab fa-github"></i> Contribute</a>
                         </div>
                     </div>
                 </div>
@@ -783,6 +760,7 @@
     <script src="ai-agent.js"></script>
     <script src="liquid-bg.js"></script>
     <script src="particle-cursor-mobile.js"></script>
+    <script src="moving-stars.js"></script>
     <script>
         // Visitor counter with unique tracking
         function updateVisitorCount() {
