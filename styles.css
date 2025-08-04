@@ -238,6 +238,26 @@ a, button, .project-card, .skill-square {
     width: 80%;
 }
 
+.resume-download {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d) !important;
+    color: white !important;
+    border-radius: 25px;
+    padding: 0.6rem 1.2rem !important;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+    transition: all 0.3s ease;
+}
+
+.resume-download:hover {
+    background: linear-gradient(45deg, #44a08d, #4ecdc4) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
+}
+
+.resume-download i {
+    margin-right: 6px;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -674,6 +694,23 @@ a, button, .project-card, .skill-square {
     background: rgba(0, 212, 255, 0.1);
     border-color: #ff6b6b;
     color: #ff6b6b;
+}
+
+.btn-resume {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+}
+
+.btn-resume:hover {
+    background: linear-gradient(45deg, #44a08d, #4ecdc4);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(78, 205, 196, 0.4);
+}
+
+.btn-resume .btn-text i {
+    margin-right: 8px;
 }
 
 .btn-text {
