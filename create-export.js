@@ -62,4 +62,8 @@ if (fs.existsSync(publicDir)) {
   console.log('✓ Copied public files');
 }
 
+// Create .nojekyll file to prevent GitHub Pages from ignoring _next directory
+fs.writeFileSync(path.join(targetDir, '.nojekyll'), '');
+console.log('✓ Created .nojekyll file');
+
 console.log('\n✓ Static export created in /out directory');
