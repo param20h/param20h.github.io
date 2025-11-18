@@ -1,12 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 }
 
 export default function Button({
@@ -14,7 +18,9 @@ export default function Button({
   size = "md",
   className,
   children,
-  ...props
+  disabled,
+  type = "button",
+  onClick,
 }: ButtonProps) {
   const variants = {
     primary: "bg-gradient-to-r from-primary-500 to-accent-500 text-white hover:from-accent-500 hover:to-primary-500",
@@ -28,20 +34,20 @@ export default function Button({
     lg: "px-12 py-4 text-lg",
   };
 
-  // Remove the DOM onDrag prop (which uses a different event type) before passing props to framer-motion
-  const { onDrag, ...rest } = props;
-
   return (
     <motion.button
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={disabled ? {} : { scale: 1.05, y: -2 }}
+      whileTap={disabled ? {} : { scale: 0.95 }}
       className={cn(
         "rounded-full font-semibold uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-2xl",
         variants[variant],
         sizes[size],
+        disabled && "opacity-50 cursor-not-allowed",
         className
       )}
-      {...rest}
+      disabled={disabled}
+      type={type}
+      onClick={onClick}
     >
       {children}
     </motion.button>
