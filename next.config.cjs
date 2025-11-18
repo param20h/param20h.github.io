@@ -7,7 +7,6 @@ const nextConfig = {
   basePath: '',
   trailingSlash: true,
   webpack: (config, { isServer }) => {
-    // Fix for Windows ESM path issues
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
