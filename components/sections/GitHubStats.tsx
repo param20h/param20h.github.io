@@ -122,6 +122,13 @@ export default function GitHubStats() {
 
   return (
     <Section id="github-stats" title="GitHub Statistics">
+      {/* Last Updated Indicator */}
+      <div className="text-center mb-8">
+        <p className="text-white/40 text-sm">
+          📊 Live data from GitHub API • Updated daily at midnight UTC
+        </p>
+      </div>
+
       <div className="grid md:grid-cols-4 gap-6 mb-12">
         {statCards.map((stat, index) => (
           <motion.div

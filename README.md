@@ -1,11 +1,14 @@
 # 🚀 Paramjit Singh - Modern Portfolio
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://param20h.github.io/)
+[![Auto Update](https://img.shields.io/badge/Auto--Update-Daily-blue?style=for-the-badge&logo=github-actions)](https://github.com/param20h/param20h.github.io/actions)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
 > **Modern Portfolio** built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion - showcasing my journey as a Python Developer specializing in AI, Machine Learning, and Web3 technologies.
+
+> 🔄 **Auto-updating!** GitHub stats refresh daily via GitHub Actions - always showing fresh data!
 
 ---
 
@@ -300,6 +303,40 @@ npm run start
 **Test on mobile:**
 1. Get your local IP: `ipconfig`
 2. On phone: `http://YOUR_IP:3000`
+
+---
+
+## 🔄 Automatic Daily Updates
+
+Your portfolio automatically fetches fresh GitHub stats daily!
+
+### How It Works
+- 🤖 **GitHub Actions** rebuilds site daily at midnight UTC
+- 📊 Fetches live data from GitHub API
+- 🚀 Deploys updated site automatically
+- ⚡ Zero maintenance required
+
+### What Updates Daily
+- Total repositories count
+- Total stars & forks
+- Follower count  
+- Contribution graphs
+- Recent activity
+
+### Manual Update
+Want fresh data now?
+1. Go to [Actions](https://github.com/param20h/param20h.github.io/actions)
+2. Click "Deploy Next.js to GitHub Pages"
+3. Click "Run workflow"
+
+### Increase Rate Limits
+Add GitHub token for 5,000 requests/hour (vs 60/hour):
+1. Create token: https://github.com/settings/tokens (public_repo scope)
+2. Add secret: [Repository Settings → Secrets](https://github.com/param20h/param20h.github.io/settings/secrets/actions)
+3. Name: `NEXT_PUBLIC_GITHUB_TOKEN`
+4. Value: Your token
+
+📖 **Full details:** See [AUTO-UPDATE.md](./AUTO-UPDATE.md)
 
 ---
 

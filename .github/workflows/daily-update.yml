@@ -1,12 +1,10 @@
-name: Deploy Next.js to GitHub Pages
+name: Daily Data Update
 
 on:
-  push:
-    branches: [main]
   schedule:
-    # Runs every day at 00:00 UTC for fresh data
+    # Runs every day at 00:00 UTC (midnight)
     - cron: '0 0 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual triggering
 
 permissions:
   contents: read
@@ -35,14 +33,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Build with Next.js
+      - name: Build with Next.js (fetches fresh data)
         run: npm run build
         env:
           NEXT_PUBLIC_EMAILJS_SERVICE_ID: service_wv98oq4
           NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: template_2096w1h
           NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: N9Y9c1frAzwZmLKVI
+          # Add GitHub token for higher API rate limits (5000/hour vs 60/hour)
+          # Get token from: https://github.com/settings/tokens (only needs public_repo scope)
           NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_TOKEN }}
-          NEXT_PUBLIC_BUILD_TIME: ${{ github.event.head_commit.timestamp }}
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
