@@ -181,13 +181,15 @@ export default function GitHubStats() {
         </div>
 
         {/* GitHub Streak Stats */}
-        <Card className="p-6 overflow-hidden">
-          <img
-            src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dracula&hide_border=true&background=00000000&ring=00d4ff&fire=ff6b6b&currStreakLabel=00d4ff&sideLabels=ffffff&currStreakNum=ffffff&sideNums=ffffff&dates=ffffff`}
-            alt="GitHub Streak"
-            className="w-full h-auto"
-          />
-        </Card>
+        <div className="flex justify-center">
+          <Card className="p-4 overflow-hidden max-w-2xl w-full">
+            <img
+              src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dracula&hide_border=true&background=00000000&ring=00d4ff&fire=ff6b6b&currStreakLabel=00d4ff&sideLabels=ffffff&currStreakNum=ffffff&sideNums=ffffff&dates=ffffff`}
+              alt="GitHub Streak"
+              className="w-full h-auto"
+            />
+          </Card>
+        </div>
       </motion.div>
 
       <div>
