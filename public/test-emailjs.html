@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: #fff;
+            border-radius: 5px;
+        }
+        button {
+            background: #00d4ff;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #00b8e6; }
+        .success { color: #4ade80; }
+        .error { color: #ff6b6b; }
+        .info { color: #00d4ff; }
+    </style>
+</head>
+<body>
+    <h1>EmailJS Test Form</h1>
+    
+    <form id="testForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Test Email</button>
+    </form>
+    
+    <div id="result" style="margin-top: 20px;"></div>
+    
+    <script>
+        // EmailJS Configuration
+        const SERVICE_ID = 'service_wv98oq4';
+        const TEMPLATE_ID = 'template_2096w1h';
+        const PUBLIC_KEY = 'N9Y9c1frAzwZmLKVI';
+        
+        // Initialize EmailJS
+        emailjs.init(PUBLIC_KEY);
+        
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p class="info">Sending email...</p>';
+            
+            const formData = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                to_name: 'Paramjit Singh'
+            };
+            
+            try {
+                console.log('Sending with config:', {
+                    serviceId: SERVICE_ID,
+                    templateId: TEMPLATE_ID,
+                    publicKey: PUBLIC_KEY.substring(0, 5) + '...'
+                });
+                
+                console.log('Form data:', formData);
+                
+                const response = await emailjs.send(
+                    SERVICE_ID,
+                    TEMPLATE_ID,
+                    formData
+                );
+                
+                console.log('Success:', response);
+                
+                resultDiv.innerHTML = `
+                    <p class="success">✓ Email sent successfully!</p>
+                    <p>Status: ${response.status} - ${response.text}</p>
+                    <p>Check your inbox at: paramjit.offical34@gmail.com</p>
+                `;
+                
+                document.getElementById('testForm').reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                
+                resultDiv.innerHTML = `
+                    <p class="error">✗ Failed to send email</p>
+                    <p>Error: ${error.text || error.message}</p>
+                    <pre>${JSON.stringify(error, null, 2)}</pre>
+                `;
+            }
+        });
+        
+        // Display configuration on page load
+        console.log('EmailJS initialized with:');
+        console.log('Service ID:', SERVICE_ID);
+        console.log('Template ID:', TEMPLATE_ID);
+        console.log('Public Key:', PUBLIC_KEY.substring(0, 5) + '...');
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        button {
+            background: #00d4ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #00b8e6;
+        }
+        pre {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .success { color: #4ade80; }
+        .error { color: #ff6b6b; }
+        .stats { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 10px; 
+            margin: 20px 0;
+        }
+        .stat {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            background: #2a2a2a;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub API Test - param20h</h1>
+    
+    <button onclick="testGitHubAPI()">Test GitHub API</button>
+    <button onclick="testImages()">Test GitHub Images</button>
+    
+    <div id="stats" class="stats"></div>
+    <div id="result"></div>
+    <div id="images"></div>
+
+    <script>
+        const username = 'param20h';
+
+        async function testGitHubAPI() {
+            const resultDiv = document.getElementById('result');
+            const statsDiv = document.getElementById('stats');
+            resultDiv.innerHTML = '<p>Testing GitHub API...</p>';
+            statsDiv.innerHTML = '';
+
+            try {
+                // Test user endpoint
+                const userResponse = await fetch(`https://api.github.com/users/${username}`);
+                console.log('User Response Status:', userResponse.status);
+                
+                if (!userResponse.ok) {
+                    throw new Error(`User API failed: ${userResponse.status} ${userResponse.statusText}`);
+                }
+                
+                const userData = await userResponse.json();
+                console.log('User Data:', userData);
+
+                // Test repos endpoint
+                const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+                console.log('Repos Response Status:', reposResponse.status);
+                
+                if (!reposResponse.ok) {
+                    throw new Error(`Repos API failed: ${reposResponse.status} ${reposResponse.statusText}`);
+                }
+                
+                const reposData = await reposResponse.json();
+                console.log('Repos Data:', reposData);
+
+                // Calculate stats
+                const totalStars = reposData.reduce((acc, repo) => acc + (repo.stargazers_count || 0), 0);
+                const totalForks = reposData.reduce((acc, repo) => acc + (repo.forks_count || 0), 0);
+
+                const stats = {
+                    repos: userData.public_repos || 0,
+                    stars: totalStars,
+                    forks: totalForks,
+                    followers: userData.followers || 0
+                };
+
+                // Display stats
+                statsDiv.innerHTML = `
+                    <div class="stat">
+                        <div class="stat-value">${stats.repos}</div>
+                        <div class="stat-label">Repositories</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">${stats.stars}</div>
+                        <div class="stat-label">Stars</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">${stats.forks}</div>
+                        <div class="stat-label">Forks</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">${stats.followers}</div>
+                        <div class="stat-label">Followers</div>
+                    </div>
+                `;
+
+                resultDiv.innerHTML = `
+                    <p class="success">✓ GitHub API is working!</p>
+                    <h3>Full Response:</h3>
+                    <pre>${JSON.stringify({ userData, stats, totalRepos: reposData.length }, null, 2)}</pre>
+                `;
+
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `
+                    <p class="error">✗ Error: ${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+
+        function testImages() {
+            const imagesDiv = document.getElementById('images');
+            imagesDiv.innerHTML = `
+                <h3>GitHub Stats Images:</h3>
+                <h4>Overall Stats:</h4>
+                <img src="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dracula&include_all_commits=true&count_private=true&hide_border=true&bg_color=1a1a1a&title_color=00d4ff&text_color=ffffff&icon_color=ff6b6b" alt="GitHub Stats" />
+                
+                <h4>Top Languages:</h4>
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&langs_count=8&theme=dracula&hide_border=true&bg_color=1a1a1a&title_color=00d4ff&text_color=ffffff" alt="Top Languages" />
+                
+                <h4>Contribution Streak:</h4>
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dracula&hide_border=true&background=1a1a1a&ring=00d4ff&fire=ff6b6b&currStreakLabel=00d4ff" alt="GitHub Streak" />
+            `;
+        }
+
+        // Auto-run tests on load
+        window.addEventListener('load', () => {
+            testGitHubAPI();
+            testImages();
+        });
+    </script>
+</body>
+</html>
