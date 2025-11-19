@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPython, faReact, faUnity } from "@fortawesome/free-brands-svg-icons";
 import { faBrain, faCode, faGamepad, faRobot } from "@fortawesome/free-solid-svg-icons";
@@ -46,12 +45,10 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-50 animate-pulse" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary-500 shadow-2xl">
-              <Image
+              <img
                 src="/media/circle-photo.png"
                 alt="Paramjit Singh"
-                fill
-                className="object-cover"
-                priority
+                className="w-full h-full object-cover"
               />
             </div>
             {/* Floating Icons */}

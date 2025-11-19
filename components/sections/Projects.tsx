@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import { ExternalLink, Github } from "lucide-react";
-import Image from "next/image";
 import type { Project } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
@@ -78,11 +77,10 @@ export default function Projects() {
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-2xl mb-6 overflow-hidden">
                 {project.image ? (
-                  <Image
+                  <img
                     src={project.image}
                     alt={project.title}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full text-6xl">
