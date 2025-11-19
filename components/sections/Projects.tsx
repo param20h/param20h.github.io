@@ -24,7 +24,7 @@ const projects: Project[] = [
     image: "/media/Dsav.png",
     tech: ["React", "JavaScript", "Algorithms", "Open Source"],
     liveUrl: "https://dsa-visualizer-hazel-two.vercel.app/",
-    githubUrl: "https://github.com/param20h",
+    githubUrl: "https://github.com/param20h/DSA-visual",
     status: "live",
   },
   {
@@ -40,7 +40,7 @@ const projects: Project[] = [
     image: "/media/ai.png",
     tech: ["Google Gemini AI", "JavaScript", "GenAI API"],
     liveUrl: "https://ai-sum-two.vercel.app/",
-    githubUrl: "https://github.com/param20h",
+    githubUrl: "https://github.com/param20h/ai-sum",
     status: "live",
   },
   {
@@ -49,7 +49,7 @@ const projects: Project[] = [
     image: "/media/weather.png",
     tech: ["Next.js", "React", "JavaScript", "API"],
     liveUrl: "https://weather-sum.netlify.app/",
-    githubUrl: "https://github.com/param20h",
+    githubUrl: "https://github.com/param20h/weather",
     status: "live",
   },
   {
@@ -57,7 +57,7 @@ const projects: Project[] = [
     description: "Professional Python game development project using Pygame library. Features advanced object-oriented programming, collision detection algorithms, dynamic scoring system, and progressive difficulty mechanics.",
     iconName: "rocket",
     tech: ["Python", "Pygame", "Game Development", "OOP"],
-    githubUrl: "https://param20h.me/space-invade",
+    githubUrl: "https://github.com/param20h/space-invade",
   },
 ];
 
