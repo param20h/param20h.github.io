@@ -10,6 +10,15 @@ import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const projects: Project[] = [
   {
+    title: "MOOC Feedback Mining for MSMEs - Smart India Hackathon 2021",
+    description: "Intelligent sentiment analysis system for extracting actionable insights from 140K+ MOOC course reviews. Features FastAPI REST API, Streamlit dashboard, multi-model approach (LR, NB, RF, BERT), and 87% accuracy with real-time predictions.",
+    iconName: "brain",
+    tech: ["Python", "FastAPI", "Streamlit", "BERT", "NLP", "Machine Learning"],
+    liveUrl: "https://mooc-msme.streamlit.app/",
+    githubUrl: "https://github.com/param20h/mooc-feedback-mining-msme",
+    status: "live",
+  },
+  {
     title: "Real-time Chat App - Node.js Socket.IO Application",
     description: "Full-featured real-time chat application built with Node.js, Express, and Socket.IO. Features live messaging, multiple users support, file sharing, emoji reactions, private messaging, room management, and responsive design.",
     image: "/media/char.png",
