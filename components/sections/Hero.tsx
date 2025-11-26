@@ -41,14 +41,19 @@ export default function Hero() {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
-            className="relative mb-12"
+            className="relative mb-12 group"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-50 animate-pulse" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary-500 shadow-2xl">
               <img
-                src="/media/circle-photo.png"
+                src="/media/circle-hoverphoto.JPG"
                 alt="Paramjit Singh"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+              />
+              <img
+                src="/media/circle-photo.png"
+                alt="Paramjit Singh Hover"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
             </div>
             {/* Floating Icons */}
