@@ -8,71 +8,39 @@ import * as SimpleIcons from "simple-icons";
 const skills = [
   // Core Languages
   { name: "Python", icon: "siPython" },
-  { name: "C++", icon: "siCplusplus" },
-  { name: "C", icon: "siC" },
   { name: "JavaScript", icon: "siJavascript" },
   { name: "TypeScript", icon: "siTypescript" },
-  { name: "Go", icon: "siGo" },
-  { name: "Java", icon: "siOpenjdk" },
+  { name: "C++", icon: "siCplusplus" },
   
-  // Web Frontend
-  { name: "HTML5", icon: "siHtml5" },
-  { name: "CSS3", icon: "siCss" },
-  { name: "Tailwind CSS", icon: "siTailwindcss" },
+  // Web Development
   { name: "React", icon: "siReact" },
   { name: "Next.js", icon: "siNextdotjs" },
-  { name: "React Native", icon: "siReact" },
-  
-  // Backend & APIs
   { name: "Node.js", icon: "siNodedotjs" },
-  { name: "Express", icon: "siExpress" },
-  { name: "FastAPI", icon: "siFastapi" },
-  { name: "Flask", icon: "siFlask" },
+  { name: "Tailwind CSS", icon: "siTailwindcss" },
   
-  // Databases
-  { name: "MongoDB", icon: "siMongodb" },
-  { name: "PostgreSQL", icon: "siPostgresql" },
-  { name: "MySQL", icon: "siMysql" },
-  
-  // Data Science & ML
+  // AI/ML
   { name: "TensorFlow", icon: "siTensorflow" },
   { name: "PyTorch", icon: "siPytorch" },
-  { name: "Keras", icon: "siKeras" },
   { name: "OpenCV", icon: "siOpencv" },
-  { name: "NumPy", icon: "siNumpy" },
-  { name: "Pandas", icon: "siPandas" },
-  { name: "Matplotlib", icon: "siPlotly" },
+  
+  { name: "Keras", icon: "siKeras" },
   { name: "Scikit-learn", icon: "siScikitlearn" },
   { name: "Jupyter", icon: "siJupyter" },
   { name: "Anaconda", icon: "siAnaconda" },
-  { name: "Streamlit", icon: "siStreamlit" },
-  
-  // DevOps & Cloud
-  { name: "Git", icon: "siGit" },
-  { name: "GitHub", icon: "siGithub" },
+  { name: "FastAPI", icon: "siFastapi" },
+  { name: "Flask", icon: "siFlask" },
+  // Database & Cloud
+  { name: "MongoDB", icon: "siMongodb" },
+  { name: "PostgreSQL", icon: "siPostgresql" },
   { name: "Docker", icon: "siDocker" },
-  { name: "AWS", icon: "siAmazon" },
-  { name: "Google Cloud", icon: "siGooglecloud" },
+  { name: "Github", icon: "siGithub" },
+  { name: "Git", icon: "siGit" },
+  
+  { name: "Streamlit", icon: "siStreamlit" },
+  {name: "Google Cloud", icon: "siGooglecloud" },
   { name: "Jenkins", icon: "siJenkins" },
   { name: "Cloudflare", icon: "siCloudflare" },
-  
-  // Tools & Platforms
-  { name: "Linux", icon: "siLinux" },
-  { name: "Kali Linux", icon: "siKalilinux" },
-  { name: "PowerShell", icon: "siWindowsterminal" },
   { name: "NPM", icon: "siNpm" },
-  { name: "Yarn", icon: "siYarn" },
-  { name: "Postman", icon: "siPostman" },
-  { name: "VS Code", icon: "siVisualstudio" },
-  { name: "Netlify", icon: "siNetlify" },
-  { name: "Discord", icon: "siDiscord" },
-  { name: "Canva", icon: "siCanva" },
-  { name: "Figma", icon: "siFigma" },
-  { name: "Markdown", icon: "siMarkdown" },
-  
-  // Game Development
-  { name: "Unity", icon: "siUnity" },
-  { name: "Unreal Engine", icon: "siUnrealengine" },
 ];
 
 export default function Skills() {
