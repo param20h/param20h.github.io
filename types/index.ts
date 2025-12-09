@@ -7,7 +7,7 @@ export interface Project {
   tech: string[];
   liveUrl?: string;
   githubUrl?: string;
-  status?: 'live' | 'coming-soon';
+  status?: 'live' | 'coming-soon' | 'research';
 }
 
 export interface Skill {

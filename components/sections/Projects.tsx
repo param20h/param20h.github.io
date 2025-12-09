@@ -10,6 +10,15 @@ import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const projects: Project[] = [
   {
+    title: "Depression Biomarker Discovery - Unsupervised ML Research",
+    description: "Applied K-Means clustering and PCA on DAIC-WOZ clinical depression database to discover 2 distinct depression subtypes from speech and text features. Achieved statistically significant results (χ²=6.44, p=0.0112) validating clusters against PHQ-8 clinical labels, demonstrating objective, data-driven depression diagnosis.",
+    iconName: "brain",
+    tech: ["Python", "Scikit-learn", "K-Means", "PCA", "NLP", "Statistical Analysis"],
+    liveUrl: "https://param20h.me/MDD-biomarker-discovery-project/",
+    githubUrl: "https://github.com/param20h/MDD-biomarker-discovery-project",
+    status: "research",
+  },
+  {
     title: "MOOC Feedback Mining for MSMEs - Smart India Hackathon 2021",
     description: "Intelligent sentiment analysis system for extracting actionable insights from 140K+ MOOC course reviews. Features FastAPI REST API, Streamlit dashboard, multi-model approach (LR, NB, RF, BERT), and 87% accuracy with real-time predictions.",
     iconName: "brain",
@@ -104,6 +113,11 @@ export default function Projects() {
                 {project.status === "live" && (
                   <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     Live
+                  </div>
+                )}
+                {project.status === "research" && (
+                  <div className="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    Research
                   </div>
                 )}
               </div>
