@@ -46,7 +46,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-50 animate-pulse" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary-500 shadow-2xl">
               <img
-                src="/media/circle-hoverphoto.JPG"
+                src="/media/circle-hoverphoto.jpeg"
                 alt="Paramjit Singh"
                 className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
               />
