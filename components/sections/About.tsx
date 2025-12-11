@@ -27,7 +27,7 @@ export default function About() {
               P
             </motion.div>
             <h3 className="text-3xl font-bold mb-2">Paramjit Singh</h3>
-            <p className="text-white/60 text-xl">Python Developer • AI Enthusiast • LPU Student</p>
+            <p className="text-white/60 text-xl">Python Developer • AI Enthusiast • Web Dev</p>
           </div>
 
           <div className="space-y-6 text-lg text-white/80 leading-relaxed">

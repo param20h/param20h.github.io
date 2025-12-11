@@ -18,7 +18,7 @@ export default function Card({ children, className, hover = true }: CardProps) {
       transition={{ duration: 0.5 }}
       whileHover={hover ? { y: -10, scale: 1.02 } : {}}
       className={cn(
-        "bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 shadow-xl",
+        "bg-transparent/5 backdrop-lg rounded-3xl p-8 border border-black/10 shadow-xl",
         "hover:border-primary-500/50 transition-all duration-300",
         className
       )}

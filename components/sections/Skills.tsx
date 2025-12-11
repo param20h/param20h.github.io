@@ -17,6 +17,7 @@ const skills = [
   { name: "Next.js", icon: "siNextdotjs" },
   { name: "Node.js", icon: "siNodedotjs" },
   { name: "Tailwind CSS", icon: "siTailwindcss" },
+  { name: "express", icon: "siExpress" },
   
   // AI/ML
   { name: "TensorFlow", icon: "siTensorflow" },
@@ -59,7 +60,7 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.02 }}
               whileHover={{ y: -10, scale: 1.1 }}
-              className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-primary-500/50 transition-all group cursor-pointer"
+              className="bg-transparent/5 backdrop-lg rounded-2xl p-6 border border-white/10 hover:border-primary-500/50 transition-all group cursor-pointer"
             >
               <div className="flex flex-col items-center justify-center text-center">
                 <div className="mb-3 group-hover:scale-110 transition-transform flex items-center justify-center">

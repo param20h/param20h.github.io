@@ -103,7 +103,7 @@ export default function Hero() {
             </div>
 
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-              <strong>Expert Python Developer from LPU</strong> passionate about{" "}
+              <strong>Expert Python Developer </strong> passionate about{" "}
               <span className="text-primary-400">Artificial Intelligence</span>,{" "}
               <span className="text-primary-400">Machine Learning</span>,{" "}
               <span className="text-primary-400">Web3 Blockchain</span>, and creating{" "}
@@ -135,7 +135,7 @@ export default function Hero() {
         href="https://www.buymeacoffee.com/param20h"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-24 right-6 bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all z-40 hidden md:flex items-center gap-2"
+        className="fixed bottom-24 right-6 bg-gradient-to-r from-red-700 to-blue-400 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all z-40 hidden md:flex items-center gap-2"
         whileHover={{ scale: 1.05, y: -2 }}
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
