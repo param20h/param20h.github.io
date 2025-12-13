@@ -99,6 +99,9 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="400"
+                    height="192"
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full text-6xl">

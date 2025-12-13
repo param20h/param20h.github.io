@@ -46,20 +46,27 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-50 animate-pulse" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary-500 shadow-2xl">
               <img
-                src="/media/circle-hoverphoto.jpeg"
-                alt="Paramjit Singh"
+                src="/media/circle-photo.png"
+                alt="Paramjit Singh - Python Developer & AI/ML Expert"
                 className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                loading="eager"
+                fetchPriority="high"
+                width="256"
+                height="256"
               />
               <img
-                src="/media/circle-photo.png"
-                alt="Paramjit Singh Hover"
+                src="/media/circle-hoverphoto.JPG"
+                alt="Paramjit Singh Profile"
                 className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                loading="lazy"
+                width="256"
+                height="256"
               />
             </div>
             {/* Floating Icons */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 -z-10"
             >
               {floatingIcons.map((item, i) => (
@@ -70,9 +77,10 @@ export default function Hero() {
                     top: `${50 + 40 * Math.sin((i * Math.PI) / 2)}%`,
                     left: `${50 + 40 * Math.cos((i * Math.PI) / 2)}%`,
                     color: item.color,
+                    willChange: 'transform',
                   }}
                   animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
                 >
                   <FontAwesomeIcon icon={item.icon} />
                 </motion.div>

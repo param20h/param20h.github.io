@@ -23,8 +23,8 @@ export default function BackgroundEffects() {
       size: number;
     }> = [];
 
-    // Create particles
-    for (let i = 0; i < 50; i++) {
+    // Create particles - reduced from 50 to 30 for performance
+    for (let i = 0; i < 30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -33,6 +33,8 @@ export default function BackgroundEffects() {
         size: Math.random() * 2 + 1,
       });
     }
+
+    let animationFrameId: number;
 
     function animate() {
       if (!ctx || !canvas) return;
@@ -52,7 +54,7 @@ export default function BackgroundEffects() {
         ctx.fill();
       });
 
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     }
 
     animate();
@@ -63,7 +65,13 @@ export default function BackgroundEffects() {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
   }, []);
 
   return (

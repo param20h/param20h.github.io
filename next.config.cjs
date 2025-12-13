@@ -14,6 +14,12 @@ const nextConfig = {
   // PoweredBy header removal for security
   poweredByHeader: false,
   
+  // Optimize fonts
+  optimizeFonts: true,
+  
+  // Production source maps disabled for performance
+  productionBrowserSourceMaps: false,
+  
   // Security and Performance Headers
   async headers() {
     return [
