@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Site Verification Template</title>
+</head>
+<body>
+    <h1>Google Search Console Verification</h1>
+    <p>This is a template file. Follow the instructions below:</p>
+    
+    <h2>Step 1: Get Your Verification File</h2>
+    <ol>
+        <li>Go to <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
+        <li>Add property: https://param20h.me</li>
+        <li>Choose "HTML file upload" verification method</li>
+        <li>Download the verification file (e.g., google1234567890abcdef.html)</li>
+    </ol>
+    
+    <h2>Step 2: Add File to Your Project</h2>
+    <ol>
+        <li>Copy the downloaded file (google[xxxxx].html)</li>
+        <li>Paste it into: <code>d:\param20h.github.io\public\</code></li>
+        <li>The file will be accessible at: https://param20h.me/google[xxxxx].html</li>
+    </ol>
+    
+    <h2>Step 3: Deploy and Verify</h2>
+    <ol>
+        <li>Commit and push your changes to GitHub</li>
+        <li>Wait for GitHub Actions deployment to complete (2-3 minutes)</li>
+        <li>Go back to Google Search Console</li>
+        <li>Click "Verify" button</li>
+    </ol>
+    
+    <h2>Alternative: Meta Tag Method</h2>
+    <p>Already implemented in layout.tsx:</p>
+    <pre><code>verification: {
+  google: "google-site-verification-code",
+}</code></pre>
+    
+    <p>Steps:</p>
+    <ol>
+        <li>Get the verification code from Google Search Console</li>
+        <li>Replace "google-site-verification-code" in app/layout.tsx</li>
+        <li>Deploy and verify</li>
+    </ol>
+    
+    <p><strong>Note:</strong> Files in the <code>public/</code> folder are automatically copied to the root of your deployed site.</p>
+</body>
+</html>

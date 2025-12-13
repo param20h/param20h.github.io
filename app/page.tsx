@@ -9,19 +9,23 @@ import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
 import BackgroundEffects from "@/components/BackgroundEffects";
+import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <BackgroundEffects />
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <GitHubStats />
-      <Projects />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      <StructuredData />
+      <main className="relative min-h-screen overflow-x-hidden">
+        <BackgroundEffects />
+        <Navigation />
+        <Hero />
+        <About />
+        <Skills />
+        <GitHubStats />
+        <Projects />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

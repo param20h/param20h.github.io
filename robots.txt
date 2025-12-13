@@ -1,13 +1,43 @@
+# Main Robots.txt for param20h.me
+# Allow all search engines
+
 User-agent: *
 Allow: /
+Allow: /media/
+Allow: /*.js
+Allow: /*.css
 
 # Sitemap
-Sitemap: https://param20h.github.io/sitemap.xml
+Sitemap: https://param20h.me/sitemap.xml
 
-# Disallow crawling of specific files
+# Disallow crawling of specific files and directories
 Disallow: /package-lock.json
 Disallow: /package.json
 Disallow: /.github/
+Disallow: /_next/static/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
 
-# Allow crawling of media files
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
 Allow: /media/
+Disallow: /api/
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Allow: /media/
+Disallow: /api/
+
+# Allow image indexing
+User-agent: Googlebot-Image
+Allow: /media/
+
+# Allow mobile crawling
+User-agent: Googlebot-Mobile
+Allow: /
