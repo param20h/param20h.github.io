@@ -42,6 +42,7 @@ export default function Hero() {
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
             className="relative mb-12 group"
+            style={{ willChange: 'transform' }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-50 animate-pulse" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary-500 shadow-2xl">

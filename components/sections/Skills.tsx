@@ -58,9 +58,10 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.02 }}
-              whileHover={{ y: -10, scale: 1.1 }}
-              className="bg-transparent/5 backdrop-lg rounded-2xl p-6 border border-white/10 hover:border-primary-500/50 transition-all group cursor-pointer"
+              transition={{ delay: index * 0.02, duration: 0.3 }}
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-primary-500/50 transition-all group cursor-pointer"
+              style={{ willChange: 'transform' }}
             >
               <div className="flex flex-col items-center justify-center text-center">
                 <div className="mb-3 group-hover:scale-110 transition-transform flex items-center justify-center">

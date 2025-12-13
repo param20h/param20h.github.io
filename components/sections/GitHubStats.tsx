@@ -167,6 +167,9 @@ export default function GitHubStats() {
               src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dracula&include_all_commits=true&count_private=true&hide_border=true&bg_color=00000000&title_color=00d4ff&text_color=ffffff&icon_color=ff6b6b`}
               alt="GitHub Stats"
               className="w-full h-auto"
+              loading="lazy"
+              width="495"
+              height="195"
             />
           </Card>
 
@@ -176,6 +179,9 @@ export default function GitHubStats() {
               src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&langs_count=8&theme=dracula&hide_border=true&bg_color=00000000&title_color=00d4ff&text_color=ffffff`}
               alt="Top Languages"
               className="w-full h-auto"
+              loading="lazy"
+              width="495"
+              height="195"
             />
           </Card>
         </div>
@@ -187,6 +193,9 @@ export default function GitHubStats() {
               src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dracula&hide_border=true&background=00000000&ring=00d4ff&fire=ff6b6b&currStreakLabel=00d4ff&sideLabels=ffffff&currStreakNum=ffffff&sideNums=ffffff&dates=ffffff`}
               alt="GitHub Streak"
               className="w-full h-auto"
+              loading="lazy"
+              width="800"
+              height="220"
             />
           </Card>
         </div>

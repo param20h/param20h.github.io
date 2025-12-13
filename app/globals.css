@@ -30,10 +30,18 @@
   
   /* GPU acceleration for animations */
   [class*="motion-"],
-  [class*="animate-"] {
+  [class*="animate-"],
+  .group:hover img,
+  motion-div {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Reduce paint complexity */
+  img {
+    content-visibility: auto;
   }
 }
 
