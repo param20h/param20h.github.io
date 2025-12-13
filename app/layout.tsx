@@ -176,7 +176,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code",
+    google: "rGdcFzK0eh-XpNo99wPLrU_Vv2-_aJG97ciG-mrUVF4",
     yandex: "yandex-verification-code",
     other: {
       "msvalidate.01": "bing-verification-code",
