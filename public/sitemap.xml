@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     
     <!-- Main Homepage -->
     <url>
@@ -67,4 +68,60 @@
         <priority>0.9</priority>
     </url>
     
+    <!-- External Project Links (for reference) -->
+    <!-- MOOC Feedback Mining -->
+    <url>
+        <loc>https://mooc-msme.streamlit.app/</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Media Assets -->
+    <url>
+        <loc>https://param20h.me/media/profile.png</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://param20h.me/media/circle-photo.png</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- SEO Documentation Pages -->
+    <url>
+        <loc>https://param20h.me/seo-preview.html</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- Google Verification -->
+    <url>
+        <loc>https://param20h.me/google363700889b36bce9.html</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    
+    <!-- Manifest -->
+    <url>
+        <loc>https://param20h.me/manifest.json</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- Robots.txt -->
+    <url>
+        <loc>https://param20h.me/robots.txt</loc>
+        <lastmod>2025-12-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
 </urlset>

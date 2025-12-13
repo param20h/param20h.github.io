@@ -66,4 +66,11 @@ if (fs.existsSync(publicDir)) {
 fs.writeFileSync(path.join(targetDir, '.nojekyll'), '');
 console.log('✓ Created .nojekyll file');
 
+// Copy CNAME file if it exists
+const cnameFile = path.join(__dirname, 'CNAME');
+if (fs.existsSync(cnameFile)) {
+  fs.copyFileSync(cnameFile, path.join(targetDir, 'CNAME'));
+  console.log('✓ Copied CNAME file');
+}
+
 console.log('\n✓ Static export created in /out directory');
