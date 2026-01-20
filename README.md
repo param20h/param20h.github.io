@@ -20,7 +20,7 @@
 - ⚛️ **Full-Stack Developer** - React, Next.js, Node.js
 - 🤖 **AI Enthusiast** - Machine Learning & TensorFlow
 - 🎮 **Game Developer** - Unity & Pygame
-- 🔗 **Web3 Explorer** - Blockchain & Smart Contracts
+- 🔗 **Web3 Explorer** - Blockchain & Smart Contract
 
 ---
 

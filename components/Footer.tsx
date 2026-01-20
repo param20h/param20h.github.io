@@ -20,7 +20,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             className="text-white/60 text-center md:text-left"
           >
-            © 2025 Param20h. All rights reserved.
+            © 2026 Param20h. All rights reserved.
           </motion.p>
 
           <div className="flex gap-6">
