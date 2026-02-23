@@ -10,6 +10,27 @@ import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const projects: Project[] = [
   {
+  title: "AI-Powered Dropout Prediction & Early Warning System - SIH 2025",
+  description: "End-to-end ML-powered student risk prediction system built for Smart India Hackathon 2025. Processes 14k+ student records using a Random Forest + Logistic Regression ensemble to predict dropout risk levels. Features real-time predictions via Flask API, early warning prioritization, explainable AI insights, recommendation engine for mentors, and an interactive React dashboard with analytics, filtering, and CSV upload capabilities.",
+  // image: "/media/sih-dropout.png",
+  iconName: "brain",
+  tech: [
+    "Python",
+    "Scikit-learn",
+    "Flask",
+    "React.js",
+    "Random Forest",
+    "Logistic Regression",
+    "Pandas",
+    "NumPy",
+    "StandardScaler",
+    "REST API"
+  ],
+  liveUrl: "http://localhost:5173",
+  githubUrl: "https://github.com/param20h/sih-dropout-prediction-system",
+  
+},
+  {
     title: "Depression Biomarker Discovery - Unsupervised ML Research",
     description: "Applied K-Means clustering and PCA on DAIC-WOZ clinical depression database to discover 2 distinct depression subtypes from speech and text features. Achieved statistically significant results (χ²=6.44, p=0.0112) validating clusters against PHQ-8 clinical labels, demonstrating objective, data-driven depression diagnosis.",
     iconName: "brain",
