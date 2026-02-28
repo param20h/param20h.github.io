@@ -10,26 +10,34 @@ import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const projects: Project[] = [
   {
-  title: "AI-Powered Dropout Prediction & Early Warning System - SIH 2025",
-  description: "End-to-end ML-powered student risk prediction system built for Smart India Hackathon 2025. Processes 14k+ student records using a Random Forest + Logistic Regression ensemble to predict dropout risk levels. Features real-time predictions via Flask API, early warning prioritization, explainable AI insights, recommendation engine for mentors, and an interactive React dashboard with analytics, filtering, and CSV upload capabilities.",
-  // image: "/media/sih-dropout.png",
-  iconName: "brain",
-  tech: [
-    "Python",
-    "Scikit-learn",
-    "Flask",
-    "React.js",
-    "Random Forest",
-    "Logistic Regression",
-    "Pandas",
-    "NumPy",
-    "StandardScaler",
-    "REST API"
-  ],
-  liveUrl: "http://localhost:5173",
-  githubUrl: "https://github.com/param20h/sih-dropout-prediction-system",
-  
-},
+    title: "RAG PDF Assistant",
+    description: "A Retrieval-Augmented Generation (RAG) based document assistant built with Flask, FAISS, Sentence Transformers, Groq API, and Gemini. Upload PDFs, DOCX, or TXT files and intuitively chat with them using modern AI models.",
+    iconName: "brain",
+    tech: ["Flask", "Python", "FAISS", "Groq API", "Google Gemini", "Vanilla JS"],
+    githubUrl: "https://github.com/param20h/PDF-Assistant-RAG",
+    status: "coming-soon",
+  },
+  {
+    title: "AI-Powered Dropout Prediction & Early Warning System - SIH 2025",
+    description: "End-to-end ML-powered student risk prediction system built for Smart India Hackathon 2025. Processes 14k+ student records using a Random Forest + Logistic Regression ensemble to predict dropout risk levels. Features real-time predictions via Flask API, early warning prioritization, explainable AI insights, recommendation engine for mentors, and an interactive React dashboard with analytics, filtering, and CSV upload capabilities.",
+    // image: "/media/sih-dropout.png",
+    iconName: "brain",
+    tech: [
+      "Python",
+      "Scikit-learn",
+      "Flask",
+      "React.js",
+      "Random Forest",
+      "Logistic Regression",
+      "Pandas",
+      "NumPy",
+      "StandardScaler",
+      "REST API"
+    ],
+    liveUrl: "http://localhost:5173",
+    githubUrl: "https://github.com/param20h/sih-dropout-prediction-system",
+
+  },
   {
     title: "Depression Biomarker Discovery - Unsupervised ML Research",
     description: "Applied K-Means clustering and PCA on DAIC-WOZ clinical depression database to discover 2 distinct depression subtypes from speech and text features. Achieved statistically significant results (χ²=6.44, p=0.0112) validating clusters against PHQ-8 clinical labels, demonstrating objective, data-driven depression diagnosis.",
@@ -142,6 +150,11 @@ export default function Projects() {
                 {project.status === "research" && (
                   <div className="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     Research
+                  </div>
+                )}
+                {project.status === "coming-soon" && (
+                  <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    Live Soon
                   </div>
                 )}
               </div>
