@@ -8,105 +8,7 @@ import type { Project } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
 
-const projects: Project[] = [
-  {
-    title: "RAG PDF Assistant",
-    description: "A Retrieval-Augmented Generation (RAG) based document assistant built with Flask, FAISS, Sentence Transformers, Groq API, and Gemini. Upload PDFs, DOCX, or TXT files and intuitively chat with them using modern AI models.",
-    iconName: "brain",
-    tech: ["Flask", "Python", "FAISS", "Groq API", "Google Gemini", "Vanilla JS"],
-    githubUrl: "https://github.com/param20h/PDF-Assistant-RAG",
-    status: "coming-soon",
-  },
-  {
-    title: "AI-Powered Dropout Prediction & Early Warning System - SIH 2025",
-    description: "End-to-end ML-powered student risk prediction system built for Smart India Hackathon 2025. Processes 14k+ student records using a Random Forest + Logistic Regression ensemble to predict dropout risk levels. Features real-time predictions via Flask API, early warning prioritization, explainable AI insights, recommendation engine for mentors, and an interactive React dashboard with analytics, filtering, and CSV upload capabilities.",
-    // image: "/media/sih-dropout.png",
-    iconName: "brain",
-    tech: [
-      "Python",
-      "Scikit-learn",
-      "Flask",
-      "React.js",
-      "Random Forest",
-      "Logistic Regression",
-      "Pandas",
-      "NumPy",
-      "StandardScaler",
-      "REST API"
-    ],
-    liveUrl: "http://localhost:5173",
-    githubUrl: "https://github.com/param20h/sih-dropout-prediction-system",
-
-  },
-  {
-    title: "Depression Biomarker Discovery - Unsupervised ML Research",
-    description: "Applied K-Means clustering and PCA on DAIC-WOZ clinical depression database to discover 2 distinct depression subtypes from speech and text features. Achieved statistically significant results (χ²=6.44, p=0.0112) validating clusters against PHQ-8 clinical labels, demonstrating objective, data-driven depression diagnosis.",
-    iconName: "brain",
-    tech: ["Python", "Scikit-learn", "K-Means", "PCA", "NLP", "Statistical Analysis"],
-    liveUrl: "https://param20h.me/MDD-biomarker-discovery-project/",
-    githubUrl: "https://github.com/param20h/MDD-biomarker-discovery-project",
-    status: "research",
-  },
-  {
-    title: "MOOC Feedback Mining for MSMEs - Smart India Hackathon 2021",
-    description: "Intelligent sentiment analysis system for extracting actionable insights from 140K+ MOOC course reviews. Features FastAPI REST API, Streamlit dashboard, multi-model approach (LR, NB, RF, BERT), and 87% accuracy with real-time predictions.",
-    iconName: "brain",
-    tech: ["Python", "FastAPI", "Streamlit", "BERT", "NLP", "Machine Learning"],
-    liveUrl: "https://mooc-msme.streamlit.app/",
-    githubUrl: "https://github.com/param20h/mooc-feedback-mining-msme",
-    status: "live",
-  },
-  {
-    title: "Real-time Chat App - Node.js Socket.IO Application",
-    description: "Full-featured real-time chat application built with Node.js, Express, and Socket.IO. Features live messaging, multiple users support, file sharing, emoji reactions, private messaging, room management, and responsive design.",
-    image: "/media/char.png",
-    tech: ["Node.js", "Socket.IO", "Express.js", "WebSocket"],
-    liveUrl: "https://chat-app-fkk3.onrender.com",
-    githubUrl: "https://github.com/param20h/chat-app",
-    status: "live",
-  },
-  {
-    title: "DSA Visualizer - React Data Structures & Algorithms Tool",
-    description: "Interactive Data Structures and Algorithms visualizer built with React and modern JavaScript. Features algorithm animations, step-by-step execution, sorting visualizations, graph traversals, and educational interface.",
-    image: "/media/Dsav.png",
-    tech: ["React", "JavaScript", "Algorithms", "Open Source"],
-    liveUrl: "https://dsa-visualizer-hazel-two.vercel.app/",
-    githubUrl: "https://github.com/param20h/DSA-visual",
-    status: "live",
-  },
-  {
-    title: "AI Financial Identification System - Machine Learning Project",
-    description: "Advanced Artificial Intelligence and Machine Learning system developed for the Indian Department of Posts. Uses Python, TensorFlow, and Data Science techniques to analyze demographic and economic data.",
-    iconName: "brain",
-    tech: ["Python", "Machine Learning", "TensorFlow", "Data Analysis"],
-    githubUrl: "https://github.com/param20h",
-  },
-  {
-    title: "AI Summarizer - Google Gemini AI Text Summarization",
-    description: "Advanced AI-powered text summarization application built with JavaScript and Google Gemini AI API. Features intelligent content analysis, automatic text summarization, and real-time AI processing.",
-    image: "/media/ai.png",
-    tech: ["Google Gemini AI", "JavaScript", "GenAI API"],
-    liveUrl: "https://ai-sum-two.vercel.app/",
-    githubUrl: "https://github.com/param20h/ai-sum",
-    status: "live",
-  },
-  {
-    title: "Weather App - Next.js Real-time Weather Application",
-    description: "Modern Next.js weather application built with React and API integration. Features real-time weather data, server-side rendering, location-based forecasts, responsive design, and optimized performance.",
-    image: "/media/weather.png",
-    tech: ["Next.js", "React", "JavaScript", "API"],
-    liveUrl: "https://weather-sum.netlify.app/",
-    githubUrl: "https://github.com/param20h/weather",
-    status: "live",
-  },
-  {
-    title: "Python Space Invaders Game - Pygame Development",
-    description: "Professional Python game development project using Pygame library. Features advanced object-oriented programming, collision detection algorithms, dynamic scoring system, and progressive difficulty mechanics.",
-    iconName: "rocket",
-    tech: ["Python", "Pygame", "Game Development", "OOP"],
-    githubUrl: "https://github.com/param20h/space-invade",
-  },
-];
+import { projects } from "@/data/portfolio";
 
 export default function Projects() {
   return (
@@ -120,90 +22,103 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="h-full flex flex-col">
+            <Card className="h-full flex flex-col glassmorphism overflow-hidden group hover:border-primary-500/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)] transition-all duration-300">
               {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-2xl mb-6 overflow-hidden">
+              <div className="relative h-48 flex-shrink-0 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-xl mb-6 overflow-hidden">
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                     width="400"
                     height="192"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-full text-6xl">
+                  <div className="flex items-center justify-center h-full text-6xl group-hover:scale-110 transition-transform duration-500">
                     {project.iconName === "brain" && (
-                      <FontAwesomeIcon icon={faBrain} className="text-primary-400" />
+                      <FontAwesomeIcon icon={faBrain} className="text-primary-400 drop-shadow-[0_0_15px_rgba(0,212,255,0.5)]" />
                     )}
                     {project.iconName === "rocket" && (
-                      <FontAwesomeIcon icon={faRocket} className="text-accent-400" />
+                      <FontAwesomeIcon icon={faRocket} className="text-accent-400 drop-shadow-[0_0_15px_rgba(255,107,107,0.5)]" />
                     )}
                   </div>
                 )}
                 {project.status === "live" && (
-                  <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    Live
+                  <div className="absolute top-4 right-4 bg-green-500/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-bold tracking-wide backdrop-blur-sm shadow-[0_0_10px_rgba(34,197,94,0.3)]">
+                    LIVE
                   </div>
                 )}
                 {project.status === "research" && (
-                  <div className="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    Research
+                  <div className="absolute top-4 right-4 bg-purple-500/20 text-purple-400 border border-purple-500/30 px-3 py-1 rounded-full text-xs font-bold tracking-wide backdrop-blur-sm shadow-[0_0_10px_rgba(168,85,247,0.3)]">
+                    RESEARCH
                   </div>
                 )}
                 {project.status === "coming-soon" && (
-                  <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    Live Soon
+                  <div className="absolute top-4 right-4 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full text-xs font-bold tracking-wide backdrop-blur-sm shadow-[0_0_10px_rgba(234,179,8,0.3)]">
+                    COMING SOON
                   </div>
                 )}
               </div>
 
               {/* Project Content */}
-              <h3 className="text-xl font-bold mb-3 text-white">{project.title}</h3>
-              <p className="text-white/70 mb-4 flex-grow">{project.description}</p>
+              <div className="flex-grow flex flex-col">
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-primary-400 transition-colors">
+                  {project.title}
+                </h3>
+                <div className="mb-4 flex-grow">
+                  <p className="text-white/70 leading-relaxed text-sm">
+                    {project.description}
+                  </p>
+                </div>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-primary-500/20 text-primary-400 rounded-full text-sm border border-primary-500/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.slice(0, 4).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 bg-primary-500/10 text-primary-400 rounded-lg text-xs font-medium border border-primary-500/20 group-hover:border-primary-500/40 group-hover:bg-primary-500/20 transition-all"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.tech.length > 4 && (
+                    <span className="px-2 py-1 bg-white/5 text-white/50 rounded-lg text-xs font-medium border border-white/10">
+                      +{project.tech.length - 4} more
+                    </span>
+                  )}
+                </div>
 
-              {/* Links */}
-              <div className="flex gap-4">
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors"
-                  >
-                    <ExternalLink size={18} />
-                    Live Demo
-                  </a>
-                )}
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
-                  >
-                    <Github size={18} />
-                    Code
-                  </a>
-                )}
+                {/* Links */}
+                <div className="flex gap-4 mt-auto pt-4 border-t border-white/10">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors text-sm font-semibold tracking-wide"
+                    >
+                      <ExternalLink size={16} />
+                      LIVE DEMO
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-semibold tracking-wide"
+                    >
+                      <Github size={16} />
+                      SOURCE CODE
+                    </a>
+                  )}
+                </div>
               </div>
             </Card>
           </motion.div>
         ))}
       </div>
-    </Section>
+    </Section >
   );
 }

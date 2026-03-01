@@ -7,13 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPython, faReact, faUnity } from "@fortawesome/free-brands-svg-icons";
 import { faBrain, faCode, faGamepad, faRobot } from "@fortawesome/free-solid-svg-icons";
 
-const roles = [
-  "Python Developer",
-  "AI/ML Engineer",
-  "Web3 Developer",
-  "Full Stack Developer",
-  "Blockchain Developer",
-];
+import { roles } from "@/data/portfolio";
 
 const floatingIcons = [
   { icon: faPython, color: "#3776AB" },
@@ -44,12 +38,12 @@ export default function Hero() {
             className="relative mb-12 group"
             style={{ willChange: 'transform' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-2xl opacity-50 animate-pulse" />
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary-500 shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-[40px] opacity-40 animate-pulse animation-delay-1000" />
+            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-primary-500/50 shadow-[0_0_50px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_50px_rgba(0,212,255,0.6)] transition-all duration-500">
               <img
                 src="/media/circle-hoverphoto.jpeg"
                 alt="Paramjit Singh - Python Developer & AI/ML Expert"
-                className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
                 loading="eager"
                 fetchPriority="high"
                 width="256"
@@ -58,7 +52,7 @@ export default function Hero() {
               <img
                 src="/media/circle-photo.png"
                 alt="Paramjit Singh Profile"
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                 loading="lazy"
                 width="256"
                 height="256"

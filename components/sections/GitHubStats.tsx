@@ -40,7 +40,7 @@ export default function GitHubStats() {
 
       // Fetch user data
       const userRes = await fetch(`https://api.github.com/users/${username}`, { headers });
-      
+
       if (!userRes.ok) {
         if (userRes.status === 403) {
           console.warn("GitHub API rate limit exceeded. Using fallback data.");
@@ -56,7 +56,7 @@ export default function GitHubStats() {
         }
         throw new Error(`GitHub API error: ${userRes.status}`);
       }
-      
+
       const userData = await userRes.json();
       console.log("GitHub User Data:", userData);
 
@@ -65,11 +65,11 @@ export default function GitHubStats() {
         `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,
         { headers }
       );
-      
+
       if (!reposRes.ok) {
         throw new Error(`GitHub Repos API error: ${reposRes.status}`);
       }
-      
+
       const reposData = await reposRes.json();
       console.log("GitHub Repos Data:", reposData.length, "repos");
 
@@ -96,7 +96,7 @@ export default function GitHubStats() {
         forks: totalForks,
         followers: userData.followers || 0,
       });
-      
+
       // Get top 3 most recently updated repos
       setRepos(reposData.slice(0, 3));
     } catch (error) {
@@ -156,12 +156,10 @@ export default function GitHubStats() {
         viewport={{ once: true }}
         className="mb-12"
       >
-        <h3 className="text-2xl font-bold text-center mb-8 gradient-text">
-          📊 Contribution Statistics
-        </h3>
-        
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          {/* GitHub Stats Card */}
+
+
+        {/* <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {/* GitHub Stats Card 
           <Card className="p-4 overflow-hidden">
             <img
               src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dracula&include_all_commits=true&count_private=true&hide_border=true&bg_color=00000000&title_color=00d4ff&text_color=ffffff&icon_color=ff6b6b`}
@@ -171,9 +169,9 @@ export default function GitHubStats() {
               width="495"
               height="195"
             />
-          </Card>
+          </Card> */}
 
-          {/* Top Languages Card */}
+        {/* Top Languages Card 
           <Card className="p-4 overflow-hidden">
             <img
               src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&langs_count=8&theme=dracula&hide_border=true&bg_color=00000000&title_color=00d4ff&text_color=ffffff`}
@@ -184,7 +182,7 @@ export default function GitHubStats() {
               height="195"
             />
           </Card>
-        </div>
+        </div> */}
 
         {/* GitHub Streak Stats */}
         <div className="flex justify-center">

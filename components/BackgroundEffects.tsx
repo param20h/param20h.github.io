@@ -65,7 +65,7 @@ export default function BackgroundEffects() {
     };
 
     window.addEventListener("resize", handleResize);
-    
+
     return () => {
       window.removeEventListener("resize", handleResize);
       if (animationFrameId) {
@@ -80,7 +80,11 @@ export default function BackgroundEffects() {
         ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full -z-10 opacity-30 pointer-events-none"
       />
-      <div className="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-dark" />
+      {/* Ambient Glowing Blobs */}
+      <div className="fixed top-0 left-0 w-full h-full -z-20 pointer-events-none overflow-hidden bg-gradient-dark">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/20 rounded-full blur-[120px] mix-blend-screen animate-pulse animation-delay-2000" />
+        <div className="absolute top-3/4 right-1/4 w-[400px] h-[400px] bg-accent-500/20 rounded-full blur-[100px] mix-blend-screen animate-pulse" />
+      </div>
     </>
   );
 }

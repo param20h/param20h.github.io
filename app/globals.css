@@ -77,6 +77,17 @@ html {
   box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
 }
 
+/* Glassmorphism */
+.glassmorphism {
+  @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: #fff;
+}
+
 /* Gradient text */
 .gradient-text {
   @apply bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 bg-clip-text text-transparent;
