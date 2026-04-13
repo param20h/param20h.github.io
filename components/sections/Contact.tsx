@@ -81,7 +81,7 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact" title="Let's Work Together" className="bg-white/5">
+    <Section id="contact" title="Let&apos;s Work Together" className="bg-white/5">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
         {/* Contact Info */}
         <motion.div
@@ -91,7 +91,7 @@ export default function Contact() {
         >
           <h3 className="text-3xl font-bold mb-6 gradient-text">Get In Touch</h3>
           <p className="text-white/80 text-lg mb-8 leading-relaxed">
-            I'm always interested in new opportunities and exciting projects. Let's discuss how
+            I&apos;m always interested in new opportunities and exciting projects. Let&apos;s discuss how
             we can work together!
           </p>
 

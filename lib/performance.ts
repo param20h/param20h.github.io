@@ -1,4 +1,15 @@
 // Performance optimizations
+type NetworkInformationLike = {
+  effectiveType?: string;
+};
+
+type WebVitalMetric = {
+  id: string;
+  name: string;
+  value: number;
+  label?: string;
+};
+
 export const performanceConfig = {
   // Reduce motion for users who prefer reduced motion
   prefersReducedMotion: typeof window !== 'undefined' 
@@ -14,9 +25,9 @@ export const performanceConfig = {
   // Animation duration adjustments for performance
   getAnimationDuration: (baseDuration: number) => {
     if (typeof window === 'undefined') return baseDuration;
-    
+
     // Reduce animations on lower-end devices
-    const connection = (navigator as any).connection;
+    const connection = (navigator as Navigator & { connection?: NetworkInformationLike }).connection;
     if (connection && connection.effectiveType === '2g') {
       return baseDuration * 0.5;
     }
@@ -24,11 +35,11 @@ export const performanceConfig = {
   },
   
   // Debounce scroll events
-  debounce: <T extends (...args: any[]) => void>(
+  debounce: <T extends (...args: unknown[]) => void>(
     func: T,
     wait: number
   ): ((...args: Parameters<T>) => void) => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     return (...args: Parameters<T>) => {
       clearTimeout(timeout);
       timeout = setTimeout(() => func(...args), wait);
@@ -36,7 +47,7 @@ export const performanceConfig = {
   },
   
   // Throttle resize events
-  throttle: <T extends (...args: any[]) => void>(
+  throttle: <T extends (...args: unknown[]) => void>(
     func: T,
     limit: number
   ): ((...args: Parameters<T>) => void) => {
@@ -65,7 +76,7 @@ export const preloadCriticalResources = () => {
 };
 
 // Web Vitals monitoring
-export const reportWebVitals = (metric: any) => {
+export const reportWebVitals = (metric: WebVitalMetric) => {
   if (process.env.NODE_ENV === 'production') {
     // Send to analytics
     console.log(metric);

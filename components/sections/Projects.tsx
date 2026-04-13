@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import { ExternalLink, Github } from "lucide-react";
-import type { Project } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBrain, faRocket } from "@fortawesome/free-solid-svg-icons";
 

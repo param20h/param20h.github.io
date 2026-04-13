@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPython, faReact, faUnity } from "@fortawesome/free-brands-svg-icons";
-import { faBrain, faCode, faGamepad, faRobot } from "@fortawesome/free-solid-svg-icons";
+import { faPython } from "@fortawesome/free-brands-svg-icons";
+import { faBrain, faCode, faGamepad } from "@fortawesome/free-solid-svg-icons";
 
 import { roles } from "@/data/portfolio";
 
@@ -90,7 +90,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Hi, I'm <span className="gradient-text">Paramjit Singh</span>
+              Hi, I&apos;m <span className="gradient-text">Paramjit Singh</span>
             </h1>
 
             <div className="h-20 md:h-24 mb-8">

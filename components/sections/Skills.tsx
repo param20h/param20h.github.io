@@ -8,6 +8,13 @@ import * as SimpleIcons from "simple-icons";
 import { skills } from "@/data/portfolio";
 
 const categories = ["All", "Language", "Framework", "AI", "Tool"];
+type SimpleIconData = {
+  hex: string;
+  title: string;
+  path: string;
+};
+
+const simpleIconsMap = SimpleIcons as unknown as Record<string, SimpleIconData>;
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -40,8 +47,8 @@ export default function Skills() {
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
       >
         <AnimatePresence>
-          {filteredSkills.map((skill, index) => {
-            const iconData = (SimpleIcons as any)[skill.icon];
+          {filteredSkills.map((skill) => {
+            const iconData = simpleIconsMap[skill.icon];
 
             return (
               <motion.div
