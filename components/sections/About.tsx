@@ -27,29 +27,26 @@ export default function About() {
               P
             </motion.div>
             <h3 className="text-3xl font-bold mb-2">Paramjit Singh</h3>
-            <p className="text-white/60 text-xl">Python Developer • AI Enthusiast • Web Dev</p>
+            <p className="text-white/60 text-xl">Python Developer • AI Systems Builder • Web Developer</p>
           </div>
 
           <div className="space-y-6 text-lg text-white/80 leading-relaxed">
             <p className="flex items-start gap-3">
               <FontAwesomeIcon icon={faRocket} className="text-primary-400 mt-1 text-xl flex-shrink-0" />
               <span>
-                Passionate <strong className="text-primary-400">Python Developer</strong> from{" "}
-                <strong className="text-primary-400">Lovely Professional University</strong> specializing in cutting-edge technologies.
+                I&apos;m a developer from <strong className="text-primary-400">Lovely Professional University</strong> focused on building intelligent systems that solve real problems, not just demos that look good on GitHub.
               </span>
             </p>
             <p className="flex items-start gap-3">
               <FontAwesomeIcon icon={faLightbulb} className="text-accent-400 mt-1 text-xl flex-shrink-0" />
               <span>
-                Expert in <strong className="text-accent-400">AI/ML, Web3 Blockchain, and Game Development</strong>{" "}
-                with real-world experience in NGO projects and innovative solutions.
+                My work sits at the intersection of <strong className="text-accent-400">AI/ML and backend engineering</strong>. From designing RAG-based AI systems to building production-focused tools, I enjoy turning complex ideas into working products.
               </span>
             </p>
             <p className="flex items-start gap-3">
               <FontAwesomeIcon icon={faBullseye} className="text-primary-400 mt-1 text-xl flex-shrink-0" />
               <span>
-                Currently developing <strong className="text-primary-400">AI Financial Systems</strong> and exploring{" "}
-                <strong className="text-accent-400">Unity Web3 Gaming</strong> - always pushing the boundaries of technology.
+                I&apos;ve also worked closely with NGO initiatives where impact matters more than theory. Currently building <strong className="text-primary-400">AI-driven financial systems</strong> and experimenting with <strong className="text-accent-400">next-gen interactive applications</strong>, always chasing the edge where engineering meets imagination.
               </span>
             </p>
           </div>
@@ -69,6 +66,21 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-10 text-center"
+          >
+            <a
+              href="https://param20h.me/blogs"
+              className="inline-flex items-center gap-2 rounded-xl border border-primary-500/40 bg-primary-500/10 px-6 py-3 text-base font-semibold text-primary-300 transition-all hover:border-primary-500 hover:bg-primary-500/20 hover:text-primary-200"
+            >
+              Visit My Blog Page
+            </a>
+          </motion.div>
         </Card>
       </div>
     </Section>

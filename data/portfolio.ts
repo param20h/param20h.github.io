@@ -50,15 +50,25 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
     {
         title: "RAG PDF Assistant",
-        description: "A Retrieval-Augmented Generation (RAG) based document assistant built with Flask, FAISS, Sentence Transformers, Groq API, and Gemini. Upload PDFs, DOCX, or TXT files and intuitively chat with them using modern AI models.",
+        description: "An intelligent document chatbot powered by Retrieval-Augmented Generation (RAG) that lets users upload PDFs, DOCX, or TXT files and interact with them through context-aware AI conversations. Built for fast semantic search, accurate retrieval, and multi-LLM responses using Groq and Gemini.",
         iconName: "brain",
-        tech: ["Flask", "Python", "FAISS", "Groq API", "Google Gemini", "Vanilla JS"],
+        tech: ["Flask", "Python", "FAISS", "Sentence Transformers", "Groq API", "Google Gemini", "Vanilla JS"],
+        liveUrl: "https://param20h-pdf-assit-rag.hf.space",
         githubUrl: "https://github.com/param20h/PDF-Assistant-RAG",
-        status: "coming-soon",
+        status: "live",
+    },
+    {
+        title: "Image Caption Generator",
+        description: "A deep learning-powered image captioning system that generates rich, human-like descriptions using both a pretrained transformer (Salesforce BLIP) and a custom CNN-LSTM architecture. Combines state-of-the-art inference with full pipeline model training for robust and flexible caption generation.",
+        iconName: "brain",
+        tech: ["PyTorch", "Transformers", "Torchvision", "NLTK", "PIL", "Streamlit"],
+        liveUrl: "https://huggingface.co/spaces/Param20h/image-caption-generator",
+        githubUrl: "https://github.com/param20h/Image-Caption-Generator",
+        status: "live",
     },
     {
         title: "AI-Powered Dropout Prediction & Early Warning System - SIH 2025",
-        description: "End-to-end ML-powered student risk prediction system built for Smart India Hackathon 2025. Processes 14k+ student records using a Random Forest + Logistic Regression ensemble to predict dropout risk levels. Features real-time predictions via Flask API, early warning prioritization, explainable AI insights, recommendation engine for mentors, and an interactive React dashboard with analytics, filtering, and CSV upload capabilities.",
+        description: "End-to-end ML-powered student risk prediction system. Processes 14k+ student records using a Random Forest + Logistic Regression ensemble to predict dropout risk levels. Features real-time predictions via Flask API, early warning prioritization, explainable AI insights, recommendation engine for mentors, and an interactive React dashboard with analytics, filtering, and CSV upload capabilities.",
         // image: "/media/sih-dropout.png",
         iconName: "brain",
         tech: [
@@ -73,7 +83,6 @@ export const projects: Project[] = [
             "StandardScaler",
             "REST API"
         ],
-        liveUrl: "http://localhost:5173",
         githubUrl: "https://github.com/param20h/sih-dropout-prediction-system",
 
     },
@@ -151,14 +160,14 @@ export const experiences = [
     {
         company: "Encrypt Edge",
         role: "Community Lead",
-        date: "September 2025 - Present",
+        date: "January 2024 - April-2026",
         description: "Leading community operations and strategy. Previously served as a Core Team member from January 2024 to September 2025, contributing to the organization's foundational growth.",
         tech: ["Leadership", "Community Management", "Strategy"],
     },
     {
         company: "Outlier",
-        role: "AI Intern",
-        date: "December 2024 - December 2025",
+        role: "Freelance",
+        date: "December 2024 - March 2026",
         description: "Freelanced with Outlier.com, an AI training platform dedicated to empowering learners with the tools and knowledge to thrive in the age of artificial intelligence.",
         tech: ["Artificial Intelligence", "AI Training", "Machine Learning"],
     },
