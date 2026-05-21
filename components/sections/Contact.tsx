@@ -59,7 +59,7 @@ export default function Contact() {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: "paramjit.offical34@gmail.com",
+          to_email: "parambrar862@@gmail.com",
         }
       );
 
@@ -103,10 +103,10 @@ export default function Contact() {
               <div>
                 <div className="text-sm text-white/60">Email</div>
                 <a
-                  href="mailto:paramjit.offical34@gmail.com"
+                  href="mailto:parambrar862@gmail.com"
                   className="text-white hover:text-primary-400 transition-colors"
                 >
-                  paramjit.offical34@gmail.com
+                  parambrar862@gmail.com
                 </a>
               </div>
             </div>
