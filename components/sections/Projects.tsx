@@ -58,6 +58,11 @@ export default function Projects() {
                     COMING SOON
                   </div>
                 )}
+                {project.tags?.includes("open-source") && (
+                  <div className="absolute top-4 left-4 bg-orange-500/20 text-orange-300 border border-orange-500/30 px-3 py-1 rounded-full text-xs font-bold tracking-wide backdrop-blur-sm shadow-[0_0_10px_rgba(56,189,248,0.18)]">
+                    OPEN SOURCE
+                  </div>
+                )}
               </div>
 
               {/* Project Content */}

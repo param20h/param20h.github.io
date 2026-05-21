@@ -7,6 +7,7 @@ export interface Project {
   tech: string[];
   liveUrl?: string;
   githubUrl?: string;
+  tags?: string[];
   status?: 'live' | 'coming-soon' | 'research';
 }
 

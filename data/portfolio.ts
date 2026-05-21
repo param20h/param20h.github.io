@@ -56,6 +56,7 @@ export const projects: Project[] = [
         liveUrl: "https://param20h-pdf-assit-rag.hf.space",
         githubUrl: "https://github.com/param20h/PDF-Assistant-RAG",
         status: "live",
+        tags: ["open-source"],
     },
     {
         title: "Image Caption Generator",
@@ -173,7 +174,7 @@ export const experiences = [
     },
     {
         company: "AWS Cloud Club at Lovely Professional University",
-        role: "Outreach Assistant",
+        role: "Tech Lead",
         date: "May 2025 - Present",
         description: "Leading outreach initiatives and fostering community engagement for AWS Cloud technologies among students.",
         tech: ["Community Building", "AWS", "Outreach"],
