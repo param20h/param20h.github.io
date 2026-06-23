@@ -31,9 +31,14 @@ export default function Navigation() {
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className={`pointer-events-auto transition-all duration-300 rounded-full border border-white/10 ${isScrolled
-          ? "bg-[#0a0a0a]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] w-[95%] max-w-5xl"
-          : "bg-white/5 backdrop-blur-md w-[100%] max-w-7xl md:w-[95%] md:max-w-5xl"
+        className={`pointer-events-auto transition-all duration-500 rounded-full
+border border-white/5
+backdrop-blur-md
+bg-white/[0.01]
+shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)]
+${isScrolled
+            ? "w-[95%] max-w-5xl"
+            : "w-full max-w-7xl md:w-[95%] md:max-w-5xl"
           }`}
       >
         <div className="px-6 py-4">

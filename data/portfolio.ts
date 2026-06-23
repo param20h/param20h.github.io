@@ -59,6 +59,47 @@ export const projects: Project[] = [
         tags: ["open-source"],
     },
     {
+        title: "Vesta AI — Investment Research Agent",
+        description: "Full-stack investment research platform using Next.js (App Router), TypeScript, Tailwind CSS, and LangGraph.js. Orchestrates a 3-node agentic workflow — Ticker Resolution & Research, Structured Signal Extraction, and Grounded Decisioning — to deliver an Invest/Watch/Pass verdict with confidence scores and pros/cons. Features premium glassmorphic UI with radial mesh gradients, real-time NDJSON streaming, and interactive SVG charts for 5-year financials. 100% free-tier stack using Gemini 2.5 Flash, Tavily, and FMP APIs.",
+        iconName: "brain",
+        tech: ["Next.js", "TypeScript", "Tailwind CSS", "LangGraph.js", "Google Gemini", "Tavily API", "FMP API"],
+        liveUrl: "https://ai-investment-planner-amber.vercel.app",
+        githubUrl: "https://github.com/param20h/Ai-investment-planner",
+        status: "live",
+
+    },
+    {
+        title: "ParkControl Sentinel — AI Parking Congestion Intelligence",
+        description: "AI-powered command-center dashboard built for Bengaluru Traffic Police to monitor and mitigate parking-induced traffic congestion. Processes 298K+ spatial violation logs using DBSCAN hotspot clustering, Pearson correlation for congestion mapping, a What-If enforcement simulator, and a bounded knapsack AI dispatch optimizer. Includes real-road OSRM routing, economic/environmental impact analytics, and Leaflet-based heatmaps with dynamic downsampling.",
+        iconName: "brain",
+        tech: ["React", "Vite", "FastAPI", "Scikit-Learn", "Leaflet.js", "Recharts", "NumPy", "Pandas"],
+        liveUrl: "https://gridlock-frontend.vercel.app",
+        githubUrl: "https://github.com/param20h/Parking-control",
+        status: "live",
+
+    },
+    {
+        title: "FlatMate — Shared Expenses Tracker",
+        description: "Premium full-stack shared expenses tracker for flatmates featuring a 19-anomaly CSV detection engine, time-scoped membership calculations, historical USD-to-INR conversions, and a greedy debt-simplification algorithm to minimize total bank transfers. Full JWT auth, 9-table PostgreSQL schema with Knex.js migrations, and 24 unit/integration tests covering import anomalies, balance splits, and currency conversions.",
+        iconName: "brain",
+        tech: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Knex.js", "PostgreSQL", "JWT"],
+        liveUrl: "https://spreetail-seven.vercel.app",
+        githubUrl: "https://github.com/param20h/Spreetail",
+        status: "live",
+
+    },
+    {
+        title: "DeepFake Detector — AI Media Forensics System",
+        description: "Comprehensive deepfake detection system with multiple interfaces: a Next.js web dashboard, Chrome browser extension, and FastAPI REST API backend. Analyzes images and video files using PyTorch deep learning models with configurable confidence thresholds. The browser extension enables instant scanning of images on any website, while the API provides programmatic access for integration.",
+        iconName: "brain",
+        tech: ["Next.js", "TypeScript", "FastAPI", "PyTorch", "OpenCV", "Chrome Extension", "Python"],
+        liveUrl: "https://deep-fake-mu.vercel.app",
+        githubUrl: "https://github.com/param20h/Deep-Fake",
+        status: "live",
+
+    },
+
+    {
         title: "Image Caption Generator",
         description: "A deep learning-powered image captioning system that generates rich, human-like descriptions using both a pretrained transformer (Salesforce BLIP) and a custom CNN-LSTM architecture. Combines state-of-the-art inference with full pipeline model training for robust and flexible caption generation.",
         iconName: "brain",
@@ -159,11 +200,25 @@ export const projects: Project[] = [
 
 export const experiences = [
     {
+        company: "AWS Cloud Club at Lovely Professional University",
+        role: "Tech Lead",
+        date: "May 2025 - Present",
+        description: "Leading outreach initiatives and fostering community engagement for AWS Cloud technologies among students.",
+        tech: ["Community Building", "AWS", "Outreach"],
+    },
+    {
         company: "Encrypt Edge",
         role: "Community Lead",
         date: "January 2024 - April-2026",
         description: "Leading community operations and strategy. Previously served as a Core Team member from January 2024 to September 2025, contributing to the organization's foundational growth.",
         tech: ["Leadership", "Community Management", "Strategy"],
+    },
+    {
+        company: "FounDev Studio",
+        role: "Backend Developer Intern",
+        date: "April 2025 – November 2025",
+        description: "Architected RESTful backend services in Node.js across 3 client projects — a school management system, an IoT vehicle platform, and a stock analytics app — handling auth, payments, and third-party API integration.",
+        tech: ["Node.js", "Express.js", "MongoDB", "API Design"],
     },
     {
         company: "Outlier",
@@ -172,13 +227,7 @@ export const experiences = [
         description: "Freelanced with Outlier.com, an AI training platform dedicated to empowering learners with the tools and knowledge to thrive in the age of artificial intelligence.",
         tech: ["Artificial Intelligence", "AI Training", "Machine Learning"],
     },
-    {
-        company: "AWS Cloud Club at Lovely Professional University",
-        role: "Tech Lead",
-        date: "May 2025 - Present",
-        description: "Leading outreach initiatives and fostering community engagement for AWS Cloud technologies among students.",
-        tech: ["Community Building", "AWS", "Outreach"],
-    },
+
     {
         company: "Cisco x LPU iGen",
         role: "Content Writer",
