@@ -5,7 +5,6 @@ export const roles = [
     "AI/ML Engineer",
     "Web3 Developer",
     "Full Stack Developer",
-    "Blockchain Developer",
 ];
 
 export const skills: Skill[] = [
