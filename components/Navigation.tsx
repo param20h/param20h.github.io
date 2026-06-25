@@ -77,15 +77,7 @@ export default function Navigation() {
           className={`pointer-events-auto transition-all duration-500 rounded-full border border-white/5 backdrop-blur-sm bg-white/[0.01] shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)]
             ${isScrolled ? "w-[95%] max-w-5xl" : "w-full max-w-7xl md:w-[95%] md:max-w-5xl"}`}
         >
-          <div className="px-6 py-4 flex items-center justify-between">
-            <motion.a
-              href="/#home"
-              className="text-2xl md:text-3xl font-bold gradient-text"
-              whileHover={{ scale: 1.05 }}
-            >
-              Param20h
-            </motion.a>
-
+          <div className="px-6 py-4 flex items-center justify-center">
             <div className="flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
