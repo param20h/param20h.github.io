@@ -94,35 +94,41 @@ export default function Skills() {
                 </h3>
               </div>
 
-              {/* Skills Tags Flow */}
-              <div className="flex flex-wrap gap-2">
+              {/* Skills Icons Flow */}
+              <div className="flex flex-wrap gap-3.5">
                 {cat.skills.map((skill) => {
                   const iconData = simpleIconsMap[skill.icon];
 
                   return (
                     <motion.div
-                      whileHover={{ scale: 1.04, y: -1 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={{ scale: 1.15, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                       key={skill.name}
-                      className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/[0.08] hover:border-white/15 transition-all duration-200 cursor-pointer"
+                      style={{
+                        "--brand-color": iconData ? `#${iconData.hex}` : "#ffffff",
+                      } as React.CSSProperties}
+                      className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all duration-300 cursor-pointer relative group"
                     >
                       {iconData ? (
                         <svg
                           role="img"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="w-4 h-4 transition-transform duration-300"
-                          fill={`#${iconData.hex}`}
+                          className="w-5 h-5 fill-white/40 group-hover:fill-[var(--brand-color)] group-hover:drop-shadow-[0_0_8px_var(--brand-color)] transition-all duration-300"
                         >
                           <title>{iconData.title}</title>
                           <path d={iconData.path} />
                         </svg>
                       ) : (
-                        <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                        <span className="text-[10px] text-white/50 group-hover:text-white transition-colors uppercase font-bold">
+                          {skill.name.substring(0, 2)}
+                        </span>
                       )}
-                      <span className="text-xs font-semibold text-white/80 group-hover:text-white transition-colors select-none">
+
+                      {/* Smooth Tooltip */}
+                      <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-950/90 text-white text-[10px] font-mono tracking-wide rounded border border-white/10 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:-top-11 transition-all duration-250 shadow-[0_4px_12px_rgba(0,0,0,0.5)] whitespace-nowrap z-50">
                         {skill.name}
-                      </span>
+                      </div>
                     </motion.div>
                   );
                 })}
