@@ -1,5 +1,3 @@
-# 🚀 Paramjit Singh - Modern Portfolio
-
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://param20h.github.io/)
 [![Auto Update](https://img.shields.io/badge/Auto--Update-Daily-blue?style=for-the-badge&logo=github-actions)](https://github.com/param20h/param20h.github.io/actions)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
