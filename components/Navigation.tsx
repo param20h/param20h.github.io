@@ -74,16 +74,17 @@ export default function Navigation() {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={`pointer-events-auto transition-all duration-500 rounded-full border border-white/5 backdrop-blur-sm bg-white/[0.01] shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)]
-            ${isScrolled ? "w-[95%] max-w-5xl" : "w-full max-w-7xl md:w-[95%] md:max-w-5xl"}`}
+          className={`pointer-events-auto transition-all duration-500 rounded-full border border-white/5 backdrop-blur-sm bg-white/[0.01] shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)] w-fit mx-auto ${
+            isScrolled ? "py-2 px-6 scale-95" : "py-3 px-8 scale-100"
+          }`}
         >
-          <div className="px-6 py-4 flex items-center justify-center">
-            <div className="flex items-center gap-8">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-white/80 hover:text-primary-500 transition-colors font-medium relative group"
+                  className="text-white/80 hover:text-primary-500 transition-colors font-medium text-sm relative group"
                 >
                   <motion.span whileHover={{ y: -2 }} className="inline-block">
                     {item.name}
@@ -94,7 +95,7 @@ export default function Navigation() {
               <a
                 href="/media/Paramjit SIngh resume.pdf"
                 download
-                className="px-6 py-2 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all text-white"
+                className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-xs font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all text-white"
               >
                 Resume
               </a>
