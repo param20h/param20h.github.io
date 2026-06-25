@@ -51,7 +51,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -59,7 +59,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-white/5 rounded-2xl border border-primary-500/20 hover:border-primary-500/50 transition-all"
+                className="text-center p-4 md:p-6 bg-white/5 rounded-2xl border border-primary-500/20 hover:border-primary-500/50 transition-all"
               >
                 <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
                 <div className="text-sm text-white/60 uppercase tracking-wider">{stat.label}</div>

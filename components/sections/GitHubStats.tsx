@@ -7,6 +7,15 @@ import Card from "@/components/ui/Card";
 import { GitFork, Star, Users, BookOpen } from "lucide-react";
 import type { GitHubStats as Stats, GitHubRepo } from "@/types";
 
+interface LeetCodeStats {
+  totalSolved: number;
+  easySolved: number;
+  mediumSolved: number;
+  hardSolved: number;
+  ranking: number;
+  acceptanceRate: number;
+}
+
 export default function GitHubStats() {
   const [stats, setStats] = useState<Stats>({
     repos: 0,
@@ -17,22 +26,33 @@ export default function GitHubStats() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // LeetCode Stats State
+  // LeetCode Stats State
+  const [leetcode, setLeetcode] = useState<LeetCodeStats>({
+    totalSolved: 146,
+    easySolved: 62,
+    mediumSolved: 67,
+    hardSolved: 17,
+    ranking: 1112942,
+    acceptanceRate: 53.4,
+  });
+  const [lcLoading, setLcLoading] = useState(true);
+
   const username = "param20h";
 
   useEffect(() => {
     fetchGitHubData();
+    fetchLeetCodeData();
   }, []);
 
   const fetchGitHubData = async () => {
     try {
       setLoading(true);
 
-      // GitHub API headers (add token if available for higher rate limits)
       const headers: HeadersInit = {
         'Accept': 'application/vnd.github.v3+json',
       };
 
-      // Add GitHub token if available (for authenticated requests - 5000 requests/hour)
       const githubToken = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
       if (githubToken) {
         headers['Authorization'] = `token ${githubToken}`;
@@ -44,7 +64,6 @@ export default function GitHubStats() {
       if (!userRes.ok) {
         if (userRes.status === 403) {
           console.warn("GitHub API rate limit exceeded. Using fallback data.");
-          // Use fallback values when rate limited
           setStats({
             repos: 25,
             stars: 50,
@@ -58,7 +77,6 @@ export default function GitHubStats() {
       }
 
       const userData = await userRes.json();
-      console.log("GitHub User Data:", userData);
 
       // Fetch repos
       const reposRes = await fetch(
@@ -71,9 +89,8 @@ export default function GitHubStats() {
       }
 
       const reposData = await reposRes.json();
-      console.log("GitHub Repos Data:", reposData.length, "repos");
 
-      // Calculate total stars and forks from all repos
+      // Calculate total stars and forks
       const totalStars = reposData.reduce(
         (acc: number, repo: GitHubRepo) => acc + (repo.stargazers_count || 0),
         0
@@ -82,13 +99,6 @@ export default function GitHubStats() {
         (acc: number, repo: GitHubRepo) => acc + (repo.forks_count || 0),
         0
       );
-
-      console.log("Stats:", {
-        repos: userData.public_repos,
-        stars: totalStars,
-        forks: totalForks,
-        followers: userData.followers,
-      });
 
       setStats({
         repos: userData.public_repos || 0,
@@ -101,7 +111,6 @@ export default function GitHubStats() {
       setRepos(reposData.slice(0, 3));
     } catch (error) {
       console.error("Error fetching GitHub data:", error);
-      // Set realistic fallback data when API fails
       setStats({
         repos: 25,
         stars: 50,
@@ -113,6 +122,36 @@ export default function GitHubStats() {
     }
   };
 
+  const fetchLeetCodeData = async () => {
+    try {
+      setLcLoading(true);
+      const res = await fetch("/api/leetcode");
+      if (!res.ok) throw new Error("LeetCode API failed");
+      const data = await res.json();
+      setLeetcode({
+        totalSolved: data.totalSolved,
+        easySolved: data.easySolved,
+        mediumSolved: data.mediumSolved,
+        hardSolved: data.hardSolved,
+        ranking: data.ranking,
+        acceptanceRate: data.acceptanceRate,
+      });
+    } catch (e) {
+      console.warn("LeetCode fetch error, using fallbacks:", e);
+      // Realistic default values as fallback (matching user screenshot)
+      setLeetcode({
+        totalSolved: 146,
+        easySolved: 62,
+        mediumSolved: 67,
+        hardSolved: 17,
+        ranking: 1112942,
+        acceptanceRate: 53.4,
+      });
+    } finally {
+      setLcLoading(false);
+    }
+  };
+
   const statCards = [
     { icon: BookOpen, label: "Repositories", value: stats.repos, color: "text-blue-400" },
     { icon: Star, label: "Stars", value: stats.stars, color: "text-yellow-400" },
@@ -121,15 +160,16 @@ export default function GitHubStats() {
   ];
 
   return (
-    <Section id="github-stats" title="GitHub Statistics">
+    <Section id="github-stats" title="Coding Profiles & Activity">
       {/* Last Updated Indicator */}
       <div className="text-center mb-8">
         <p className="text-white/40 text-sm">
-          📊 Live data from GitHub API • Updated daily at midnight UTC
+          📊 Live metrics from GitHub & LeetCode APIs
         </p>
       </div>
 
-      <div className="grid md:grid-cols-4 gap-6 mb-12">
+      {/* GitHub Repository Metrics (Small Layout) */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {statCards.map((stat, index) => (
           <motion.div
             key={stat.label}
@@ -138,72 +178,189 @@ export default function GitHubStats() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="text-center">
-              <stat.icon className={`w-12 h-12 mx-auto mb-4 ${stat.color}`} />
-              <div className="text-4xl font-bold gradient-text mb-2">
+            <Card className="text-center p-4 min-h-[120px] flex flex-col justify-center border-white/5 bg-black/25">
+              <stat.icon className={`w-6 h-6 mx-auto mb-2 ${stat.color}`} />
+              <div className="text-2xl font-bold text-white mb-0.5">
                 {loading ? "--" : stat.value}
               </div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">{stat.label}</div>
+              <div className="text-white/45 text-[10px] uppercase tracking-wider">{stat.label}</div>
             </Card>
           </motion.div>
         ))}
       </div>
 
-      {/* GitHub Contribution Graphs */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-12"
-      >
-
-
-        {/* <div className="grid md:grid-cols-2 gap-6 mb-6">
-          {/* GitHub Stats Card 
-          <Card className="p-4 overflow-hidden">
-            <img
-              src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dracula&include_all_commits=true&count_private=true&hide_border=true&bg_color=00000000&title_color=00d4ff&text_color=ffffff&icon_color=ff6b6b`}
-              alt="GitHub Stats"
-              className="w-full h-auto"
-              loading="lazy"
-              width="495"
-              height="195"
-            />
-          </Card> */}
-
-        {/* Top Languages Card 
-          <Card className="p-4 overflow-hidden">
-            <img
-              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&langs_count=8&theme=dracula&hide_border=true&bg_color=00000000&title_color=00d4ff&text_color=ffffff`}
-              alt="Top Languages"
-              className="w-full h-auto"
-              loading="lazy"
-              width="495"
-              height="195"
-            />
-          </Card>
-        </div> */}
-
-        {/* GitHub Streak Stats */}
-        <div className="flex justify-center">
-          <Card className="p-4 overflow-hidden max-w-2xl w-full">
+      {/* Streaks & LeetCode Profiles (Side-By-Side Dashboard) */}
+      <div className="grid lg:grid-cols-12 gap-6 mb-12">
+        
+        {/* GitHub Streak Stats Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-6 flex flex-col"
+        >
+          <h3 className="text-sm font-bold uppercase tracking-wider text-white/50 mb-3 font-mono flex items-center gap-2 pl-1">
+            <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+            GitHub Commit Streak
+          </h3>
+          <Card className="p-4 flex items-center justify-center h-full bg-black/40 backdrop-blur-xl border-white/10 min-h-[260px]">
             <img
               src={`https://streak-stats.demolab.com?user=${username}&theme=dracula&hide_border=true&background=00000000&ring=00d4ff&fire=ff6b6b&currStreakLabel=00d4ff&sideLabels=ffffff&currStreakNum=ffffff&sideNums=ffffff&dates=ffffff`}
               alt="GitHub Streak"
-              className="w-full h-auto"
+              className="w-full h-auto max-h-[190px] object-contain"
               loading="lazy"
               width="800"
               height="220"
             />
           </Card>
-        </div>
-      </motion.div>
+        </motion.div>
 
+        {/* LeetCode Stats Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="lg:col-span-6 flex flex-col"
+        >
+          <h3 className="text-sm font-bold uppercase tracking-wider text-white/50 mb-3 font-mono flex items-center gap-2 pl-1">
+            <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
+            LeetCode Stats
+          </h3>
+          
+          <Card className="p-5 h-full bg-black/40 backdrop-blur-xl border-white/10 flex flex-col justify-between min-h-[260px]">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4 pb-2.5 border-b border-white/5">
+              <div className="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-amber-500" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.777 9.778a1.375 1.375 0 0 0 0 1.945l1.945 1.945a1.375 1.375 0 0 0 1.945 0l9.777-9.777a1.375 1.375 0 0 0 0-1.945L14.444.414A1.374 1.374 0 0 0 13.483 0zm5.102 5.672a1.374 1.374 0 0 0-.96.415l-9.778 9.777a1.375 1.375 0 0 0 0 1.945l1.945 1.945a1.375 1.375 0 0 0 1.945 0l9.777-9.777a1.375 1.375 0 0 0 0-1.945L19.544 6.09a1.374 1.374 0 0 0-.959-.418z" />
+                </svg>
+                <span className="font-bold text-white tracking-wide text-sm font-mono">leetcode.com</span>
+              </div>
+              <a
+                href={`https://leetcode.com/u/${username}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-primary-400 hover:text-primary-300 font-mono tracking-wide"
+              >
+                u/{username} ↗
+              </a>
+            </div>
+
+            {/* Solved Progress Circles and Difficulties */}
+            <div className="grid grid-cols-12 gap-4 items-center flex-grow">
+              
+              {/* Left Column: Solved Ring */}
+              <div className="col-span-5 flex flex-col items-center justify-center relative">
+                <div className="relative w-24 h-24 flex items-center justify-center">
+                  <svg className="w-full h-full transform -rotate-90">
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="38"
+                      className="stroke-white/5 fill-transparent"
+                      strokeWidth="6"
+                    />
+                    <circle
+                      cx="48"
+                      cy="48"
+                      r="38"
+                      className="stroke-amber-500 fill-transparent transition-all duration-1000"
+                      strokeWidth="6"
+                      strokeDasharray="238"
+                      strokeDashoffset={238 - (238 * (lcLoading ? 0 : leetcode.totalSolved)) / 3300}
+                    />
+                  </svg>
+                  <div className="absolute flex flex-col items-center justify-center text-center">
+                    <span className="text-xl font-black text-white leading-none">
+                      {lcLoading ? "--" : leetcode.totalSolved}
+                    </span>
+                    <span className="text-[9px] text-white/40 uppercase font-semibold tracking-wider mt-1">
+                      Solved
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Bars */}
+              <div className="col-span-7 space-y-2.5">
+                {/* Easy */}
+                <div>
+                  <div className="flex justify-between text-[10px] font-mono mb-0.5">
+                    <span className="text-emerald-400 font-bold">Easy</span>
+                    <span className="text-white/60">
+                      {leetcode.easySolved}<span className="text-white/20">/800+</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500 rounded-full transition-all duration-1000"
+                      style={{ width: `${Math.min(100, (leetcode.easySolved / 800) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Medium */}
+                <div>
+                  <div className="flex justify-between text-[10px] font-mono mb-0.5">
+                    <span className="text-amber-400 font-bold">Medium</span>
+                    <span className="text-white/60">
+                      {leetcode.mediumSolved}<span className="text-white/20">/1700+</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-amber-500 rounded-full transition-all duration-1000"
+                      style={{ width: `${Math.min(100, (leetcode.mediumSolved / 1700) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Hard */}
+                <div>
+                  <div className="flex justify-between text-[10px] font-mono mb-0.5">
+                    <span className="text-red-400 font-bold">Hard</span>
+                    <span className="text-white/60">
+                      {leetcode.hardSolved}<span className="text-white/20">/700+</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-red-500 rounded-full transition-all duration-1000"
+                      style={{ width: `${Math.min(100, (leetcode.hardSolved / 700) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            {/* Meta statistics footer */}
+            <div className="grid grid-cols-2 gap-3 mt-4 pt-2.5 border-t border-white/5 text-center font-mono text-[10px]">
+              <div className="py-1 bg-white/5 rounded">
+                <span className="text-white/40 block text-[8px] uppercase tracking-wider mb-0.5">Global Rank</span>
+                <span className="text-white font-bold">
+                  {lcLoading ? "--" : leetcode.ranking.toLocaleString()}
+                </span>
+              </div>
+              <div className="py-1 bg-white/5 rounded">
+                <span className="text-white/40 block text-[8px] uppercase tracking-wider mb-0.5">Acceptance</span>
+                <span className="text-amber-500 font-bold">
+                  {lcLoading ? "--" : `${leetcode.acceptanceRate}%`}
+                </span>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+
+      </div>
+
+      {/* Recent Repositories */}
       <div>
-        <h3 className="text-2xl font-bold text-center mb-8 gradient-text">Recent Repositories</h3>
+        <h3 className="text-xl font-bold text-center mb-6 gradient-text">Recent Repositories</h3>
         <div className="grid md:grid-cols-3 gap-6">
           {loading ? (
-            <div className="col-span-3 text-center text-white/60">Loading...</div>
+            <div className="col-span-3 text-center text-white/60 font-mono text-xs py-10">Loading...</div>
           ) : (
             repos.map((repo, index) => (
               <motion.div
@@ -217,26 +374,30 @@ export default function GitHubStats() {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="block h-full group"
                 >
-                  <Card>
-                    <h4 className="text-xl font-bold mb-2 text-primary-400">{repo.name}</h4>
-                    <p className="text-white/70 text-sm mb-4 line-clamp-2">
-                      {repo.description || "No description"}
-                    </p>
-                    <div className="flex items-center gap-4 text-sm text-white/50">
+                  <Card className="h-full flex flex-col justify-between border-white/5 bg-black/25 hover:border-primary-500/30 transition-all p-5">
+                    <div>
+                      <h4 className="text-lg font-bold mb-2 text-primary-400 group-hover:text-primary-300 transition-colors font-mono truncate">
+                        {repo.name}
+                      </h4>
+                      <p className="text-white/70 text-xs mb-4 line-clamp-2 leading-relaxed">
+                        {repo.description || "No description provided."}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-4 text-xs text-white/50 pt-3 border-t border-white/5 mt-auto">
                       {repo.language && (
-                        <span className="flex items-center gap-1">
-                          <span className="w-3 h-3 rounded-full bg-primary-500" />
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-primary-500" />
                           {repo.language}
                         </span>
                       )}
                       <span className="flex items-center gap-1">
-                        <Star size={14} />
+                        <Star size={12} className="text-yellow-400" />
                         {repo.stargazers_count}
                       </span>
                       <span className="flex items-center gap-1">
-                        <GitFork size={14} />
+                        <GitFork size={12} className="text-green-400" />
                         {repo.forks_count}
                       </span>
                     </div>
