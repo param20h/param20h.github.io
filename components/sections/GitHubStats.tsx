@@ -123,22 +123,54 @@ export default function GitHubStats() {
   };
 
   const fetchLeetCodeData = async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
     try {
       setLcLoading(true);
-      const res = await fetch("/api/leetcode");
-      if (!res.ok) throw new Error("LeetCode API failed");
-      const data = await res.json();
+      
+      const [profileRes, solvedRes] = await Promise.all([
+        fetch("https://alfa-leetcode-api.onrender.com/param20h", { signal: controller.signal }),
+        fetch("https://alfa-leetcode-api.onrender.com/param20h/solved", { signal: controller.signal })
+      ]);
+
+      clearTimeout(timeoutId);
+
+      if (!profileRes.ok || !solvedRes.ok) {
+        throw new Error("Failed to fetch from LeetCode public API");
+      }
+
+      const profileData = await profileRes.json();
+      const solvedData = await solvedRes.json();
+
+      interface SubmissionItem {
+        difficulty: string;
+        submissions: number;
+      }
+
+      const totalAcSub = solvedData.acSubmissionNum?.find(
+        (x: SubmissionItem) => x.difficulty === "All"
+      )?.submissions || 0;
+      
+      const totalSubmissions = solvedData.totalSubmissionNum?.find(
+        (x: SubmissionItem) => x.difficulty === "All"
+      )?.submissions || 0;
+      
+      const calculatedAcceptanceRate = totalSubmissions > 0 
+        ? parseFloat(((totalAcSub / totalSubmissions) * 100).toFixed(1)) 
+        : 53.4;
+
       setLeetcode({
-        totalSolved: data.totalSolved,
-        easySolved: data.easySolved,
-        mediumSolved: data.mediumSolved,
-        hardSolved: data.hardSolved,
-        ranking: data.ranking,
-        acceptanceRate: data.acceptanceRate,
+        totalSolved: solvedData.solvedProblem || 146,
+        easySolved: solvedData.easySolved || 62,
+        mediumSolved: solvedData.mediumSolved || 67,
+        hardSolved: solvedData.hardSolved || 17,
+        ranking: profileData.ranking || 1112942,
+        acceptanceRate: calculatedAcceptanceRate,
       });
     } catch (e) {
-      console.warn("LeetCode fetch error, using fallbacks:", e);
-      // Realistic default values as fallback (matching user screenshot)
+      clearTimeout(timeoutId);
+      console.warn("LeetCode live fetch timed out or failed, using fallbacks:", e);
       setLeetcode({
         totalSolved: 146,
         easySolved: 62,
