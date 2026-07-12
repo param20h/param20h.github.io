@@ -24,6 +24,9 @@ import type { Project } from "@/types";
 
 // User-requested main featured projects
 const FEATURED_TITLES = [
+  "ZenithFlow — Productivity & Wellness Ecosystem",
+  "Vesta AI — Investment Research Agent",
+  "ParkControl Sentinel — AI Parking Congestion Intelligence",
   "RAG PDF Assistant",
   "DeepFake Detector — AI Media Forensics System",
   "Weather App - Next.js Real-time Weather Application"
