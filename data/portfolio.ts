@@ -48,6 +48,14 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
     {
+        title: "ZenithFlow — Productivity & Wellness Ecosystem",
+        description: "A premium, all-in-one productivity and wellness ecosystem designed to help users optimize their daily velocity. Unifies task planning, water intake trackers, and gym workout logging with custom AI-powered biometric coaching. Features interactive habit analytics, Supabase authentication (PostgreSQL with RLS), and secure Razorpay payment upgrades with transactional email confirmations.",
+        iconName: "brain",
+        tech: ["Next.js", "TypeScript", "Vanilla CSS", "Supabase Auth", "Node.js", "Express", "Razorpay API", "Resend API", "Supabase (PostgreSQL)"],
+        liveUrl: "https://zenithflows.netlify.app/",
+        status: "live",
+    },
+    {
         title: "RAG PDF Assistant",
         description: "An intelligent document chatbot powered by Retrieval-Augmented Generation (RAG) that lets users upload PDFs, DOCX, or TXT files and interact with them through context-aware AI conversations. Built for fast semantic search, accurate retrieval, and multi-LLM responses using Groq and Gemini.",
         iconName: "brain",
