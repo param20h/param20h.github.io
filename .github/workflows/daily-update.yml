@@ -36,9 +36,9 @@ jobs:
       - name: Build with Next.js (fetches fresh data)
         run: npm run build
         env:
-          NEXT_PUBLIC_EMAILJS_SERVICE_ID: service_wv98oq4
-          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: template_2096w1h
-          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: N9Y9c1frAzwZmLKVI
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
           # Add GitHub token for higher API rate limits (5000/hour vs 60/hour)
           # Get token from: https://github.com/settings/tokens (only needs public_repo scope)
           NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.NEXT_PUBLIC_GITHUB_TOKEN }}
