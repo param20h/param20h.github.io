@@ -59,7 +59,7 @@ export default function Contact() {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: "parambrar862@@gmail.com",
+          to_email: "parambrar862@gmail.com",
         }
       );
 
