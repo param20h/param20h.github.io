@@ -39,9 +39,13 @@ export default function Navigation() {
       // Scroll Spy logic for active tab highlight
       const scrollPosition = window.scrollY + 300; // Offset for screen viewport
 
-      // Force "experience" active if on the subpage
-      if (window.location.pathname === "/experience") {
+      // Force active section if on subpages
+      if (window.location.pathname.startsWith("/experience")) {
         setActiveSection("experience");
+        return;
+      }
+      if (window.location.pathname.startsWith("/resume")) {
+        setActiveSection("resume");
         return;
       }
 
@@ -92,13 +96,12 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-accent-500 group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
-              <a
-                href="/media/Paramjit SIngh resume.pdf"
-                download
+              <Link
+                href="/resume"
                 className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-xs font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all text-white"
               >
                 Resume
-              </a>
+              </Link>
             </div>
           </div>
         </motion.nav>
