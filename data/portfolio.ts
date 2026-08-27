@@ -60,7 +60,7 @@ export const projects: Project[] = [
         description: "An intelligent document chatbot powered by Retrieval-Augmented Generation (RAG) that lets users upload PDFs, DOCX, or TXT files and interact with them through context-aware AI conversations. Built for fast semantic search, accurate retrieval, and multi-LLM responses using Groq and Gemini.",
         iconName: "brain",
         tech: ["Flask", "Python", "FAISS", "Sentence Transformers", "Groq API", "Google Gemini", "Vanilla JS"],
-        liveUrl: "https://param20h-pdf-assit-rag.hf.space",
+        liveUrl: "https://pdf-assistant-rag.vercel.app/",
         githubUrl: "https://github.com/param20h/PDF-Assistant-RAG",
         status: "live",
         tags: ["open-source"],
