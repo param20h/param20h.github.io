@@ -52,7 +52,7 @@ export const projects: Project[] = [
         description: "A premium, all-in-one productivity and wellness ecosystem designed to help users optimize their daily velocity. Unifies task planning, water intake trackers, and gym workout logging with custom AI-powered biometric coaching. Features interactive habit analytics, Supabase authentication (PostgreSQL with RLS), and secure Razorpay payment upgrades with transactional email confirmations.",
         iconName: "brain",
         tech: ["Next.js", "TypeScript", "Vanilla CSS", "Supabase Auth", "Node.js", "Express", "Razorpay API", "Resend API", "Supabase (PostgreSQL)"],
-        liveUrl: "https://zenithflows.netlify.app/",
+        liveUrl: "https://zenithflow.dev/",
         status: "live",
     },
     {
@@ -90,7 +90,7 @@ export const projects: Project[] = [
         description: "Premium full-stack shared expenses tracker for flatmates featuring a 19-anomaly CSV detection engine, time-scoped membership calculations, historical USD-to-INR conversions, and a greedy debt-simplification algorithm to minimize total bank transfers. Full JWT auth, 9-table PostgreSQL schema with Knex.js migrations, and 24 unit/integration tests covering import anomalies, balance splits, and currency conversions.",
         iconName: "brain",
         tech: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Knex.js", "PostgreSQL", "JWT"],
-        liveUrl: "https://spreetail-seven.vercel.app",
+        liveUrl: "https://spreetail-six.vercel.app/",
         githubUrl: "https://github.com/param20h/Spreetail",
         status: "live",
 
@@ -111,7 +111,7 @@ export const projects: Project[] = [
         description: "A deep learning-powered image captioning system that generates rich, human-like descriptions using both a pretrained transformer (Salesforce BLIP) and a custom CNN-LSTM architecture. Combines state-of-the-art inference with full pipeline model training for robust and flexible caption generation.",
         iconName: "brain",
         tech: ["PyTorch", "Transformers", "Torchvision", "NLTK", "PIL", "Streamlit"],
-        liveUrl: "https://huggingface.co/spaces/Param20h/image-caption-generator",
+        liveUrl: "https://param20h-image-caption-generator.hf.space/",
         githubUrl: "https://github.com/param20h/Image-Caption-Generator",
         status: "live",
     },

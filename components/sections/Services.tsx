@@ -39,7 +39,7 @@ const caseStudies = [
     subtitle: "Productivity & Wellness Ecosystem",
     description: "A premium, all-in-one productivity and wellness ecosystem with AI-powered biometric coaching and Razorpay integration.",
     tech: ["Next.js", "Supabase Auth", "Node.js", "Razorpay API", "PostgreSQL"],
-    url: "https://zenithflows.netlify.app/",
+    url: "https://zenithflow.dev/",
     highlights: ["Subscription Management", "Habit Analytics", "Real-time Sync"]
   },
   {
