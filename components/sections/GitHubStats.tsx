@@ -29,12 +29,12 @@ export default function GitHubStats() {
   // LeetCode Stats State
   // LeetCode Stats State
   const [leetcode, setLeetcode] = useState<LeetCodeStats>({
-    totalSolved: 146,
-    easySolved: 62,
-    mediumSolved: 67,
-    hardSolved: 17,
-    ranking: 1112942,
-    acceptanceRate: 53.4,
+    totalSolved: 260,
+    easySolved: 99,
+    mediumSolved: 124,
+    hardSolved: 37,
+    ranking: 610828,
+    acceptanceRate: 79.4,
   });
   const [lcLoading, setLcLoading] = useState(true);
 
@@ -65,10 +65,10 @@ export default function GitHubStats() {
         if (userRes.status === 403) {
           console.warn("GitHub API rate limit exceeded. Using fallback data.");
           setStats({
-            repos: 25,
-            stars: 50,
-            forks: 15,
-            followers: 10,
+            repos: 77,
+            stars: 258,
+            forks: 105,
+            followers: 66,
           });
           setLoading(false);
           return;
@@ -112,10 +112,10 @@ export default function GitHubStats() {
     } catch (error) {
       console.error("Error fetching GitHub data:", error);
       setStats({
-        repos: 25,
-        stars: 50,
-        forks: 15,
-        followers: 10,
+        repos: 77,
+        stars: 258,
+        forks: 105,
+        followers: 66,
       });
     } finally {
       setLoading(false);
@@ -128,7 +128,7 @@ export default function GitHubStats() {
 
     try {
       setLcLoading(true);
-      
+
       const [profileRes, solvedRes] = await Promise.all([
         fetch("https://alfa-leetcode-api.onrender.com/param20h", { signal: controller.signal }),
         fetch("https://alfa-leetcode-api.onrender.com/param20h/solved", { signal: controller.signal })
@@ -151,13 +151,13 @@ export default function GitHubStats() {
       const totalAcSub = solvedData.acSubmissionNum?.find(
         (x: SubmissionItem) => x.difficulty === "All"
       )?.submissions || 0;
-      
+
       const totalSubmissions = solvedData.totalSubmissionNum?.find(
         (x: SubmissionItem) => x.difficulty === "All"
       )?.submissions || 0;
-      
-      const calculatedAcceptanceRate = totalSubmissions > 0 
-        ? parseFloat(((totalAcSub / totalSubmissions) * 100).toFixed(1)) 
+
+      const calculatedAcceptanceRate = totalSubmissions > 0
+        ? parseFloat(((totalAcSub / totalSubmissions) * 100).toFixed(1))
         : 53.4;
 
       setLeetcode({
@@ -172,12 +172,12 @@ export default function GitHubStats() {
       clearTimeout(timeoutId);
       console.warn("LeetCode live fetch timed out or failed, using fallbacks:", e);
       setLeetcode({
-        totalSolved: 146,
-        easySolved: 62,
-        mediumSolved: 67,
-        hardSolved: 17,
-        ranking: 1112942,
-        acceptanceRate: 53.4,
+        totalSolved: 260,
+        easySolved: 99,
+        mediumSolved: 124,
+        hardSolved: 37,
+        ranking: 610828,
+        acceptanceRate: 79.4,
       });
     } finally {
       setLcLoading(false);
@@ -223,7 +223,7 @@ export default function GitHubStats() {
 
       {/* Streaks & LeetCode Profiles (Side-By-Side Dashboard) */}
       <div className="grid lg:grid-cols-12 gap-6 mb-12">
-        
+
         {/* GitHub Streak Stats Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -259,7 +259,7 @@ export default function GitHubStats() {
             <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
             LeetCode Stats
           </h3>
-          
+
           <Card className="p-5 h-full bg-black/40 backdrop-blur-xl border-white/10 flex flex-col justify-between min-h-[260px]">
             {/* Header */}
             <div className="flex items-center justify-between mb-4 pb-2.5 border-b border-white/5">
@@ -281,7 +281,7 @@ export default function GitHubStats() {
 
             {/* Solved Progress Circles and Difficulties */}
             <div className="grid grid-cols-12 gap-4 items-center flex-grow">
-              
+
               {/* Left Column: Solved Ring */}
               <div className="col-span-5 flex flex-col items-center justify-center relative">
                 <div className="relative w-24 h-24 flex items-center justify-center">
@@ -364,7 +364,7 @@ export default function GitHubStats() {
                   </div>
                 </div>
               </div>
-              
+
             </div>
 
             {/* Meta statistics footer */}
