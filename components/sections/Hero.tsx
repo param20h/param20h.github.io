@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-[40px] opacity-40 animate-pulse animation-delay-1000" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-primary-500/50 shadow-[0_0_50px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_50px_rgba(0,212,255,0.6)] transition-all duration-500">
               <img
-                src="/media/circle-hoverphoto.jpeg"
+                src="/media/circle-hoverphoto.png"
                 alt="Paramjit Singh - Python Developer & AI/ML Expert"
                 className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
                 loading="eager"
