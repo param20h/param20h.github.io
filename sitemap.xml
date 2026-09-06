@@ -1,70 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-    
-    <!-- Main Homepage -->
-    <url>
-        <loc>https://param20h.me/</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-        <image:image>
-            <image:loc>https://param20h.me/media/profile.png</image:loc>
-            <image:title>Paramjit Singh Python Developer AI ML Expert</image:title>
-            <image:caption>Expert Python Developer from LPU specializing in AI ML Web3 and Unity</image:caption>
-        </image:image>
-        <image:image>
-            <image:loc>https://param20h.me/media/circle-photo.png</image:loc>
-            <image:title>Paramjit Singh Profile Photo</image:title>
-        </image:image>
-    </url>
-    
-    <!-- About Section -->
-    <url>
-        <loc>https://param20h.me/#about</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- Skills Section -->
-    <url>
-        <loc>https://param20h.me/#skills</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.85</priority>
-    </url>
-    
-    <!-- Projects Section -->
-    <url>
-        <loc>https://param20h.me/#projects</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.95</priority>
-    </url>
-    
-    <!-- GitHub Stats Section -->
-    <url>
-        <loc>https://param20h.me/#github-stats</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- Contact Section -->
-    <url>
-        <loc>https://param20h.me/#contact</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Featured Project: Depression Biomarker Discovery -->
-    <url>
-        <loc>https://param20h.me/MDD-biomarker-discovery-project/</loc>
-        <lastmod>2025-12-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://param20h.me/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://param20h.me/media/profile.png</image:loc>
+      <image:title>Paramjit Singh - Full Stack Developer, AI Engineer &amp; Freelancer</image:title>
+      <image:caption>Expert Full Stack Developer from LPU specializing in AI/ML, Web3, and freelance web applications</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://param20h.me/media/circle-photo.png</image:loc>
+      <image:title>Paramjit Singh Profile Photo</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Section -->
+  <url>
+    <loc>https://param20h.me/#about</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Skills Section -->
+  <url>
+    <loc>https://param20h.me/#skills</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Projects Section -->
+  <url>
+    <loc>https://param20h.me/#projects</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- GitHub Stats Section -->
+  <url>
+    <loc>https://param20h.me/#github-stats</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://param20h.me/#contact</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Standalone: Experience Page -->
+  <url>
+    <loc>https://param20h.me/experience</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Standalone: Services & Client Work Page -->
+  <url>
+    <loc>https://param20h.me/services</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <image:image>
+      <image:loc>https://param20h.me/media/zenith/1.png</image:loc>
+      <image:title>ZenithFlow - Productivity &amp; Wellness SaaS by Paramjit Singh</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://param20h.me/media/autocare/1.png</image:loc>
+      <image:title>Auto Care On Wheels - Car Service Booking Platform by Paramjit Singh</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://param20h.me/media/starcomputer/1.png</image:loc>
+      <image:title>Star Computer Center - Educational Portal by Paramjit Singh</image:title>
+    </image:image>
+  </url>
+
+  <!-- Standalone: Resume Page -->
+  <url>
+    <loc>https://param20h.me/resume</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- Standalone: Blogs -->
+  <url>
+    <loc>https://param20h.github.io/blogs/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
 </urlset>

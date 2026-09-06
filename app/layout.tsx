@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import IntroScreen from "@/components/IntroScreen";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -192,6 +193,98 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://param20h.me/#person",
+      "name": "Paramjit Singh",
+      "alternateName": "param20h",
+      "url": "https://param20h.me",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://param20h.me/media/profile.png",
+        "width": 512,
+        "height": 512,
+      },
+      "sameAs": [
+        "https://github.com/param20h",
+        "https://linkedin.com/in/param20h",
+        "https://param20h.github.io/blogs/",
+      ],
+      "jobTitle": "Full Stack Developer & AI Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance",
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Lovely Professional University",
+        "alternateName": "LPU",
+      },
+      "knowsAbout": [
+        "Python", "JavaScript", "TypeScript", "React", "Next.js", "Node.js",
+        "Artificial Intelligence", "Machine Learning", "Web3", "Blockchain",
+        "FastAPI", "TensorFlow", "PyTorch", "Docker", "AWS", "Unity Game Development",
+      ],
+      "description": "Full Stack Developer and AI Engineer from LPU with 2+ years of experience building scalable web applications and AI-powered systems.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://param20h.me/#website",
+      "url": "https://param20h.me",
+      "name": "Paramjit Singh Portfolio",
+      "description": "Full Stack Developer & AI Engineer portfolio showcasing projects, freelance services, and professional experience.",
+      "author": { "@id": "https://param20h.me/#person" },
+      "publisher": { "@id": "https://param20h.me/#person" },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://param20h.me/?s={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://param20h.me/#profilepage",
+      "url": "https://param20h.me",
+      "name": "Paramjit Singh - Full Stack Developer Portfolio",
+      "isPartOf": { "@id": "https://param20h.me/#website" },
+      "about": { "@id": "https://param20h.me/#person" },
+      "mainEntity": { "@id": "https://param20h.me/#person" },
+    },
+    {
+      "@type": "ItemList",
+      "name": "Freelance Services by Paramjit Singh",
+      "url": "https://param20h.me/services",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Auto Care On Wheels - Car Service Booking Platform",
+          "url": "https://autocareonwheels.com.au",
+          "description": "Full-stack car service booking application with React, Node.js, Express and MySQL.",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ZenithFlow - Productivity & Wellness SaaS",
+          "url": "https://zenithflow.dev",
+          "description": "Premium all-in-one productivity ecosystem with AI coaching and Razorpay integration.",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Star Computer Center - Educational Institution Portal",
+          "url": "https://www.starcomputercenter.in",
+          "description": "Modern digital presence for an educational center with responsive design.",
+        },
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -199,7 +292,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={poppins.className}>
+        <IntroScreen />
         {children}
       </body>
     </html>
