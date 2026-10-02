@@ -311,7 +311,6 @@ export default function Projects() {
                 const project = projects.find((p) => p.title === tabTitle);
                 if (!project) return null;
                 const isActive = activeProjectId === tabTitle;
-                const isFeatured = FEATURED_TITLES.includes(tabTitle);
                 return (
                   <div
                     key={tabTitle}
