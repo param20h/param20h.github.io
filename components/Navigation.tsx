@@ -95,17 +95,17 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-white/80 hover:text-primary-500 transition-colors font-medium text-sm relative group"
+                  className="text-black/70 hover:text-black transition-colors font-medium text-sm relative group"
                 >
                   <motion.span whileHover={{ y: -2 }} className="inline-block">
                     {item.name}
                   </motion.span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-accent-500 group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
               <Link
                 href="/resume"
-                className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-xs font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all text-white"
+                className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-xs font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all text-black"
               >
                 Resume
               </Link>
@@ -140,12 +140,12 @@ export default function Navigation() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTabGlow"
-                        className="absolute inset-0 bg-primary-500/20 rounded-full"
+                        className="absolute inset-0 bg-black/10 rounded-full"
                         transition={{ type: "spring", stiffness: 380, damping: 22 }}
                       />
                     )}
                     <div className={`p-1.5 rounded-full transition-colors duration-300 flex items-center justify-center ${
-                      isActive ? "text-primary-400" : "text-white/40 group-hover:text-white/60"
+                      isActive ? "text-black" : "text-black/60 group-hover:text-black/80"
                     }`}>
                       <item.icon size={14} />
                     </div>
@@ -153,7 +153,7 @@ export default function Navigation() {
                   
                   <span className={`
                     text-[8px] font-sans font-medium tracking-wide transition-colors duration-300
-                    ${isActive ? "text-primary-400 font-bold" : "text-white/40"}
+                    ${isActive ? "text-black font-bold" : "text-black/60"}
                   `}>
                     {item.name}
                   </span>

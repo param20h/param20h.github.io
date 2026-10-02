@@ -17,8 +17,6 @@ export default function Experience() {
     return (
         <div className="w-full relative py-12 pb-32">
             {/* Background glow effects */}
-            <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-            <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
             {/* Hero Header */}
             <div className="text-center mb-24 relative z-10">

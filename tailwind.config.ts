@@ -9,6 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        neo: {
+          bg: '#e0e5ec',
+          light: '#ffffff',
+          dark: '#a3b1c6',
+          text: '#4a5568',
+        },
         primary: {
           50: '#e6f9ff',
           100: '#ccf3ff',
@@ -34,11 +40,16 @@ const config: Config = {
           900: '#330e0e',
         },
       },
+      boxShadow: {
+        'neo-out': '9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.7)',
+        'neo-in': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
+        'neo-hover': '12px 12px 20px rgba(163,177,198,0.7), -12px -12px 20px rgba(255,255,255, 0.8)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'gradient-primary': 'linear-gradient(135deg, #00d4ff 0%, #ff6b6b 100%)',
-        'gradient-dark': 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%)',
+        'gradient-neo': 'linear-gradient(145deg, #ffffff, #e0e5ec)',
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',

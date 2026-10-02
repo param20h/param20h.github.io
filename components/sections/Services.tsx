@@ -13,7 +13,7 @@ const SERVICES = [
     icon: <Code2 size={120} strokeWidth={1} />,
     features: ["React & Next.js", "Node.js & Express", "Database Design", "Secure Auth"],
     colSpan: "md:col-span-6 lg:col-span-8",
-    bgClass: "bg-black text-white border border-white/10",
+    bgClass: "bg-white text-black border border-black/10",
     accent: "text-primary-400"
   },
   {
@@ -24,7 +24,7 @@ const SERVICES = [
     icon: <Layers size={80} strokeWidth={1} />,
     features: ["RAG Systems", "Custom GPTs", "Agentic Workflows"],
     colSpan: "md:col-span-3 lg:col-span-4",
-    bgClass: "bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-black border border-white/10 shadow-lg",
+    bgClass: "bg-white text-black border border-black/10 shadow-lg",
     accent: "text-accent-400"
   },
   {
@@ -35,7 +35,7 @@ const SERVICES = [
     icon: <Palette size={80} strokeWidth={1} />,
     features: ["Responsive", "Framer Motion", "Tailwind CSS"],
     colSpan: "md:col-span-6 lg:col-span-12",
-    bgClass: "bg-white/5 text-white border border-white/10 backdrop-blur-sm",
+    bgClass: "bg-white text-black border border-black/10 shadow-lg",
     accent: "text-primary-500"
   }
 ];
@@ -121,8 +121,6 @@ export default function Services() {
     <div className="w-full relative">
       
       {/* Background glow effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       {/* Hero Header */}
       <div className="pt-12 pb-16">
@@ -131,7 +129,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-white mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-black mb-6"
         >
           What We Do Best
         </motion.h1>
@@ -140,7 +138,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-white/60 text-xl max-w-2xl leading-relaxed"
+          className="text-black/60 text-xl max-w-2xl leading-relaxed"
         >
           We craft digital products that combine stunning design with powerful functionality. From concept to launch, we&apos;re your partner in building remarkable experiences.
         </motion.p>
@@ -158,21 +156,20 @@ export default function Services() {
             className={`${service.colSpan} ${service.bgClass} min-h-[320px] rounded-[2rem] p-8 md:p-10 relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 shadow-2xl`}
           >
             {/* Background Icon (Low Opacity) */}
-            <div className="absolute -bottom-8 -right-8 text-white/5 group-hover:text-primary-500/10 group-hover:scale-110 transition-all duration-700 transform rotate-12">
+            <div className="absolute -bottom-8 -right-8 text-black/5 group-hover:text-primary-500/10 group-hover:scale-110 transition-all duration-700 transform rotate-12">
               {service.icon}
             </div>
 
             {/* Subtle Gradient Glow */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl group-hover:bg-primary-500/10 transition-colors duration-700 pointer-events-none" />
             
             <div className="relative z-10 h-full flex flex-col justify-between">
               <div>
                 <span className={`font-mono text-sm font-bold mb-4 block ${service.accent}`}>{service.id}</span>
-                <h3 className="text-3xl md:text-4xl font-black mb-3 tracking-tight text-white">
+                <h3 className="text-3xl md:text-4xl font-black mb-3 tracking-tight text-black">
                   {service.title}
                 </h3>
-                <p className="font-bold mb-4 text-white/80">{service.tagline}</p>
-                <p className="text-base leading-relaxed mb-8 text-white/60 max-w-lg">
+                <p className="font-bold mb-4 text-black/80">{service.tagline}</p>
+                <p className="text-base leading-relaxed mb-8 text-black/60 max-w-lg">
                   {service.description}
                 </p>
               </div>
@@ -180,7 +177,7 @@ export default function Services() {
                 {service.features.map((feature, fIdx) => (
                   <span 
                     key={fIdx} 
-                    className="px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm bg-white/5 border border-white/10 text-white/80 group-hover:border-white/20 transition-colors"
+                    className="px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm bg-black/5 border border-black/10 text-black/80 group-hover:border-black/20 transition-colors"
                   >
                     {feature}
                   </span>
@@ -194,8 +191,8 @@ export default function Services() {
 
       {/* Case Studies */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Featured Case Studies</h2>
-        <p className="text-white/60 text-xl max-w-2xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Featured Case Studies</h2>
+        <p className="text-black/60 text-xl max-w-2xl mx-auto">
           Explore interactive previews of live client projects I&apos;ve designed and developed.
         </p>
       </div>
@@ -214,17 +211,17 @@ export default function Services() {
             <div className={`lg:w-1/3 flex flex-col gap-6 ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}>
               <div>
                 <h4 className="text-accent-400 font-bold uppercase tracking-wider text-xs mb-2">{study.subtitle}</h4>
-                <h3 className="text-3xl font-extrabold text-white mb-4">{study.title}</h3>
-                <p className="text-white/70 leading-relaxed text-sm">
+                <h3 className="text-3xl font-extrabold text-black mb-4">{study.title}</h3>
+                <p className="text-black/70 leading-relaxed text-sm">
                   {study.description}
                 </p>
               </div>
 
               <div>
-                <h5 className="text-xs font-bold text-white/40 uppercase tracking-wider mb-3">Key Highlights</h5>
+                <h5 className="text-xs font-bold text-black/50 uppercase tracking-wider mb-3">Key Highlights</h5>
                 <ul className="space-y-2">
                   {study.highlights.map(h => (
-                    <li key={h} className="flex items-start gap-2 text-sm text-white/80">
+                    <li key={h} className="flex items-start gap-2 text-sm text-black/80">
                       <CheckCircle size={16} className="text-primary-500 mt-0.5 shrink-0" />
                       {h}
                     </li>
@@ -233,10 +230,10 @@ export default function Services() {
               </div>
 
               <div>
-                <h5 className="text-xs font-bold text-white/40 uppercase tracking-wider mb-3">Tech Stack</h5>
+                <h5 className="text-xs font-bold text-black/50 uppercase tracking-wider mb-3">Tech Stack</h5>
                 <div className="flex flex-wrap gap-2">
                   {study.tech.map(t => (
-                    <span key={t} className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-xs font-medium text-white/80">
+                    <span key={t} className="px-3 py-1 bg-black/5 border border-black/10 rounded-full text-xs font-medium text-black/80">
                       {t}
                     </span>
                   ))}
@@ -256,21 +253,21 @@ export default function Services() {
 
             {/* Browser Window Side */}
             <div className={`lg:w-2/3 w-full ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
-              <div className="w-full rounded-2xl border border-white/10 bg-black/40 shadow-2xl overflow-hidden backdrop-blur-md hover:scale-[1.02] transition-transform duration-500">
+              <div className="w-full rounded-2xl border border-black/10 bg-black/40 shadow-2xl overflow-hidden backdrop-blur-md hover:scale-[1.02] transition-transform duration-500">
                 
                 {/* Mock Browser Header */}
-                <div className="bg-white/5 border-b border-white/10 px-4 py-3 flex items-center justify-between">
+                <div className="bg-black/5 border-b border-black/10 px-4 py-3 flex items-center justify-between">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
                     <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
                     <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
                   </div>
                   <div className="flex-1 flex justify-center px-4">
-                    <div className="bg-black/50 border border-white/10 rounded-md px-4 py-1 text-xs text-white/50 font-mono w-full max-w-sm flex items-center justify-center truncate">
+                    <div className="bg-black/10 border border-black/10 rounded-md px-4 py-1 text-xs text-black/50 font-mono w-full max-w-sm flex items-center justify-center truncate">
                       {study.url}
                     </div>
                   </div>
-                  <div className="flex gap-2 text-white/40">
+                  <div className="flex gap-2 text-black/50">
                     <Monitor size={14} />
                     <Smartphone size={14} className="hidden sm:block" />
                   </div>

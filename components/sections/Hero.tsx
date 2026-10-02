@@ -38,22 +38,13 @@ export default function Hero() {
             className="relative mb-12 group"
             style={{ willChange: 'transform' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-[40px] opacity-40 animate-pulse animation-delay-1000" />
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-primary-500/50 shadow-[0_0_50px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_50px_rgba(0,212,255,0.6)] transition-all duration-500">
-              <img
-                src="/media/circle-hoverphoto.png"
-                alt="Paramjit Singh - Python Developer & AI/ML Expert"
-                className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0"
-                loading="eager"
-                fetchPriority="high"
-                width="256"
-                height="256"
-              />
+            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_30px_rgba(0,0,0,0.15)] group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-700 bg-white">
               <img
                 src="/media/circle-photo.png"
                 alt="Paramjit Singh Profile"
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                loading="lazy"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                loading="eager"
+                fetchPriority="high"
                 width="256"
                 height="256"
               />

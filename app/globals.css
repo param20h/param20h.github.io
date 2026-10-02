@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 10, 10;
-  --background-end-rgb: 15, 52, 96;
+  --neo-bg: #e2e8f0; /* Crisp light gray/blue for excellent shadow contrast */
+  --neo-text: #1e293b; /* Slate 800 for high readability */
+  --neo-text-muted: #475569; /* Slate 600 for secondary text */
+  --neo-border: rgba(148, 163, 184, 0.2);
 }
 
 @layer utilities {
@@ -15,20 +16,21 @@
 }
 
 @layer base {
-  * {
-    border-color: rgba(255, 255, 255, 0.1);
-  }
   body {
-    @apply text-white;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%);
+    background-color: var(--neo-bg) !important;
+    background-image: none !important;
+    color: var(--neo-text) !important;
     font-feature-settings: "rlig" 1, "calt" 1;
-    /* Performance optimizations */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
   
-  /* GPU acceleration for animations */
+  /* Reset ALL borders to look clean */
+  * {
+    border-color: var(--neo-border) !important;
+  }
+
   [class*="motion-"],
   [class*="animate-"],
   .group:hover img,
@@ -39,77 +41,153 @@
     -webkit-backface-visibility: hidden;
   }
   
-  /* Reduce paint complexity */
   img {
     content-visibility: auto;
   }
+}
+
+/* =========================================
+   NEOMORPHISM UI OVERRIDES (THE SLEDGEHAMMER)
+   ========================================= */
+
+/* 1. Force all text to be dark, overriding any tailwind white utility */
+[class*="text-white"], 
+[class*="text-gray-400"], 
+[class*="text-gray-300"],
+[class*="text-white/"] {
+  color: var(--neo-text-muted) !important;
+}
+
+/* 2. Force all headers / active text to be the darkest slate */
+h1, h2, h3, h4, h5, h6, 
+[class*="text-white"]:not([class*="/"]) {
+  color: var(--neo-text) !important;
+}
+
+/* 3. Convert all dark/glass backgrounds to Neomorphic Surfaces */
+[class*="bg-black"], 
+[class*="bg-white/"], 
+[class*="bg-[#080811]"],
+[class*="bg-[#1a1a1a]"],
+.glassmorphism {
+  background: var(--neo-bg) !important;
+  box-shadow: 
+    8px 8px 16px rgba(163, 177, 198, 0.4), 
+    -8px -8px 16px rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: none !important;
+}
+
+/* 4. Soft inner shadow for "active" or "input" states (like the search bar) */
+input, textarea, 
+.shadow-inner,
+[class*="bg-black/60"] {
+  background: var(--neo-bg) !important;
+  box-shadow: 
+    inset 4px 4px 8px rgba(163, 177, 198, 0.5), 
+    inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 5. Clean up borders for the neomorphic look */
+[class*="border-white"], 
+[class*="border-gray"] {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 6. Fix gradients that look weird on white */
+[class*="bg-gradient-dark"] {
+  background: var(--neo-bg) !important;
+}
+
+/* 7. Hover states for cards/buttons */
+[class*="hover:-translate-y-2"]:hover,
+[class*="group"]:hover > [class*="bg-white/"] {
+  box-shadow: 
+    12px 12px 20px rgba(163, 177, 198, 0.5), 
+    -12px -12px 20px rgba(255, 255, 255, 0.9) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--neo-bg);
+  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.4);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d4ff, #ff6b6b);
+  background: #cbd5e1;
   border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff6b6b, #00d4ff);
+  background: #94a3b8;
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
-
-/* Glow effects */
-.glow-primary {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-}
-
-.glow-accent {
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-}
-
-/* Glassmorphism */
-.glassmorphism {
-  @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
-}
-
-/* Hide scrollbar for Chrome, Safari, and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-/* Hide scrollbar for IE, Edge, and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Text Selection */
 ::selection {
-  background: rgba(0, 212, 255, 0.3);
-  color: #fff;
+  background: rgba(148, 163, 184, 0.3);
+  color: #0f172a;
 }
 
-/* Gradient text */
 .gradient-text {
-  @apply bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-slate-600 via-slate-800 to-slate-600 bg-clip-text text-transparent;
   background-size: 200% auto;
   animation: gradient-shift 3s ease infinite;
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* 8. Neutralize colorful icons/accents to match Neomorphism */
+[class*="text-primary-"],
+[class*="text-accent-"] {
+  color: #1e293b !important; /* Soft blue for all accents */
+}
+
+/* 9. Fix GitHub streak SVG circles */
+svg circle[stroke] {
+  stroke: #1e293b !important;
+}
+svg circle[stroke="#e5e7eb"],
+svg circle[stroke="rgba(255,255,255,0.1)"] {
+  stroke: rgba(148, 163, 184, 0.3) !important;
+}
+
+/* 10. Override colorful gradients (like the Buy me a coffee button) */
+[class*="bg-gradient-to-r"] {
+  background: var(--neo-bg) !important;
+  box-shadow: 
+    6px 6px 12px rgba(163, 177, 198, 0.4), 
+    -6px -6px 12px rgba(255, 255, 255, 0.8) !important;
+  color: var(--neo-text) !important;
+}
+
+/* 11. Specifically fix the background for the active tab highlighting in the projects section */
+[class*="bg-primary-"], 
+[class*="bg-accent-"] {
+  background: #1e293b !important;
+  color: white !important;
+}
+
+/* Fix any stray white texts */
+p, span, div, a {
+  text-shadow: none !important;
+}
+
+/* Force ALL placeholders to be dark regardless of Tailwind JIT cache */
+input::placeholder, textarea::placeholder {
+  color: rgba(0, 0, 0, 0.7) !important;
+  opacity: 1 !important;
 }

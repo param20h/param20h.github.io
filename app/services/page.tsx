@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
     return (
-        <main className="relative min-h-screen overflow-x-hidden pt-24 bg-black">
+        <main className="relative min-h-screen overflow-x-hidden pt-24 ">
             <BackgroundEffects />
             <Navigation />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

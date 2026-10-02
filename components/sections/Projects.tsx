@@ -123,7 +123,7 @@ export default function Projects() {
   // Helper to get color code for file icons based on project type
   const getFileIconColor = (project: Project) => {
     const isFeatured = FEATURED_TITLES.includes(project.title);
-    return isFeatured ? "text-accent-400" : "text-primary-400";
+    return isFeatured ? "text-black font-bold" : "text-primary-400";
   };
 
   // Get project display name for tabs (truncated)
@@ -136,8 +136,6 @@ export default function Projects() {
     <Section id="projects" title="Featured Projects Workspace" className="bg-white/5 relative">
       
       {/* Background glow effects */}
-      <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-primary-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-1/4 w-[250px] h-[250px] bg-accent-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       {/* Main IDE Glass Container (Desktop only) */}
       <div className="hidden md:flex w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden min-h-[600px] flex-col font-sans">
@@ -149,7 +147,7 @@ export default function Projects() {
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
             <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
           </div>
-          <div className="text-xs text-white/40 font-mono tracking-wider flex items-center gap-2">
+          <div className="text-xs text-black/70 font-mono tracking-wider flex items-center gap-2">
             <Terminal size={12} className="text-primary-400 animate-pulse" />
             projects_workspace — param20h.github.io
           </div>
@@ -162,7 +160,7 @@ export default function Projects() {
           {/* MOBILE SIDEBAR TOGGLE */}
           <button
             onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
-            className="md:hidden absolute top-4 left-4 z-30 p-2 rounded-lg bg-black/70 border border-white/10 text-white/70 hover:text-white"
+            className="md:hidden absolute top-4 left-4 z-30 p-2 rounded-lg bg-black/70 border border-white/10 text-black/80 hover:text-black"
           >
             {isMobileSidebarOpen ? <ArrowLeft size={18} /> : <Menu size={18} />}
           </button>
@@ -177,24 +175,24 @@ export default function Projects() {
           >
             {/* Explorer Title & Search */}
             <div className="p-4 border-b border-white/10 bg-black/10">
-              <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3 font-mono">
+              <p className="text-xs font-bold text-black/60 uppercase tracking-wider mb-3 font-mono">
                 Project Explorer
               </p>
               
               {/* Search input */}
               <div className="relative">
-                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-black/70" />
                 <input
                   type="text"
                   placeholder="Search projects or tech..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-1.5 bg-black/60 border border-white/10 rounded-lg text-xs text-white placeholder-white/30 focus:outline-none focus:border-primary-500/50 transition font-mono"
+                  className="w-full pl-9 pr-4 py-1.5 bg-black/60 border border-white/10 rounded-lg text-xs text-black placeholder-black/40 focus:outline-none focus:border-primary-500/50 transition font-mono"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-black/70 hover:text-black"
                   >
                     <X size={12} />
                   </button>
@@ -203,7 +201,7 @@ export default function Projects() {
             </div>
 
             {/* Folder Navigation Directory Tree */}
-            <div className="flex-1 overflow-y-auto p-2 font-mono text-xs text-white/70 select-none">
+            <div className="flex-1 overflow-y-auto p-2 font-mono text-xs text-black/80 select-none">
               
               {/* FEATURED PROJECTS FOLDER */}
               <div className="mb-2">
@@ -217,10 +215,10 @@ export default function Projects() {
                   ) : (
                     <Folder size={14} className="text-accent-500/80 fill-accent-500/20" />
                   )}
-                  <span className="font-semibold text-white/90 group-hover:text-accent-400">
+                  <span className="font-semibold text-black/90 group-hover:text-black font-bold">
                     Featured
                   </span>
-                  <span className="text-[10px] text-white/30 ml-auto font-sans">
+                  <span className="text-[10px] text-black/70 ml-auto font-sans">
                     ({filteredFeatured.length})
                   </span>
                 </button>
@@ -235,8 +233,8 @@ export default function Projects() {
                           onClick={() => handleOpenProject(p.title)}
                           className={`flex items-center gap-2 w-full px-2.5 py-1.5 rounded transition text-left ${
                             isActive
-                              ? "bg-accent-500/10 text-accent-400 font-bold border-l-2 border-accent-500"
-                              : "hover:bg-white/5 text-white/75 hover:text-white"
+                              ? "bg-accent-500/10 text-black font-bold font-bold border-l-2 border-accent-500"
+                              : "hover:bg-white/5 text-black/80 hover:text-black"
                           }`}
                         >
                           <FileCode size={14} className={getFileIconColor(p)} />
@@ -245,7 +243,7 @@ export default function Projects() {
                       );
                     })}
                     {filteredFeatured.length === 0 && (
-                      <p className="text-[10px] text-white/30 pl-6 py-1 italic">
+                      <p className="text-[10px] text-black/70 pl-6 py-1 italic">
                         No matches found
                       </p>
                     )}
@@ -265,10 +263,10 @@ export default function Projects() {
                   ) : (
                     <Folder size={14} className="text-primary-500/80 fill-primary-500/20" />
                   )}
-                  <span className="font-semibold text-white/90 group-hover:text-primary-400">
+                  <span className="font-semibold text-black/90 group-hover:text-primary-400">
                     Creations
                   </span>
-                  <span className="text-[10px] text-white/30 ml-auto font-sans">
+                  <span className="text-[10px] text-black/70 ml-auto font-sans">
                     ({filteredOthers.length})
                   </span>
                 </button>
@@ -284,7 +282,7 @@ export default function Projects() {
                           className={`flex items-center gap-2 w-full px-2.5 py-1.5 rounded transition text-left ${
                             isActive
                               ? "bg-primary-500/10 text-primary-400 font-bold border-l-2 border-primary-500"
-                              : "hover:bg-white/5 text-white/75 hover:text-white"
+                              : "hover:bg-white/5 text-black/80 hover:text-black"
                           }`}
                         >
                           <FileCode size={14} className={getFileIconColor(p)} />
@@ -293,7 +291,7 @@ export default function Projects() {
                       );
                     })}
                     {filteredOthers.length === 0 && (
-                      <p className="text-[10px] text-white/30 pl-6 py-1 italic">
+                      <p className="text-[10px] text-black/70 pl-6 py-1 italic">
                         No matches found
                       </p>
                     )}
@@ -322,8 +320,8 @@ export default function Projects() {
                       flex items-center gap-2 px-4 py-2.5 border-r border-white/10 text-xs font-mono cursor-pointer transition shrink-0
                       ${
                         isActive
-                          ? `bg-[#080811]/90 ${isFeatured ? "text-accent-400 border-t-2 border-t-accent-500" : "text-primary-400 border-t-2 border-t-primary-500"} font-bold`
-                          : "bg-black/10 text-white/40 hover:text-white/70 hover:bg-black/20"
+                          ? `bg-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] text-black font-bold border-l-4 border-l-black`
+                          : "bg-black/10 text-black/70 hover:text-black/80 hover:bg-black/20"
                       }
                     `}
                   >
@@ -331,7 +329,7 @@ export default function Projects() {
                     <span>{getTabDisplayName(tabTitle)}</span>
                     <button
                       onClick={(e) => handleCloseTab(e, tabTitle)}
-                      className="ml-1.5 p-0.5 rounded-full hover:bg-white/10 text-white/30 hover:text-white transition"
+                      className="ml-1.5 p-0.5 rounded-full hover:bg-white/10 text-black/70 hover:text-black transition"
                     >
                       <X size={10} />
                     </button>
@@ -339,7 +337,7 @@ export default function Projects() {
                 );
               })}
               {openTabs.length === 0 && (
-                <div className="px-4 py-2.5 text-xs text-white/30 font-mono italic">
+                <div className="px-4 py-2.5 text-xs text-black/70 font-mono italic">
                   No active tabs open
                 </div>
               )}
@@ -362,12 +360,12 @@ export default function Projects() {
                       <div>
                         <div className="flex flex-wrap items-center gap-2.5 mb-2">
                           {activeProject.status === "live" && (
-                            <span className="bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-black text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
                               LIVE
                             </span>
                           )}
                           {activeProject.status === "research" && (
-                            <span className="bg-purple-500/20 text-purple-400 border border-purple-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-purple-500/20 text-black/70 italic border border-purple-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
                               RESEARCH
                             </span>
                           )}
@@ -377,12 +375,12 @@ export default function Projects() {
                             </span>
                           )}
                           {activeProject.tags?.includes("open-source") && (
-                            <span className="bg-orange-500/20 text-orange-300 border border-orange-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-white text-black border border-black/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
                               OPEN SOURCE
                             </span>
                           )}
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-black tracking-tight">
                           {activeProject.title}
                         </h2>
                       </div>
@@ -394,7 +392,7 @@ export default function Projects() {
                             href={activeProject.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl text-xs font-semibold transition duration-200"
+                            className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-black border border-white/10 rounded-xl text-xs font-semibold transition duration-200"
                           >
                             <Github size={14} />
                             Code Base
@@ -405,7 +403,7 @@ export default function Projects() {
                             href={activeProject.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 hover:opacity-90 text-white rounded-xl text-xs font-bold shadow-[0_0_15px_rgba(0,212,255,0.25)] transition duration-200"
+                            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 hover:opacity-90 text-black rounded-xl text-xs font-bold shadow-[0_0_15px_rgba(0,212,255,0.25)] transition duration-200"
                           >
                             <ExternalLink size={14} />
                             Live Demo
@@ -420,23 +418,23 @@ export default function Projects() {
                       {/* Left Block: Description & Tech Stack */}
                       <div className="lg:col-span-7 flex flex-col gap-6">
                         <div>
-                          <h4 className="text-xs font-bold uppercase text-white/40 tracking-wider mb-2.5 font-mono">
+                          <h4 className="text-xs font-bold uppercase text-black/70 tracking-wider mb-2.5 font-mono">
                             {"// Project Description"}
                           </h4>
-                          <p className="text-white/80 leading-relaxed text-sm md:text-base whitespace-pre-line bg-white/5 p-4 rounded-xl border border-white/5">
+                          <p className="text-black/80 leading-relaxed text-sm md:text-base whitespace-pre-line bg-white/5 p-4 rounded-xl border border-white/5">
                             {activeProject.description}
                           </p>
                         </div>
 
                         <div>
-                          <h4 className="text-xs font-bold uppercase text-white/40 tracking-wider mb-3 font-mono">
+                          <h4 className="text-xs font-bold uppercase text-black/70 tracking-wider mb-3 font-mono">
                             {"// Tech Stack & Tooling"}
                           </h4>
                           <div className="flex flex-wrap gap-2.5">
                             {activeProject.tech.map((t) => (
                               <span
                                 key={t}
-                                className="px-3 py-1.5 bg-primary-500/10 text-primary-400 rounded-lg text-xs font-semibold border border-primary-500/20"
+                                className="px-3 py-1.5 bg-white text-black rounded-full text-xs font-semibold border border-black/20 shadow-sm"
                               >
                                 {t}
                               </span>
@@ -449,37 +447,37 @@ export default function Projects() {
                       <div className="lg:col-span-5 flex flex-col gap-6">
                         <div className="w-full rounded-xl border border-white/5 bg-black/40 overflow-hidden shadow-inner font-mono text-[11px] md:text-xs">
                           {/* File header */}
-                          <div className="bg-black/50 px-4 py-2 text-white/40 border-b border-white/5 flex items-center justify-between">
+                          <div className="bg-black/50 px-4 py-2 text-black/70 border-b border-white/5 flex items-center justify-between">
                             <span>meta_info.json</span>
                             <Code size={12} />
                           </div>
                           
                           {/* Code Lines layout */}
-                          <div className="p-4 space-y-1.5 text-white/80 leading-5">
-                            <div><span className="text-white/20 select-none mr-4">01</span>{"{"}</div>
-                            <div><span className="text-white/20 select-none mr-4">02</span>  <span className="text-accent-400">{"\"project_name\""}</span>: <span className="text-green-300">{"\""}{activeProject.title.split(" — ")[0].split(" - ")[0]}{"\""}</span>,</div>
-                            <div><span className="text-white/20 select-none mr-4">03</span>  <span className="text-accent-400">{"\"status\""}</span>: <span className="text-green-300">{"\""}{activeProject.status || "live"}{"\""}</span>,</div>
-                            <div><span className="text-white/20 select-none mr-4">04</span>  <span className="text-accent-400">{"\"open_source\""}</span>: <span className="text-purple-400">{activeProject.tags?.includes("open-source") ? "true" : "false"}</span>,</div>
-                            <div><span className="text-white/20 select-none mr-4">05</span>  <span className="text-accent-400">{"\"core_technologies\""}</span>: [</div>
+                          <div className="p-4 space-y-1.5 text-black/80 leading-5">
+                            <div><span className="text-black/20 select-none mr-4">01</span>{"{"}</div>
+                            <div><span className="text-black/20 select-none mr-4">02</span>  <span className="text-black font-bold">{"\"project_name\""}</span>: <span className="text-black/70">{"\""}{activeProject.title.split(" — ")[0].split(" - ")[0]}{"\""}</span>,</div>
+                            <div><span className="text-black/20 select-none mr-4">03</span>  <span className="text-black font-bold">{"\"status\""}</span>: <span className="text-black/70">{"\""}{activeProject.status || "live"}{"\""}</span>,</div>
+                            <div><span className="text-black/20 select-none mr-4">04</span>  <span className="text-black font-bold">{"\"open_source\""}</span>: <span className="text-black/70 italic">{activeProject.tags?.includes("open-source") ? "true" : "false"}</span>,</div>
+                            <div><span className="text-black/20 select-none mr-4">05</span>  <span className="text-black font-bold">{"\"core_technologies\""}</span>: [</div>
                             {activeProject.tech.slice(0, 3).map((tech, idx, arr) => (
                               <div key={tech}>
-                                <span className="text-white/20 select-none mr-4">{`0${6 + idx}`}</span>
-                                {"    "}<span className="text-green-300">{"\""}{tech}{"\""}</span>{idx < arr.length - 1 ? "," : ""}
+                                <span className="text-black/20 select-none mr-4">{`0${6 + idx}`}</span>
+                                {"    "}<span className="text-black/70">{"\""}{tech}{"\""}</span>{idx < arr.length - 1 ? "," : ""}
                               </div>
                             ))}
-                            <div><span className="text-white/20 select-none mr-4">09</span>  ],</div>
-                            <div><span className="text-white/20 select-none mr-4">10</span>  <span className="text-accent-400">{"\"repository_configured\""}</span>: <span className="text-purple-400">{activeProject.githubUrl ? "true" : "false"}</span></div>
-                            <div><span className="text-white/20 select-none mr-4">11</span>{"}"}</div>
+                            <div><span className="text-black/20 select-none mr-4">09</span>  ],</div>
+                            <div><span className="text-black/20 select-none mr-4">10</span>  <span className="text-black font-bold">{"\"repository_configured\""}</span>: <span className="text-black/70 italic">{activeProject.githubUrl ? "true" : "false"}</span></div>
+                            <div><span className="text-black/20 select-none mr-4">11</span>{"}"}</div>
                           </div>
                         </div>
 
                         {/* Interactive Project Core Highlights */}
                         <div className="bg-gradient-to-br from-primary-500/5 to-accent-500/5 rounded-xl border border-white/5 p-4 flex flex-col justify-center">
-                          <div className="flex items-center gap-3 mb-2 text-white font-bold text-sm">
+                          <div className="flex items-center gap-3 mb-2 text-black font-bold text-sm">
                             <Sparkles size={16} className="text-primary-400" />
                             <span>Quick Insights</span>
                           </div>
-                          <p className="text-xs text-white/60 leading-relaxed font-sans">
+                          <p className="text-xs text-black/70 leading-relaxed font-sans">
                             This project showcases hands-on expertise in building structured {activeProject.tech.slice(0, 2).join(" & ")} architectures, aiming to deliver scalable results with clean developer interfaces.
                           </p>
                         </div>
@@ -500,31 +498,31 @@ export default function Projects() {
                       <Terminal size={32} />
                     </div>
                     
-                    <h3 className="text-lg font-bold text-white mb-2">
+                    <h3 className="text-lg font-bold text-black mb-2">
                       Workspace Dashboard
                     </h3>
                     
-                    <p className="text-xs text-white/40 max-w-sm leading-relaxed mb-6 font-sans">
+                    <p className="text-xs text-black/70 max-w-sm leading-relaxed mb-6 font-sans">
                       Select a file from the explorer sidebar, search a tech keyword, or expand the directories to read project logs.
                     </p>
 
                     {/* Stats or shortcut hints */}
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-lg w-full mt-4 font-sans text-left">
                       <div className="p-4 bg-white/5 border border-white/5 rounded-xl text-center">
-                        <p className="text-2xl font-black text-white">{projects.length}</p>
-                        <p className="text-[10px] font-bold text-white/30 uppercase tracking-wider mt-1">
+                        <p className="text-2xl font-black text-black">{projects.length}</p>
+                        <p className="text-[10px] font-bold text-black/70 uppercase tracking-wider mt-1">
                           Total Projects
                         </p>
                       </div>
                       <div className="p-4 bg-white/5 border border-white/5 rounded-xl text-center">
-                        <p className="text-2xl font-black text-white">3</p>
-                        <p className="text-[10px] font-bold text-white/30 uppercase tracking-wider mt-1">
+                        <p className="text-2xl font-black text-black">3</p>
+                        <p className="text-[10px] font-bold text-black/70 uppercase tracking-wider mt-1">
                           Featured
                         </p>
                       </div>
                       <div className="p-4 bg-white/5 border border-white/5 rounded-xl text-center col-span-2 md:col-span-1">
-                        <p className="text-2xl font-black text-white">93%</p>
-                        <p className="text-[10px] font-bold text-white/30 uppercase tracking-wider mt-1">
+                        <p className="text-2xl font-black text-black">93%</p>
+                        <p className="text-[10px] font-bold text-black/70 uppercase tracking-wider mt-1">
                           Open Source
                         </p>
                       </div>
@@ -549,8 +547,8 @@ export default function Projects() {
             onClick={() => setActiveCategoryMobile("featured")}
             className={`flex-grow py-2.5 text-xs font-mono font-bold rounded-xl transition-all ${
               activeCategoryMobile === "featured"
-                ? "bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-[0_0_15px_rgba(0,212,255,0.2)]"
-                : "text-white/60 hover:text-white"
+                ? "bg-gradient-to-r from-primary-500 to-accent-500 text-black shadow-[0_0_15px_rgba(0,212,255,0.2)]"
+                : "text-black/70 hover:text-black"
             }`}
           >
             Featured ({featuredProjects.length})
@@ -559,8 +557,8 @@ export default function Projects() {
             onClick={() => setActiveCategoryMobile("creations")}
             className={`flex-grow py-2.5 text-xs font-mono font-bold rounded-xl transition-all ${
               activeCategoryMobile === "creations"
-                ? "bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-[0_0_15px_rgba(0,212,255,0.2)]"
-                : "text-white/60 hover:text-white"
+                ? "bg-gradient-to-r from-primary-500 to-accent-500 text-black shadow-[0_0_15px_rgba(0,212,255,0.2)]"
+                : "text-black/70 hover:text-black"
             }`}
           >
             Creations ({otherProjects.length})
@@ -587,16 +585,16 @@ export default function Projects() {
                   <div className="flex-1 min-w-0 pr-4">
                     <span className={`text-[9px] font-bold font-mono tracking-wider px-2.5 py-0.5 rounded-full border mb-2 inline-block ${
                       activeCategoryMobile === "featured" 
-                        ? "bg-accent-500/10 text-accent-400 border-accent-500/20" 
+                        ? "bg-accent-500/10 text-black font-bold border-accent-500/20" 
                         : "bg-primary-500/10 text-primary-400 border-primary-500/20"
                     }`}>
                       {p.status?.toUpperCase() || "LIVE"}
                     </span>
-                    <h3 className="text-base font-bold text-white truncate font-sans">
+                    <h3 className="text-base font-bold text-black truncate font-sans">
                       {p.title.split(" — ")[0].split(" - ")[0]}
                     </h3>
                   </div>
-                  <div className="text-white/40 shrink-0">
+                  <div className="text-black/70 shrink-0">
                     {isExpanded ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                   </div>
                 </div>
@@ -604,7 +602,7 @@ export default function Projects() {
                 {/* Expanded content */}
                 {isExpanded && (
                   <div className="border-t border-white/5 bg-black/10 p-5 space-y-4">
-                    <p className="text-xs text-white/70 leading-relaxed font-sans">
+                    <p className="text-xs text-black/80 leading-relaxed font-sans">
                       {p.description}
                     </p>
 
@@ -613,7 +611,7 @@ export default function Projects() {
                       {p.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-2.5 py-1 bg-primary-500/5 text-primary-400 rounded-lg text-[10px] font-semibold border border-primary-500/15"
+                          className="px-2.5 py-1 bg-white text-black rounded-full text-[10px] font-semibold border border-black/20 shadow-sm"
                         >
                           {t}
                         </span>
@@ -627,7 +625,7 @@ export default function Projects() {
                           href={p.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs font-semibold text-white transition hover:bg-white/10"
+                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs font-semibold text-black transition hover:bg-white/10"
                         >
                           <Github size={13} />
                           Code
@@ -638,7 +636,7 @@ export default function Projects() {
                           href={p.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl text-xs font-bold shadow-[0_0_10px_rgba(0,212,255,0.15)] transition"
+                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 text-black rounded-xl text-xs font-bold shadow-[0_0_10px_rgba(0,212,255,0.15)] transition"
                         >
                           <ExternalLink size={13} />
                           Demo

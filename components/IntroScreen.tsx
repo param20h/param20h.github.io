@@ -30,7 +30,7 @@ export default function IntroScreen() {
           initial={{ opacity: 1, filter: "blur(0px)" }}
           exit={{ opacity: 0, filter: "blur(20px)" }}
           transition={{ duration: 1.1, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-neo-bg flex items-center justify-center overflow-hidden"
         >
           {/* The animated SVG centered */}
           <motion.img

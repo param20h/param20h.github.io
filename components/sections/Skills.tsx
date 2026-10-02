@@ -114,13 +114,13 @@ export default function Skills() {
                           role="img"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="w-5 h-5 fill-white/40 group-hover:fill-[var(--brand-color)] group-hover:drop-shadow-[0_0_8px_var(--brand-color)] transition-all duration-300"
+                          className="w-5 h-5 fill-[var(--brand-color)] transition-all duration-300"
                         >
                           <title>{iconData.title}</title>
                           <path d={iconData.path} />
                         </svg>
                       ) : (
-                        <span className="text-[10px] text-white/50 group-hover:text-white transition-colors uppercase font-bold">
+                        <span className="text-[10px] text-black/60 group-hover:text-black transition-colors uppercase font-bold">
                           {skill.name.substring(0, 2)}
                         </span>
                       )}

@@ -90,7 +90,7 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <h3 className="text-3xl font-bold mb-6 gradient-text">Get In Touch</h3>
-          <p className="text-white/80 text-lg mb-8 leading-relaxed">
+          <p className="text-black/80 text-lg mb-8 leading-relaxed">
             I&apos;m always interested in new opportunities and exciting projects. Let&apos;s discuss how
             we can work together!
           </p>
@@ -98,13 +98,13 @@ export default function Contact() {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-primary-500/20 rounded-full flex items-center justify-center">
-                <Mail className="text-primary-400" size={20} />
+                <Mail color="white" size={20} />
               </div>
               <div>
-                <div className="text-sm text-white/60">Email</div>
+                <div className="text-sm text-black/60">Email</div>
                 <a
                   href="mailto:parambrar862@gmail.com"
-                  className="text-white hover:text-primary-400 transition-colors"
+                  className="text-black hover:text-primary-400 transition-colors"
                 >
                   parambrar862@gmail.com
                 </a>
@@ -113,11 +113,11 @@ export default function Contact() {
 
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-primary-500/20 rounded-full flex items-center justify-center">
-                <MapPin className="text-primary-400" size={20} />
+                <MapPin color="white" size={20} />
               </div>
               <div>
-                <div className="text-sm text-white/60">Location</div>
-                <div className="text-white">Available for Remote Work</div>
+                <div className="text-sm text-black/60">Location</div>
+                <div className="text-black">Available for Remote Work</div>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-black placeholder:text-black/60 focus:outline-none focus:border-primary-500 transition-colors"
                 />
               </div>
 
@@ -151,7 +151,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-black placeholder:text-black/60 focus:outline-none focus:border-primary-500 transition-colors"
                 />
               </div>
 
@@ -163,7 +163,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-primary-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-black placeholder:text-black/60 focus:outline-none focus:border-primary-500 transition-colors resize-none"
                 />
               </div>
 

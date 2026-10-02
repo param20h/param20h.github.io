@@ -237,7 +237,7 @@ export default function GitHubStats() {
           </h3>
           <Card className="p-4 flex items-center justify-center h-full bg-black/40 backdrop-blur-xl border-white/10 min-h-[260px]">
             <img
-              src={`https://streak-stats.demolab.com?user=${username}&theme=dracula&hide_border=true&background=00000000&ring=00d4ff&fire=ff6b6b&currStreakLabel=00d4ff&sideLabels=ffffff&currStreakNum=ffffff&sideNums=ffffff&dates=ffffff`}
+              src={`https://streak-stats.demolab.com?user=${username}&theme=default&hide_border=true&background=00000000&ring=00BFFF&fire=FF4500&currStreakLabel=00BFFF&sideLabels=000000&currStreakNum=00BFFF&sideNums=000000&dates=000000`}
               alt="GitHub Streak"
               className="w-full h-auto max-h-[190px] object-contain"
               loading="lazy"

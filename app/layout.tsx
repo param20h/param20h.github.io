@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import IntroScreen from "@/components/IntroScreen";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -285,6 +284,8 @@ const jsonLd = {
   ],
 };
 
+import Background3D from "@/components/Background3D";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -299,7 +300,7 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.className}>
-        <IntroScreen />
+        <Background3D />
         {children}
       </body>
     </html>
