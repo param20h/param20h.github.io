@@ -3,9 +3,6 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches: [white-neomorphism-ui]
-  schedule:
-    # Runs every day at 00:00 UTC for fresh data
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
