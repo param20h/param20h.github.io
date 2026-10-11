@@ -41,9 +41,12 @@ const config: Config = {
         },
       },
       boxShadow: {
-        'neo-out': '9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.7)',
-        'neo-in': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
-        'neo-hover': '12px 12px 20px rgba(163,177,198,0.7), -12px -12px 20px rgba(255,255,255, 0.8)',
+        'neo-out': '12px 12px 24px rgba(163, 177, 198, 0.55), -12px -12px 24px rgba(255, 255, 255, 0.95)',
+        'neo-sm': '5px 5px 12px rgba(163, 177, 198, 0.5), -5px -5px 12px rgba(255, 255, 255, 0.95)',
+        'neo-in': 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.95)',
+        'neo-in-sm': 'inset 2px 2px 5px rgba(163, 177, 198, 0.6), inset -2px -2px 5px rgba(255, 255, 255, 0.95)',
+        'neo-hover': '16px 16px 32px rgba(163, 177, 198, 0.65), -16px -16px 32px rgba(255, 255, 255, 1)',
+        'neo-dark': '6px 6px 14px rgba(163, 177, 198, 0.6), -4px -4px 10px rgba(255, 255, 255, 0.85)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

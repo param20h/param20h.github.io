@@ -26,9 +26,9 @@
     text-rendering: optimizeLegibility;
   }
   
-  /* Reset ALL borders to look clean */
+  /* Subtle ambient highlight for borders where explicitly requested */
   * {
-    border-color: var(--neo-border) !important;
+    border-color: rgba(255, 255, 255, 0.35);
   }
 
   [class*="motion-"],
@@ -50,18 +50,25 @@
    NEOMORPHISM UI OVERRIDES (THE SLEDGEHAMMER)
    ========================================= */
 
-/* 1. Force all text to be dark, overriding any tailwind white utility */
-[class*="text-white"], 
+/* 1. Force general body text to be dark, overriding tailwind white utilities on light backgrounds */
+[class*="text-white"]:not([class*="bg-slate-"]):not([class*="bg-black"]):not(button):not(a), 
 [class*="text-gray-400"], 
 [class*="text-gray-300"],
-[class*="text-white/"] {
+[class*="text-white/"]:not([class*="bg-slate-"]):not([class*="bg-black"]):not(button):not(a) {
   color: var(--neo-text-muted) !important;
 }
 
-/* 2. Force all headers / active text to be the darkest slate */
-h1, h2, h3, h4, h5, h6, 
-[class*="text-white"]:not([class*="/"]) {
+/* 2. Force all headers to be the darkest slate */
+h1, h2, h3, h4, h5, h6 {
   color: var(--neo-text) !important;
+}
+
+/* 2b. High-contrast text for molded dark slate buttons & chips */
+button[class*="bg-slate-"],
+button[class*="bg-black"],
+.bg-slate-900,
+[class*="bg-slate-900"] {
+  color: #ffffff !important;
 }
 
 /* 3. Convert all dark/glass backgrounds to Neomorphic Surfaces */
@@ -72,8 +79,8 @@ h1, h2, h3, h4, h5, h6,
 .glassmorphism {
   background: var(--neo-bg) !important;
   box-shadow: 
-    8px 8px 16px rgba(163, 177, 198, 0.4), 
-    -8px -8px 16px rgba(255, 255, 255, 0.8) !important;
+    12px 12px 24px rgba(163, 177, 198, 0.55), 
+    -12px -12px 24px rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: none !important;
 }
 
@@ -83,14 +90,16 @@ input, textarea,
 [class*="bg-black/60"] {
   background: var(--neo-bg) !important;
   box-shadow: 
-    inset 4px 4px 8px rgba(163, 177, 198, 0.5), 
-    inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+    inset 4px 4px 8px rgba(163, 177, 198, 0.6), 
+    inset -4px -4px 8px rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* 5. Clean up borders for the neomorphic look */
+/* 5. Clean up borders for the neomorphic look - subtle rim highlights */
 [class*="border-white"], 
-[class*="border-gray"] {
-  border-color: rgba(255, 255, 255, 0.4) !important;
+[class*="border-gray"],
+[class*="border-black/"] {
+  border-color: rgba(255, 255, 255, 0.45) !important;
 }
 
 /* 6. Fix gradients that look weird on white */
@@ -102,9 +111,39 @@ input, textarea,
 [class*="hover:-translate-y-2"]:hover,
 [class*="group"]:hover > [class*="bg-white/"] {
   box-shadow: 
-    12px 12px 20px rgba(163, 177, 198, 0.5), 
-    -12px -12px 20px rgba(255, 255, 255, 0.9) !important;
-  transform: translateY(-2px) !important;
+    16px 16px 30px rgba(163, 177, 198, 0.65), 
+    -16px -16px 30px rgba(255, 255, 255, 1) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Neumorphic Core Utility Classes */
+.neo-card {
+  background: var(--neo-bg);
+  box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.55), -12px -12px 24px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.neo-pill {
+  background: var(--neo-bg);
+  box-shadow: 4px 4px 10px rgba(163, 177, 198, 0.5), -4px -4px 10px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.neo-pill:hover {
+  box-shadow: inset 2px 2px 5px rgba(163, 177, 198, 0.6), inset -2px -2px 5px rgba(255, 255, 255, 0.95);
+}
+
+.neo-inset {
+  background: var(--neo-bg);
+  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.neo-circle {
+  border-radius: 9999px;
+  background: var(--neo-bg);
+  box-shadow: 5px 5px 12px rgba(163, 177, 198, 0.5), -5px -5px 12px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 /* Custom Scrollbar */

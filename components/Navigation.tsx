@@ -85,8 +85,8 @@ export default function Navigation() {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={`pointer-events-auto transition-all duration-500 rounded-full border border-white/5 backdrop-blur-sm bg-white/[0.01] shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)] w-fit mx-auto ${
-            isScrolled ? "py-2 px-6 scale-95" : "py-3 px-8 scale-100"
+          className={`pointer-events-auto transition-all duration-500 rounded-full bg-[#e2e8f0] shadow-[8px_8px_18px_rgba(163,177,198,0.55),-8px_-8px_18px_rgba(255,255,255,0.95)] border border-white/60 w-fit mx-auto ${
+            isScrolled ? "py-2 px-6 scale-95" : "py-2.5 px-8 scale-100"
           }`}
         >
           <div className="flex items-center justify-center">
@@ -95,17 +95,17 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-black/70 hover:text-black transition-colors font-medium text-sm relative group"
+                  className="text-slate-700 hover:text-black transition-colors font-semibold text-sm relative group"
                 >
-                  <motion.span whileHover={{ y: -2 }} className="inline-block">
+                  <motion.span whileHover={{ y: -1 }} className="inline-block">
                     {item.name}
                   </motion.span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}
               <Link
                 href="/resume"
-                className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-xs font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all text-black"
+                className="px-5 py-1.5 bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] rounded-full text-xs font-bold text-slate-800 hover:shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] transition-all border border-white/40"
               >
                 Resume
               </Link>
@@ -120,9 +120,9 @@ export default function Navigation() {
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="w-full max-w-[300px] pointer-events-auto"
+          className="w-full max-w-[320px] pointer-events-auto"
         >
-          <div className="flex items-center justify-around rounded-full border border-white/5 backdrop-blur-sm bg-white/[0.01] py-1 px-2 shadow-[0_8px_32px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)]">
+          <div className="flex items-center justify-around rounded-full bg-[#e2e8f0] py-1.5 px-3 shadow-[8px_8px_18px_rgba(163,177,198,0.55),-8px_-8px_18px_rgba(255,255,255,0.95)] border border-white/60">
             {mobileNavItems.map((item) => {
               const isActive = activeSection === item.id;
               return (

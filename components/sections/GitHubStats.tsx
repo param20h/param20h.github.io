@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
-import { GitFork, Star, Users, BookOpen } from "lucide-react";
+import { GitFork, Star, Users, BookOpen, Github, Flame } from "lucide-react";
 import type { GitHubStats as Stats, GitHubRepo } from "@/types";
 
 interface LeetCodeStats {
@@ -16,6 +16,12 @@ interface LeetCodeStats {
   acceptanceRate: number;
 }
 
+interface StreakStats {
+  totalContributions: number;
+  currentStreak: number;
+  longestStreak: number;
+}
+
 export default function GitHubStats() {
   const [stats, setStats] = useState<Stats>({
     repos: 0,
@@ -25,6 +31,13 @@ export default function GitHubStats() {
   });
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // GitHub Streak State
+  const [streak, setStreak] = useState<StreakStats>({
+    totalContributions: 2672,
+    currentStreak: 1,
+    longestStreak: 405,
+  });
 
   // LeetCode Stats State
   // LeetCode Stats State
@@ -43,7 +56,28 @@ export default function GitHubStats() {
   useEffect(() => {
     fetchGitHubData();
     fetchLeetCodeData();
+    fetchStreakData();
   }, []);
+
+  const fetchStreakData = async () => {
+    try {
+      const res = await fetch(`https://streak-stats.demolab.com?user=${username}`, { cache: "no-store" });
+      if (res.ok) {
+        const svg = await res.text();
+        const totalMatch = svg.match(/Total Contributions[\s\S]*?<text[^>]*>([0-9,]+)<\/text>/i);
+        const currentMatch = svg.match(/Current Streak[\s\S]*?<text[^>]*>([0-9,]+)<\/text>/i);
+        const longestMatch = svg.match(/Longest Streak[\s\S]*?<text[^>]*>([0-9,]+)<\/text>/i);
+
+        setStreak({
+          totalContributions: totalMatch ? parseInt(totalMatch[1].replace(/,/g, ""), 10) : 2672,
+          currentStreak: currentMatch ? parseInt(currentMatch[1].replace(/,/g, ""), 10) : 1,
+          longestStreak: longestMatch ? parseInt(longestMatch[1].replace(/,/g, ""), 10) : 405,
+        });
+      }
+    } catch {
+      // Use fallback defaults
+    }
+  };
 
   const fetchGitHubData = async () => {
     try {
@@ -210,12 +244,12 @@ export default function GitHubStats() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
-            <Card className="text-center p-4 min-h-[120px] flex flex-col justify-center border-white/5 bg-black/25">
+            <Card className="text-center p-4 min-h-[120px] flex flex-col justify-center">
               <stat.icon className={`w-6 h-6 mx-auto mb-2 ${stat.color}`} />
-              <div className="text-2xl font-bold text-white mb-0.5">
+              <div className="text-2xl font-bold text-slate-800 mb-0.5">
                 {loading ? "--" : stat.value}
               </div>
-              <div className="text-white/45 text-[10px] uppercase tracking-wider">{stat.label}</div>
+              <div className="text-slate-500 text-[10px] uppercase tracking-wider font-semibold">{stat.label}</div>
             </Card>
           </motion.div>
         ))}
@@ -231,19 +265,133 @@ export default function GitHubStats() {
           viewport={{ once: true }}
           className="lg:col-span-6 flex flex-col"
         >
-          <h3 className="text-sm font-bold uppercase tracking-wider text-white/50 mb-3 font-mono flex items-center gap-2 pl-1">
-            <span className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-600 mb-3 font-mono flex items-center gap-2 pl-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-800 shadow-[inset_1px_1px_2px_rgba(0,0,0,0.4)]" />
             GitHub Commit Streak
           </h3>
-          <Card className="p-4 flex items-center justify-center h-full bg-black/40 backdrop-blur-xl border-white/10 min-h-[260px]">
-            <img
-              src={`https://streak-stats.demolab.com?user=${username}&theme=default&hide_border=true&background=00000000&ring=00BFFF&fire=FF4500&currStreakLabel=00BFFF&sideLabels=000000&currStreakNum=00BFFF&sideNums=000000&dates=000000`}
-              alt="GitHub Streak"
-              className="w-full h-auto max-h-[190px] object-contain"
-              loading="lazy"
-              width="800"
-              height="220"
-            />
+          <Card className="p-6 h-full flex flex-col justify-between min-h-[280px]">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/40">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-[#e2e8f0] shadow-[3px_3px_6px_rgba(163,177,198,0.5),-3px_-3px_6px_rgba(255,255,255,0.95)] flex items-center justify-center border border-white/60">
+                  <Github className="w-4 h-4 text-slate-800" />
+                </div>
+                <span className="font-extrabold text-slate-800 tracking-wide text-sm font-mono">github.com</span>
+              </div>
+              <a
+                href={`https://github.com/${username}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 bg-[#e2e8f0] rounded-full text-xs text-slate-700 hover:text-black font-mono font-bold shadow-[2px_2px_5px_rgba(163,177,198,0.5),-2px_-2px_5px_rgba(255,255,255,0.95)] hover:shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] transition-all flex items-center gap-1 border border-white/60"
+              >
+                u/{username} ↗
+              </a>
+            </div>
+
+            {/* Streak Progress Circles and Metrics */}
+            <div className="grid grid-cols-12 gap-5 items-center flex-grow">
+              {/* Left Column: Tactile Neumorphic Dial Meter */}
+              <div className="col-span-5 flex flex-col items-center justify-center">
+                <div className="relative w-28 h-28 rounded-full bg-[#e2e8f0] shadow-[inset_3px_3px_7px_rgba(163,177,198,0.6),inset_-3px_-3px_7px_rgba(255,255,255,0.95)] flex items-center justify-center p-2 border border-white/40">
+                  <svg className="absolute inset-0 w-full h-full transform -rotate-90 p-1.5">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      className="stroke-[rgba(163,177,198,0.25)] fill-transparent"
+                      strokeWidth="6"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      className="stroke-amber-500 fill-transparent transition-all duration-1000"
+                      strokeWidth="6"
+                      strokeLinecap="round"
+                      strokeDasharray="251"
+                      strokeDashoffset={251 - (251 * Math.min(streak.currentStreak, 30)) / 30}
+                    />
+                  </svg>
+                  {/* Center Extruded Dial Knob */}
+                  <div className="relative w-16 h-16 rounded-full bg-[#e2e8f0] shadow-[3px_3px_7px_rgba(163,177,198,0.55),-3px_-3px_7px_rgba(255,255,255,0.95)] flex flex-col items-center justify-center text-center border border-white/60">
+                    <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500 mb-0.5" />
+                    <span className="text-xl font-black text-slate-800 leading-none">
+                      {loading ? "--" : streak.currentStreak}
+                    </span>
+                    <span className="text-[7px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">
+                      Day Streak
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Tactile Sunken Sliders */}
+              <div className="col-span-7 space-y-3">
+                {/* Current Streak */}
+                <div>
+                  <div className="flex justify-between text-xs font-mono mb-1">
+                    <span className="text-amber-600 font-extrabold">Current Streak</span>
+                    <span className="text-slate-700 font-bold">
+                      {streak.currentStreak} <span className="text-slate-400 font-normal">/ Days</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
+                    <div
+                      className="h-full bg-amber-500 rounded-full transition-all duration-1000 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]"
+                      style={{ width: `${Math.min(100, Math.max(12, (streak.currentStreak / 30) * 100))}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Longest Streak */}
+                <div>
+                  <div className="flex justify-between text-xs font-mono mb-1">
+                    <span className="text-cyan-600 font-extrabold">Longest Streak</span>
+                    <span className="text-slate-700 font-bold">
+                      {streak.longestStreak} <span className="text-slate-400 font-normal">/ Days</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
+                    <div
+                      className="h-full bg-cyan-500 rounded-full transition-all duration-1000 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]"
+                      style={{ width: `${Math.min(100, (streak.longestStreak / 405) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Contributions */}
+                <div>
+                  <div className="flex justify-between text-xs font-mono mb-1">
+                    <span className="text-emerald-600 font-extrabold">Contributions</span>
+                    <span className="text-slate-700 font-bold">
+                      {streak.totalContributions.toLocaleString()} <span className="text-slate-400 font-normal">/ Total</span>
+                    </span>
+                  </div>
+                  <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
+                    <div
+                      className="h-full bg-emerald-500 rounded-full transition-all duration-1000 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]"
+                      style={{ width: "95%" }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Meta statistics footer: Tactile Sunken Dual Wells */}
+            <div className="grid grid-cols-2 gap-4 mt-6 pt-4 border-t border-white/40">
+              <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
+                <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">TOTAL CONTRIBUTIONS</span>
+                <span className="text-slate-800 font-black text-sm md:text-base font-mono">
+                  {loading ? "--" : streak.totalContributions.toLocaleString()}
+                </span>
+              </div>
+              <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
+                <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">LONGEST STREAK</span>
+                <span className="text-cyan-600 font-black text-sm md:text-base font-mono">
+                  {streak.longestStreak} DAYS
+                </span>
+              </div>
+            </div>
           </Card>
         </motion.div>
 
@@ -255,78 +403,82 @@ export default function GitHubStats() {
           transition={{ delay: 0.15 }}
           className="lg:col-span-6 flex flex-col"
         >
-          <h3 className="text-sm font-bold uppercase tracking-wider text-white/50 mb-3 font-mono flex items-center gap-2 pl-1">
-            <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-600 mb-3 font-mono flex items-center gap-2 pl-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-800 shadow-[inset_1px_1px_2px_rgba(0,0,0,0.4)]" />
             LeetCode Stats
           </h3>
 
-          <Card className="p-5 h-full bg-black/40 backdrop-blur-xl border-white/10 flex flex-col justify-between min-h-[260px]">
+          <Card className="p-6 h-full flex flex-col justify-between min-h-[280px]">
             {/* Header */}
-            <div className="flex items-center justify-between mb-4 pb-2.5 border-b border-white/5">
-              <div className="flex items-center gap-2">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-amber-500" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.777 9.778a1.375 1.375 0 0 0 0 1.945l1.945 1.945a1.375 1.375 0 0 0 1.945 0l9.777-9.777a1.375 1.375 0 0 0 0-1.945L14.444.414A1.374 1.374 0 0 0 13.483 0zm5.102 5.672a1.374 1.374 0 0 0-.96.415l-9.778 9.777a1.375 1.375 0 0 0 0 1.945l1.945 1.945a1.375 1.375 0 0 0 1.945 0l9.777-9.777a1.375 1.375 0 0 0 0-1.945L19.544 6.09a1.374 1.374 0 0 0-.959-.418z" />
-                </svg>
-                <span className="font-bold text-white tracking-wide text-sm font-mono">leetcode.com</span>
+            <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/40">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-[#e2e8f0] shadow-[3px_3px_6px_rgba(163,177,198,0.5),-3px_-3px_6px_rgba(255,255,255,0.95)] flex items-center justify-center border border-white/60">
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-amber-500" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.777 9.778a1.375 1.375 0 0 0 0 1.945l1.945 1.945a1.375 1.375 0 0 0 1.945 0l9.777-9.777a1.375 1.375 0 0 0 0-1.945L14.444.414A1.374 1.374 0 0 0 13.483 0zm5.102 5.672a1.374 1.374 0 0 0-.96.415l-9.778 9.777a1.375 1.375 0 0 0 0 1.945l1.945 1.945a1.375 1.375 0 0 0 1.945 0l9.777-9.777a1.375 1.375 0 0 0 0-1.945L19.544 6.09a1.374 1.374 0 0 0-.959-.418z" />
+                  </svg>
+                </div>
+                <span className="font-extrabold text-slate-800 tracking-wide text-sm font-mono">leetcode.com</span>
               </div>
               <a
                 href={`https://leetcode.com/u/${username}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-primary-400 hover:text-primary-300 font-mono tracking-wide"
+                className="px-3.5 py-1.5 bg-[#e2e8f0] rounded-full text-xs text-slate-700 hover:text-black font-mono font-bold shadow-[2px_2px_5px_rgba(163,177,198,0.5),-2px_-2px_5px_rgba(255,255,255,0.95)] hover:shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] transition-all flex items-center gap-1 border border-white/60"
               >
                 u/{username} ↗
               </a>
             </div>
 
             {/* Solved Progress Circles and Difficulties */}
-            <div className="grid grid-cols-12 gap-4 items-center flex-grow">
+            <div className="grid grid-cols-12 gap-5 items-center flex-grow">
 
-              {/* Left Column: Solved Ring */}
-              <div className="col-span-5 flex flex-col items-center justify-center relative">
-                <div className="relative w-24 h-24 flex items-center justify-center">
-                  <svg className="w-full h-full transform -rotate-90">
+              {/* Left Column: Tactile Neumorphic Solved Ring Meter */}
+              <div className="col-span-5 flex flex-col items-center justify-center">
+                <div className="relative w-28 h-28 rounded-full bg-[#e2e8f0] shadow-[inset_3px_3px_7px_rgba(163,177,198,0.6),inset_-3px_-3px_7px_rgba(255,255,255,0.95)] flex items-center justify-center p-2 border border-white/40">
+                  <svg className="absolute inset-0 w-full h-full transform -rotate-90 p-1.5">
                     <circle
-                      cx="48"
-                      cy="48"
-                      r="38"
-                      className="stroke-white/5 fill-transparent"
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      className="stroke-[rgba(163,177,198,0.25)] fill-transparent"
                       strokeWidth="6"
                     />
                     <circle
-                      cx="48"
-                      cy="48"
-                      r="38"
+                      cx="50"
+                      cy="50"
+                      r="40"
                       className="stroke-amber-500 fill-transparent transition-all duration-1000"
                       strokeWidth="6"
-                      strokeDasharray="238"
-                      strokeDashoffset={238 - (238 * (lcLoading ? 0 : leetcode.totalSolved)) / 3300}
+                      strokeLinecap="round"
+                      strokeDasharray="251"
+                      strokeDashoffset={251 - (251 * (lcLoading ? 0 : leetcode.totalSolved)) / 3300}
                     />
                   </svg>
-                  <div className="absolute flex flex-col items-center justify-center text-center">
-                    <span className="text-xl font-black text-white leading-none">
+                  {/* Center Extruded Dial Knob */}
+                  <div className="relative w-16 h-16 rounded-full bg-[#e2e8f0] shadow-[3px_3px_7px_rgba(163,177,198,0.55),-3px_-3px_7px_rgba(255,255,255,0.95)] flex flex-col items-center justify-center text-center border border-white/60">
+                    <span className="text-xl font-black text-slate-800 leading-none">
                       {lcLoading ? "--" : leetcode.totalSolved}
                     </span>
-                    <span className="text-[9px] text-white/40 uppercase font-semibold tracking-wider mt-1">
+                    <span className="text-[8px] text-slate-500 uppercase font-bold tracking-wider mt-1">
                       Solved
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Bars */}
-              <div className="col-span-7 space-y-2.5">
+              {/* Right Column: Tactile Sunken Sliders */}
+              <div className="col-span-7 space-y-3">
                 {/* Easy */}
                 <div>
-                  <div className="flex justify-between text-[10px] font-mono mb-0.5">
-                    <span className="text-emerald-400 font-bold">Easy</span>
-                    <span className="text-white/60">
-                      {leetcode.easySolved}<span className="text-white/20">/800+</span>
+                  <div className="flex justify-between text-xs font-mono mb-1">
+                    <span className="text-emerald-600 font-extrabold">Easy</span>
+                    <span className="text-slate-700 font-bold">
+                      {leetcode.easySolved} <span className="text-slate-400 font-normal">/ 800+</span>
                     </span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
                     <div
-                      className="h-full bg-emerald-500 rounded-full transition-all duration-1000"
+                      className="h-full bg-emerald-500 rounded-full transition-all duration-1000 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]"
                       style={{ width: `${Math.min(100, (leetcode.easySolved / 800) * 100)}%` }}
                     />
                   </div>
@@ -334,15 +486,15 @@ export default function GitHubStats() {
 
                 {/* Medium */}
                 <div>
-                  <div className="flex justify-between text-[10px] font-mono mb-0.5">
-                    <span className="text-amber-400 font-bold">Medium</span>
-                    <span className="text-white/60">
-                      {leetcode.mediumSolved}<span className="text-white/20">/1700+</span>
+                  <div className="flex justify-between text-xs font-mono mb-1">
+                    <span className="text-amber-600 font-extrabold">Medium</span>
+                    <span className="text-slate-700 font-bold">
+                      {leetcode.mediumSolved} <span className="text-slate-400 font-normal">/ 1700+</span>
                     </span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
                     <div
-                      className="h-full bg-amber-500 rounded-full transition-all duration-1000"
+                      className="h-full bg-amber-500 rounded-full transition-all duration-1000 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]"
                       style={{ width: `${Math.min(100, (leetcode.mediumSolved / 1700) * 100)}%` }}
                     />
                   </div>
@@ -350,15 +502,15 @@ export default function GitHubStats() {
 
                 {/* Hard */}
                 <div>
-                  <div className="flex justify-between text-[10px] font-mono mb-0.5">
-                    <span className="text-red-400 font-bold">Hard</span>
-                    <span className="text-white/60">
-                      {leetcode.hardSolved}<span className="text-white/20">/700+</span>
+                  <div className="flex justify-between text-xs font-mono mb-1">
+                    <span className="text-rose-600 font-extrabold">Hard</span>
+                    <span className="text-slate-700 font-bold">
+                      {leetcode.hardSolved} <span className="text-slate-400 font-normal">/ 700+</span>
                     </span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
                     <div
-                      className="h-full bg-red-500 rounded-full transition-all duration-1000"
+                      className="h-full bg-rose-500 rounded-full transition-all duration-1000 shadow-[1px_1px_2px_rgba(0,0,0,0.15)]"
                       style={{ width: `${Math.min(100, (leetcode.hardSolved / 700) * 100)}%` }}
                     />
                   </div>
@@ -367,17 +519,17 @@ export default function GitHubStats() {
 
             </div>
 
-            {/* Meta statistics footer */}
-            <div className="grid grid-cols-2 gap-3 mt-4 pt-2.5 border-t border-white/5 text-center font-mono text-[10px]">
-              <div className="py-1 bg-white/5 rounded">
-                <span className="text-white/40 block text-[8px] uppercase tracking-wider mb-0.5">Global Rank</span>
-                <span className="text-white font-bold">
+            {/* Meta statistics footer: Tactile Sunken Dual Wells */}
+            <div className="grid grid-cols-2 gap-4 mt-6 pt-4 border-t border-white/40">
+              <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
+                <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">GLOBAL RANK</span>
+                <span className="text-slate-800 font-black text-sm md:text-base font-mono">
                   {lcLoading ? "--" : leetcode.ranking.toLocaleString()}
                 </span>
               </div>
-              <div className="py-1 bg-white/5 rounded">
-                <span className="text-white/40 block text-[8px] uppercase tracking-wider mb-0.5">Acceptance</span>
-                <span className="text-amber-500 font-bold">
+              <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
+                <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">ACCEPTANCE</span>
+                <span className="text-amber-600 font-black text-sm md:text-base font-mono">
                   {lcLoading ? "--" : `${leetcode.acceptanceRate}%`}
                 </span>
               </div>

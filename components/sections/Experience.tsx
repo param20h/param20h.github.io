@@ -60,9 +60,9 @@ export default function Experience() {
                                     whileInView={{ scale: 1 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.5, delay: 0.2 }}
-                                    className="absolute left-4 md:left-1/2 top-6 md:top-12 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-black border-[3px] border-primary-500 flex items-center justify-center z-20 shadow-[0_0_15px_rgba(0,212,255,0.4)]"
+                                    className="absolute left-4 md:left-1/2 top-6 md:top-12 transform -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#e2e8f0] border border-white/60 flex items-center justify-center z-20 shadow-[4px_4px_8px_rgba(163,177,198,0.6),-4px_-4px_8px_rgba(255,255,255,0.95)]"
                                 >
-                                    <div className="w-1.5 h-1.5 rounded-full bg-accent-400" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-slate-800 shadow-[inset_1px_1px_2px_rgba(0,0,0,0.4)]" />
                                 </motion.div>
 
                                 {/* Curved Connector (Desktop Only) */}
@@ -80,8 +80,8 @@ export default function Experience() {
                                         />
                                         <defs>
                                             <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                <stop offset="0%" stopColor="rgba(0,212,255,0.5)" />
-                                                <stop offset="100%" stopColor="rgba(255,107,107,0.1)" />
+                                                <stop offset="0%" stopColor="rgba(148, 163, 184, 0.6)" />
+                                                <stop offset="100%" stopColor="rgba(203, 213, 225, 0.2)" />
                                             </linearGradient>
                                         </defs>
                                     </svg>
@@ -95,34 +95,26 @@ export default function Experience() {
                                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                                     className={`w-full md:w-5/12 pl-12 md:pl-0 mt-8 md:mt-0 ${isEven ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"}`}
                                 >
-                                    <div className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-[2rem] p-8 hover:border-primary-500/30 transition-all duration-500 overflow-hidden">
+                                    <div className="group relative bg-[#e2e8f0] border border-white/60 rounded-[2.5rem] p-8 shadow-[12px_12px_24px_rgba(163,177,198,0.55),-12px_-12px_24px_rgba(255,255,255,0.95)] hover:shadow-[16px_16px_32px_rgba(163,177,198,0.65),-16px_-16px_32px_rgba(255,255,255,1)] hover:-translate-y-1 transition-all duration-500 overflow-hidden">
                                         
-                                        {/* Hover Glow */}
-                                        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                        
-                                        {/* Background Watermark */}
-                                        <div className="absolute -bottom-6 -right-6 text-white/5 group-hover:text-white/10 transition-colors duration-500 transform -rotate-12">
-                                            <Briefcase size={120} strokeWidth={1} />
-                                        </div>
-
                                         <div className="relative z-10">
                                             <div className="flex flex-col gap-2 mb-6">
-                                                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
+                                                <h3 className="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">
                                                     {exp.role}
                                                 </h3>
                                                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-                                                    <div className="flex items-center gap-1.5 text-primary-400 font-semibold">
+                                                    <div className="flex items-center gap-1.5 text-slate-700 font-semibold">
                                                         <Briefcase size={14} />
                                                         <span>{exp.company}</span>
                                                     </div>
-                                                    <div className="flex items-center gap-1.5 text-white/50">
+                                                    <div className="flex items-center gap-1.5 text-slate-500">
                                                         <Calendar size={14} />
                                                         <span className="font-mono">{exp.date}</span>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <p className="text-white/60 leading-relaxed mb-8">
+                                            <p className="text-slate-600 leading-relaxed mb-8">
                                                 {exp.description}
                                             </p>
 
@@ -130,7 +122,7 @@ export default function Experience() {
                                                 {exp.tech.map((t, i) => (
                                                     <span
                                                         key={i}
-                                                        className="px-3 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm bg-white/5 border border-white/10 text-white/80 group-hover:border-white/20 transition-colors"
+                                                        className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#e2e8f0] text-slate-700 shadow-[3px_3px_6px_rgba(163,177,198,0.5),-3px_-3px_6px_rgba(255,255,255,0.95)] border border-white/50"
                                                     >
                                                         {t}
                                                     </span>

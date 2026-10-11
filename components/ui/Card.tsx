@@ -16,10 +16,12 @@ export default function Card({ children, className, hover = true }: CardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={hover ? { y: -10, scale: 1.02 } : {}}
+      whileHover={hover ? { y: -4 } : {}}
       className={cn(
-        "bg-transparent/5 backdrop-lg rounded-3xl p-8 border border-black/10 shadow-xl",
-        "hover:border-primary-500/50 transition-all duration-300",
+        "bg-[#e2e8f0] rounded-3xl p-8 transition-all duration-300",
+        "shadow-[12px_12px_24px_rgba(163,177,198,0.55),-12px_-12px_24px_rgba(255,255,255,0.95)]",
+        "border border-white/50",
+        hover && "hover:shadow-[16px_16px_32px_rgba(163,177,198,0.65),-16px_-16px_32px_rgba(255,255,255,1)]",
         className
       )}
     >

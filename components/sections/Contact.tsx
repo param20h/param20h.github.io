@@ -97,14 +97,14 @@ export default function Contact() {
 
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary-500/20 rounded-full flex items-center justify-center">
-                <Mail color="white" size={20} />
+              <div className="w-12 h-12 bg-[#e2e8f0] rounded-full shadow-[5px_5px_12px_rgba(163,177,198,0.55),-5px_-5px_12px_rgba(255,255,255,0.95)] flex items-center justify-center border border-white/60">
+                <Mail className="text-slate-800" size={20} />
               </div>
               <div>
-                <div className="text-sm text-black/60">Email</div>
+                <div className="text-sm text-slate-500 font-medium">Email</div>
                 <a
                   href="mailto:parambrar862@gmail.com"
-                  className="text-black hover:text-primary-400 transition-colors"
+                  className="text-slate-800 font-semibold hover:text-black transition-colors"
                 >
                   parambrar862@gmail.com
                 </a>
@@ -112,12 +112,12 @@ export default function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary-500/20 rounded-full flex items-center justify-center">
-                <MapPin color="white" size={20} />
+              <div className="w-12 h-12 bg-[#e2e8f0] rounded-full shadow-[5px_5px_12px_rgba(163,177,198,0.55),-5px_-5px_12px_rgba(255,255,255,0.95)] flex items-center justify-center border border-white/60">
+                <MapPin className="text-slate-800" size={20} />
               </div>
               <div>
-                <div className="text-sm text-black/60">Location</div>
-                <div className="text-black">Available for Remote Work</div>
+                <div className="text-sm text-slate-500 font-medium">Location</div>
+                <div className="text-slate-800 font-semibold">Available for Remote Work</div>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-black placeholder:text-black/60 focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-5 py-3.5 bg-[#e2e8f0] rounded-full text-slate-800 placeholder:text-slate-500 shadow-[inset_3px_3px_6px_rgba(163,177,198,0.6),inset_-3px_-3px_6px_rgba(255,255,255,0.95)] border border-white/40 focus:outline-none focus:shadow-[inset_4px_4px_8px_rgba(163,177,198,0.7),inset_-4px_-4px_8px_rgba(255,255,255,1)] transition-all font-medium text-sm"
                 />
               </div>
 
@@ -151,7 +151,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-black placeholder:text-black/60 focus:outline-none focus:border-primary-500 transition-colors"
+                  className="w-full px-5 py-3.5 bg-[#e2e8f0] rounded-full text-slate-800 placeholder:text-slate-500 shadow-[inset_3px_3px_6px_rgba(163,177,198,0.6),inset_-3px_-3px_6px_rgba(255,255,255,0.95)] border border-white/40 focus:outline-none focus:shadow-[inset_4px_4px_8px_rgba(163,177,198,0.7),inset_-4px_-4px_8px_rgba(255,255,255,1)] transition-all font-medium text-sm"
                 />
               </div>
 
@@ -163,15 +163,15 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-black placeholder:text-black/60 focus:outline-none focus:border-primary-500 transition-colors resize-none"
+                  className="w-full px-5 py-4 bg-[#e2e8f0] rounded-3xl text-slate-800 placeholder:text-slate-500 shadow-[inset_3px_3px_6px_rgba(163,177,198,0.6),inset_-3px_-3px_6px_rgba(255,255,255,0.95)] border border-white/40 focus:outline-none focus:shadow-[inset_4px_4px_8px_rgba(163,177,198,0.7),inset_-4px_-4px_8px_rgba(255,255,255,1)] transition-all resize-none font-medium text-sm"
                 />
               </div>
 
               <Button
                 type="submit"
-                variant="primary"
+                variant="secondary"
                 size="lg"
-                className="w-full"
+                className="w-full py-4 tracking-wider font-bold"
                 disabled={status === "sending"}
               >
                 {status === "sending" ? (

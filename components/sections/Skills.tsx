@@ -71,25 +71,14 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               whileHover={{ y: -4 }}
-              className={`relative overflow-hidden rounded-3xl bg-white/[0.01] border border-white/5 p-6 backdrop-blur-md transition-all duration-300 group/card ${cat.borderColor}`}
+              className="relative overflow-hidden rounded-3xl bg-[#e2e8f0] p-7 transition-all duration-300 shadow-[12px_12px_24px_rgba(163,177,198,0.55),-12px_-12px_24px_rgba(255,255,255,0.95)] hover:shadow-[16px_16px_32px_rgba(163,177,198,0.65),-16px_-16px_32px_rgba(255,255,255,1)] border border-white/50"
             >
-              {/* Background gradient card glow */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 -z-10`}
-              />
-              <div
-                className="absolute -inset-10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 -z-10 blur-3xl rounded-full"
-                style={{
-                  background: `radial-gradient(circle, ${cat.glowColor} 0%, transparent 70%)`,
-                }}
-              />
-
               {/* Card Header */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-white/90 group-hover/card:text-white group-hover/card:border-white/20 transition-colors">
+                <div className="w-10 h-10 rounded-2xl bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] flex items-center justify-center text-slate-800 border border-white/40">
                   <IconComponent size={20} />
                 </div>
-                <h3 className="text-lg font-bold text-white/95 group-hover/card:text-white transition-colors">
+                <h3 className="text-lg font-extrabold text-slate-800">
                   {cat.title}
                 </h3>
               </div>
@@ -101,13 +90,13 @@ export default function Skills() {
 
                   return (
                     <motion.div
-                      whileHover={{ scale: 1.15, y: -2 }}
+                      whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       key={skill.name}
                       style={{
-                        "--brand-color": iconData ? `#${iconData.hex}` : "#ffffff",
+                        "--brand-color": iconData ? `#${iconData.hex}` : "#1e293b",
                       } as React.CSSProperties}
-                      className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl bg-white/5 border border-white/5 hover:bg-white/[0.08] hover:border-white/10 transition-all duration-300 cursor-pointer relative group"
+                      className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-2xl bg-[#e2e8f0] shadow-[4px_4px_8px_rgba(163,177,198,0.5),-4px_-4px_8px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] transition-all duration-200 cursor-pointer relative group border border-white/40"
                     >
                       {iconData ? (
                         <svg
@@ -120,13 +109,13 @@ export default function Skills() {
                           <path d={iconData.path} />
                         </svg>
                       ) : (
-                        <span className="text-[10px] text-black/60 group-hover:text-black transition-colors uppercase font-bold">
+                        <span className="text-[10px] text-slate-700 uppercase font-bold">
                           {skill.name.substring(0, 2)}
                         </span>
                       )}
 
                       {/* Smooth Tooltip */}
-                      <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-neutral-950/90 text-white text-[10px] font-mono tracking-wide rounded border border-white/10 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:-top-11 transition-all duration-250 shadow-[0_4px_12px_rgba(0,0,0,0.5)] whitespace-nowrap z-50">
+                      <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-slate-900 text-white text-[10px] font-mono tracking-wide rounded-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:-top-11 transition-all duration-200 shadow-[4px_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap z-50">
                         {skill.name}
                       </div>
                     </motion.div>

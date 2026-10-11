@@ -38,16 +38,18 @@ export default function Hero() {
             className="relative mb-12 group"
             style={{ willChange: 'transform' }}
           >
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_30px_rgba(0,0,0,0.15)] group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-700 bg-white">
-              <img
-                src="/media/circle-photo.png"
-                alt="Paramjit Singh Profile"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                loading="eager"
-                fetchPriority="high"
-                width="256"
-                height="256"
-              />
+            <div className="p-3 md:p-4 rounded-full bg-[#e2e8f0] shadow-[12px_12px_24px_rgba(163,177,198,0.6),-12px_-12px_24px_rgba(255,255,255,0.95)] transition-all duration-700 group-hover:shadow-[16px_16px_30px_rgba(163,177,198,0.7),-16px_-16px_30px_rgba(255,255,255,1)] border border-white/60">
+              <div className="relative w-44 h-44 md:w-60 md:h-60 rounded-full overflow-hidden shadow-[inset_2px_2px_6px_rgba(0,0,0,0.25)]">
+                <img
+                  src="/media/circle-photo.png"
+                  alt="Paramjit Singh Profile"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  loading="eager"
+                  fetchPriority="high"
+                  width="256"
+                  height="256"
+                />
+              </div>
             </div>
             {/* Floating Icons */}
             <motion.div
@@ -84,16 +86,19 @@ export default function Hero() {
               Hi, I&apos;m <span className="gradient-text">Paramjit Singh</span>
             </h1>
 
-            <div className="h-20 md:h-24 mb-8">
-              <motion.h2
-                key={currentRole}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                className="text-3xl md:text-5xl font-semibold text-primary-500"
-              >
-                {roles[currentRole]}
-              </motion.h2>
+            <div className="h-20 md:h-24 mb-8 flex items-center justify-center">
+              <div className="inline-flex items-center justify-center">
+                <motion.h2
+                  key={currentRole}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  className="text-3xl md:text-5xl font-semibold text-slate-800"
+                >
+                  {roles[currentRole]}
+                </motion.h2>
+                <span className="inline-block w-[3px] md:w-[4px] h-8 md:h-11 bg-slate-800 ml-2 animate-pulse rounded-full" />
+              </div>
             </div>
 
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">

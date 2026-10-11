@@ -10,33 +10,27 @@ const SERVICES = [
     title: "Web Development",
     tagline: "Code that performs.",
     description: "End-to-end web applications built for scale and speed. Using React, Next.js, and scalable backends to deliver fast, secure experiences.",
-    icon: <Code2 size={120} strokeWidth={1} />,
+    icon: <Code2 size={24} className="text-slate-800" />,
     features: ["React & Next.js", "Node.js & Express", "Database Design", "Secure Auth"],
     colSpan: "md:col-span-6 lg:col-span-8",
-    bgClass: "bg-white text-black border border-black/10",
-    accent: "text-primary-400"
   },
   {
     id: "02",
     title: "AI & LLM Integration",
     tagline: "Intelligent capabilities.",
     description: "Adding intelligent capabilities to business workflows.",
-    icon: <Layers size={80} strokeWidth={1} />,
+    icon: <Layers size={24} className="text-slate-800" />,
     features: ["RAG Systems", "Custom GPTs", "Agentic Workflows"],
-    colSpan: "md:col-span-3 lg:col-span-4",
-    bgClass: "bg-white text-black border border-black/10 shadow-lg",
-    accent: "text-accent-400"
+    colSpan: "md:col-span-6 lg:col-span-4",
   },
   {
     id: "03",
     title: "UI/UX Design",
     tagline: "Designed to convert.",
-    description: "Research-driven interfaces that turn complexity into clarity with modern glassmorphism.",
-    icon: <Palette size={80} strokeWidth={1} />,
+    description: "Research-driven interfaces that turn complexity into clarity with modern tactile design.",
+    icon: <Palette size={24} className="text-slate-800" />,
     features: ["Responsive", "Framer Motion", "Tailwind CSS"],
     colSpan: "md:col-span-6 lg:col-span-12",
-    bgClass: "bg-white text-black border border-black/10 shadow-lg",
-    accent: "text-primary-500"
   }
 ];
 
@@ -145,7 +139,7 @@ export default function Services() {
       </div>
 
       {/* Services Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-5 mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-8 mb-32">
         {SERVICES.map((service, idx) => (
           <motion.div
             key={service.id}
@@ -153,31 +147,32 @@ export default function Services() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.15 }}
-            className={`${service.colSpan} ${service.bgClass} min-h-[320px] rounded-[2rem] p-8 md:p-10 relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 shadow-2xl`}
+            className={`${service.colSpan} bg-[#e2e8f0] min-h-[320px] rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden group transition-all duration-500 shadow-[12px_12px_24px_rgba(163,177,198,0.55),-12px_-12px_24px_rgba(255,255,255,0.95)] hover:shadow-[16px_16px_32px_rgba(163,177,198,0.65),-16px_-16px_32px_rgba(255,255,255,1)] hover:-translate-y-1.5 border border-white/50`}
           >
-            {/* Background Icon (Low Opacity) */}
-            <div className="absolute -bottom-8 -right-8 text-black/5 group-hover:text-primary-500/10 group-hover:scale-110 transition-all duration-700 transform rotate-12">
-              {service.icon}
-            </div>
-
-            {/* Subtle Gradient Glow */}
-            
             <div className="relative z-10 h-full flex flex-col justify-between">
               <div>
-                <span className={`font-mono text-sm font-bold mb-4 block ${service.accent}`}>{service.id}</span>
-                <h3 className="text-3xl md:text-4xl font-black mb-3 tracking-tight text-black">
+                {/* Header row with embossed Icon well */}
+                <div className="mb-6 flex items-center">
+                  <div className="w-12 h-12 rounded-full bg-[#e2e8f0] shadow-[4px_4px_10px_rgba(163,177,198,0.5),-4px_-4px_10px_rgba(255,255,255,0.95)] group-hover:shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] transition-all flex items-center justify-center border border-white/60">
+                    {service.icon}
+                  </div>
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-extrabold mb-2 tracking-tight text-slate-800">
                   {service.title}
                 </h3>
-                <p className="font-bold mb-4 text-black/80">{service.tagline}</p>
-                <p className="text-base leading-relaxed mb-8 text-black/60 max-w-lg">
+                <p className="font-semibold mb-3 text-slate-600 text-sm">{service.tagline}</p>
+                <p className="text-sm md:text-base leading-relaxed mb-8 text-slate-600 max-w-lg">
                   {service.description}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2">
+
+              {/* Extruded Neumorphic Feature Pills */}
+              <div className="flex flex-wrap gap-2.5">
                 {service.features.map((feature, fIdx) => (
                   <span 
                     key={fIdx} 
-                    className="px-4 py-2 rounded-full text-xs font-semibold backdrop-blur-sm bg-black/5 border border-black/10 text-black/80 group-hover:border-black/20 transition-colors"
+                    className="px-4 py-2 rounded-full text-xs font-semibold text-slate-700 bg-[#e2e8f0] shadow-[4px_4px_8px_rgba(163,177,198,0.5),-4px_-4px_8px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] transition-all cursor-default select-none border border-white/50"
                   >
                     {feature}
                   </span>
@@ -230,10 +225,10 @@ export default function Services() {
               </div>
 
               <div>
-                <h5 className="text-xs font-bold text-black/50 uppercase tracking-wider mb-3">Tech Stack</h5>
+                <h5 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Tech Stack</h5>
                 <div className="flex flex-wrap gap-2">
                   {study.tech.map(t => (
-                    <span key={t} className="px-3 py-1 bg-black/5 border border-black/10 rounded-full text-xs font-medium text-black/80">
+                    <span key={t} className="px-3.5 py-1.5 bg-[#e2e8f0] border border-white/50 rounded-full text-xs font-semibold text-slate-700 shadow-[3px_3px_6px_rgba(163,177,198,0.5),-3px_-3px_6px_rgba(255,255,255,0.95)]">
                       {t}
                     </span>
                   ))}
@@ -244,7 +239,7 @@ export default function Services() {
                 href={study.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-xl w-fit hover:bg-gray-200 transition-colors"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#e2e8f0] text-slate-800 font-bold rounded-full shadow-[6px_6px_14px_rgba(163,177,198,0.55),-6px_-6px_14px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] active:scale-95 transition-all border border-white/60 w-fit"
               >
                 Visit Live Site
                 <ExternalLink size={16} />
@@ -253,21 +248,21 @@ export default function Services() {
 
             {/* Browser Window Side */}
             <div className={`lg:w-2/3 w-full ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
-              <div className="w-full rounded-2xl border border-black/10 bg-black/40 shadow-2xl overflow-hidden backdrop-blur-md hover:scale-[1.02] transition-transform duration-500">
+              <div className="w-full rounded-3xl border border-white/60 bg-[#e2e8f0] shadow-[14px_14px_28px_rgba(163,177,198,0.55),-14px_-14px_28px_rgba(255,255,255,0.95)] overflow-hidden transition-transform duration-500 hover:scale-[1.01]">
                 
                 {/* Mock Browser Header */}
-                <div className="bg-black/5 border-b border-black/10 px-4 py-3 flex items-center justify-between">
+                <div className="bg-[#e2e8f0] border-b border-white/40 px-5 py-3.5 flex items-center justify-between">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
                     <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
                     <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
                   </div>
                   <div className="flex-1 flex justify-center px-4">
-                    <div className="bg-black/10 border border-black/10 rounded-md px-4 py-1 text-xs text-black/50 font-mono w-full max-w-sm flex items-center justify-center truncate">
+                    <div className="bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 rounded-full px-5 py-1 text-xs text-slate-600 font-mono w-full max-w-sm flex items-center justify-center truncate">
                       {study.url}
                     </div>
                   </div>
-                  <div className="flex gap-2 text-black/50">
+                  <div className="flex gap-2 text-slate-500">
                     <Monitor size={14} />
                     <Smartphone size={14} className="hidden sm:block" />
                   </div>

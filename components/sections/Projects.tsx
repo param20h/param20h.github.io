@@ -138,17 +138,17 @@ export default function Projects() {
       {/* Background glow effects */}
 
       {/* Main IDE Glass Container (Desktop only) */}
-      <div className="hidden md:flex w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl overflow-hidden min-h-[600px] flex-col font-sans">
+      <div className="hidden md:flex w-full rounded-3xl border border-white/60 bg-[#e2e8f0] shadow-[14px_14px_28px_rgba(163,177,198,0.55),-14px_-14px_28px_rgba(255,255,255,0.95)] overflow-hidden min-h-[600px] flex-col font-sans">
         
         {/* IDE Top Window Bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-black/40 border-b border-white/10 select-none">
+        <div className="flex items-center justify-between px-5 py-3.5 bg-[#e2e8f0] border-b border-white/40 select-none">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
             <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
           </div>
-          <div className="text-xs text-black/70 font-mono tracking-wider flex items-center gap-2">
-            <Terminal size={12} className="text-primary-400 animate-pulse" />
+          <div className="text-xs text-slate-700 font-mono tracking-wider flex items-center gap-2 font-medium">
+            <Terminal size={12} className="text-slate-800 animate-pulse" />
             projects_workspace — param20h.github.io
           </div>
           <div className="w-16" /> {/* Spacer */}
@@ -169,25 +169,25 @@ export default function Projects() {
           <div
             className={`
               ${isMobileSidebarOpen ? "flex" : "hidden"} 
-              md:flex flex-col w-full md:w-[300px] bg-black/25 border-r border-white/10 shrink-0 z-20 
+              md:flex flex-col w-full md:w-[300px] bg-[#e2e8f0] border-r border-white/40 shrink-0 z-20 
               ${isMobileSidebarOpen ? "absolute md:relative inset-0" : ""}
             `}
           >
             {/* Explorer Title & Search */}
-            <div className="p-4 border-b border-white/10 bg-black/10">
-              <p className="text-xs font-bold text-black/60 uppercase tracking-wider mb-3 font-mono">
+            <div className="p-4 border-b border-white/40 bg-[#e2e8f0]">
+              <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3 font-mono">
                 Project Explorer
               </p>
               
               {/* Search input */}
               <div className="relative">
-                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-black/70" />
+                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                 <input
                   type="text"
                   placeholder="Search projects or tech..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-1.5 bg-black/60 border border-white/10 rounded-lg text-xs text-black placeholder-black/40 focus:outline-none focus:border-primary-500/50 transition font-mono"
+                  className="w-full pl-9 pr-4 py-2 bg-[#e2e8f0] border border-white/40 rounded-full text-xs text-slate-800 placeholder-slate-500 shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] focus:outline-none transition font-mono"
                 />
                 {searchQuery && (
                   <button
@@ -224,17 +224,17 @@ export default function Projects() {
                 </button>
 
                 {isFeaturedExpanded && (
-                  <div className="pl-4 mt-1 space-y-0.5 border-l border-white/5 ml-3.5">
+                  <div className="pl-4 mt-1 space-y-1 border-l border-white/20 ml-3.5">
                     {filteredFeatured.map((p) => {
                       const isActive = activeProjectId === p.title;
                       return (
                         <button
                           key={p.title}
                           onClick={() => handleOpenProject(p.title)}
-                          className={`flex items-center gap-2 w-full px-2.5 py-1.5 rounded transition text-left ${
+                          className={`flex items-center gap-2 w-full px-3 py-1.5 rounded-xl transition text-left text-xs ${
                             isActive
-                              ? "bg-accent-500/10 text-black font-bold font-bold border-l-2 border-accent-500"
-                              : "hover:bg-white/5 text-black/80 hover:text-black"
+                              ? "bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] text-slate-900 font-bold border border-white/40"
+                              : "hover:bg-white/40 text-slate-600 hover:text-slate-900"
                           }`}
                         >
                           <FileCode size={14} className={getFileIconColor(p)} />
@@ -243,7 +243,7 @@ export default function Projects() {
                       );
                     })}
                     {filteredFeatured.length === 0 && (
-                      <p className="text-[10px] text-black/70 pl-6 py-1 italic">
+                      <p className="text-[10px] text-slate-400 pl-6 py-1 italic">
                         No matches found
                       </p>
                     )}
@@ -255,34 +255,34 @@ export default function Projects() {
               <div>
                 <button
                   onClick={() => setIsArchiveExpanded(!isArchiveExpanded)}
-                  className="flex items-center gap-1.5 w-full hover:bg-white/5 px-2 py-1.5 rounded transition text-left group"
+                  className="flex items-center gap-1.5 w-full hover:bg-white/20 px-2 py-1.5 rounded-xl transition text-left group"
                 >
                   {isArchiveExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
                   {isArchiveExpanded ? (
-                    <FolderOpen size={14} className="text-primary-500/80 fill-primary-500/20" />
+                    <FolderOpen size={14} className="text-slate-700" />
                   ) : (
-                    <Folder size={14} className="text-primary-500/80 fill-primary-500/20" />
+                    <Folder size={14} className="text-slate-700" />
                   )}
-                  <span className="font-semibold text-black/90 group-hover:text-primary-400">
+                  <span className="font-semibold text-slate-700 group-hover:text-black">
                     Creations
                   </span>
-                  <span className="text-[10px] text-black/70 ml-auto font-sans">
+                  <span className="text-[10px] text-slate-500 ml-auto font-sans font-medium">
                     ({filteredOthers.length})
                   </span>
                 </button>
 
                 {isArchiveExpanded && (
-                  <div className="pl-4 mt-1 space-y-0.5 border-l border-white/5 ml-3.5">
+                  <div className="pl-4 mt-1 space-y-1 border-l border-white/20 ml-3.5">
                     {filteredOthers.map((p) => {
                       const isActive = activeProjectId === p.title;
                       return (
                         <button
                           key={p.title}
                           onClick={() => handleOpenProject(p.title)}
-                          className={`flex items-center gap-2 w-full px-2.5 py-1.5 rounded transition text-left ${
+                          className={`flex items-center gap-2 w-full px-3 py-1.5 rounded-xl transition text-left text-xs ${
                             isActive
-                              ? "bg-primary-500/10 text-primary-400 font-bold border-l-2 border-primary-500"
-                              : "hover:bg-white/5 text-black/80 hover:text-black"
+                              ? "bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] text-slate-900 font-bold border border-white/40"
+                              : "hover:bg-white/40 text-slate-600 hover:text-slate-900"
                           }`}
                         >
                           <FileCode size={14} className={getFileIconColor(p)} />
@@ -303,10 +303,10 @@ export default function Projects() {
           </div>
 
           {/* MAIN EDITOR AREA */}
-          <div className="flex-1 flex flex-col min-w-0 bg-[#080811]/90">
+          <div className="flex-1 flex flex-col min-w-0 bg-[#e2e8f0]">
             
             {/* EDITOR TABS BAR */}
-            <div className="flex items-center bg-black/40 border-b border-white/10 overflow-x-auto scrollbar-none select-none pl-12 md:pl-0">
+            <div className="flex items-center bg-[#e2e8f0] border-b border-white/40 overflow-x-auto scrollbar-none select-none pl-12 md:pl-0">
               {openTabs.map((tabTitle) => {
                 const project = projects.find((p) => p.title === tabTitle);
                 if (!project) return null;
@@ -316,11 +316,11 @@ export default function Projects() {
                     key={tabTitle}
                     onClick={() => setActiveProjectId(tabTitle)}
                     className={`
-                      flex items-center gap-2 px-4 py-2.5 border-r border-white/10 text-xs font-mono cursor-pointer transition shrink-0
+                      flex items-center gap-2 px-5 py-2.5 border-r border-white/30 text-xs font-mono cursor-pointer transition shrink-0
                       ${
                         isActive
-                          ? `bg-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] text-black font-bold border-l-4 border-l-black`
-                          : "bg-black/10 text-black/70 hover:text-black/80 hover:bg-black/20"
+                          ? "bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.55),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] text-slate-900 font-bold border-b-2 border-slate-800"
+                          : "text-slate-500 hover:text-slate-800 hover:bg-white/20"
                       }
                     `}
                   >
@@ -328,7 +328,7 @@ export default function Projects() {
                     <span>{getTabDisplayName(tabTitle)}</span>
                     <button
                       onClick={(e) => handleCloseTab(e, tabTitle)}
-                      className="ml-1.5 p-0.5 rounded-full hover:bg-white/10 text-black/70 hover:text-black transition"
+                      className="ml-1.5 p-0.5 rounded-full hover:bg-black/10 text-slate-500 hover:text-slate-800 transition"
                     >
                       <X size={10} />
                     </button>
@@ -336,7 +336,7 @@ export default function Projects() {
                 );
               })}
               {openTabs.length === 0 && (
-                <div className="px-4 py-2.5 text-xs text-black/70 font-mono italic">
+                <div className="px-4 py-2.5 text-xs text-slate-400 font-mono italic">
                   No active tabs open
                 </div>
               )}
@@ -355,31 +355,31 @@ export default function Projects() {
                     className="h-full flex flex-col"
                   >
                     {/* Project Header Block */}
-                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/40">
                       <div>
                         <div className="flex flex-wrap items-center gap-2.5 mb-2">
                           {activeProject.status === "live" && (
-                            <span className="bg-black text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-[#e2e8f0] shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] border border-white/40 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">
                               LIVE
                             </span>
                           )}
                           {activeProject.status === "research" && (
-                            <span className="bg-purple-500/20 text-black/70 italic border border-purple-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-[#e2e8f0] shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] border border-white/40 text-purple-600 px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">
                               RESEARCH
                             </span>
                           )}
                           {activeProject.status === "coming-soon" && (
-                            <span className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-[#e2e8f0] shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] border border-white/40 text-amber-600 px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">
                               COMING SOON
                             </span>
                           )}
                           {activeProject.tags?.includes("open-source") && (
-                            <span className="bg-white text-black border border-black/30 px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wide">
+                            <span className="bg-[#e2e8f0] shadow-[2px_2px_5px_rgba(163,177,198,0.5),-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/60 text-slate-700 px-3 py-1 rounded-full text-[10px] font-bold tracking-wide">
                               OPEN SOURCE
                             </span>
                           )}
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-extrabold text-black tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">
                           {activeProject.title}
                         </h2>
                       </div>
@@ -391,7 +391,7 @@ export default function Projects() {
                             href={activeProject.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-black border border-white/10 rounded-xl text-xs font-semibold transition duration-200"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-[#e2e8f0] hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] text-slate-800 border border-white/60 rounded-full text-xs font-bold shadow-[4px_4px_10px_rgba(163,177,198,0.5),-4px_-4px_10px_rgba(255,255,255,0.95)] transition-all duration-200"
                           >
                             <Github size={14} />
                             Code Base
@@ -402,7 +402,7 @@ export default function Projects() {
                             href={activeProject.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 hover:opacity-90 text-black rounded-xl text-xs font-bold shadow-[0_0_15px_rgba(0,212,255,0.25)] transition duration-200"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-[#e2e8f0] text-slate-800 border border-white/60 rounded-full text-xs font-bold shadow-[4px_4px_10px_rgba(163,177,198,0.5),-4px_-4px_10px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] transition-all duration-200"
                           >
                             <ExternalLink size={14} />
                             Live Demo
@@ -417,23 +417,23 @@ export default function Projects() {
                       {/* Left Block: Description & Tech Stack */}
                       <div className="lg:col-span-7 flex flex-col gap-6">
                         <div>
-                          <h4 className="text-xs font-bold uppercase text-black/70 tracking-wider mb-2.5 font-mono">
-                            {"// Project Description"}
+                          <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-2.5 font-mono">
+                            {"// PROJECT DESCRIPTION"}
                           </h4>
-                          <p className="text-black/80 leading-relaxed text-sm md:text-base whitespace-pre-line bg-white/5 p-4 rounded-xl border border-white/5">
+                          <p className="text-slate-700 leading-relaxed text-sm md:text-base whitespace-pre-line bg-[#e2e8f0] p-6 rounded-3xl shadow-[8px_8px_16px_rgba(163,177,198,0.5),-8px_-8px_16px_rgba(255,255,255,0.95)] border border-white/60">
                             {activeProject.description}
                           </p>
                         </div>
 
                         <div>
-                          <h4 className="text-xs font-bold uppercase text-black/70 tracking-wider mb-3 font-mono">
-                            {"// Tech Stack & Tooling"}
+                          <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-3 font-mono">
+                            {"// TECH STACK & TOOLING"}
                           </h4>
                           <div className="flex flex-wrap gap-2.5">
                             {activeProject.tech.map((t) => (
                               <span
                                 key={t}
-                                className="px-3 py-1.5 bg-white text-black rounded-full text-xs font-semibold border border-black/20 shadow-sm"
+                                className="px-4 py-2 bg-[#e2e8f0] text-slate-700 rounded-full text-xs font-semibold shadow-[4px_4px_8px_rgba(163,177,198,0.5),-4px_-4px_8px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] border border-white/50 transition-all select-none"
                               >
                                 {t}
                               </span>
@@ -444,39 +444,39 @@ export default function Projects() {
 
                       {/* Right Block: Dynamic Mock Editor Code Output */}
                       <div className="lg:col-span-5 flex flex-col gap-6">
-                        <div className="w-full rounded-xl border border-white/5 bg-black/40 overflow-hidden shadow-inner font-mono text-[11px] md:text-xs">
+                        <div className="w-full rounded-3xl border border-white/50 bg-[#e2e8f0] shadow-[inset_3px_3px_8px_rgba(163,177,198,0.55),inset_-3px_-3px_8px_rgba(255,255,255,0.95)] overflow-hidden font-mono text-[11px] md:text-xs">
                           {/* File header */}
-                          <div className="bg-black/50 px-4 py-2 text-black/70 border-b border-white/5 flex items-center justify-between">
+                          <div className="bg-[#e2e8f0] px-5 py-2.5 text-slate-600 border-b border-white/40 flex items-center justify-between font-semibold">
                             <span>meta_info.json</span>
                             <Code size={12} />
                           </div>
                           
                           {/* Code Lines layout */}
-                          <div className="p-4 space-y-1.5 text-black/80 leading-5">
-                            <div><span className="text-black/20 select-none mr-4">01</span>{"{"}</div>
-                            <div><span className="text-black/20 select-none mr-4">02</span>  <span className="text-black font-bold">{"\"project_name\""}</span>: <span className="text-black/70">{"\""}{activeProject.title.split(" — ")[0].split(" - ")[0]}{"\""}</span>,</div>
-                            <div><span className="text-black/20 select-none mr-4">03</span>  <span className="text-black font-bold">{"\"status\""}</span>: <span className="text-black/70">{"\""}{activeProject.status || "live"}{"\""}</span>,</div>
-                            <div><span className="text-black/20 select-none mr-4">04</span>  <span className="text-black font-bold">{"\"open_source\""}</span>: <span className="text-black/70 italic">{activeProject.tags?.includes("open-source") ? "true" : "false"}</span>,</div>
-                            <div><span className="text-black/20 select-none mr-4">05</span>  <span className="text-black font-bold">{"\"core_technologies\""}</span>: [</div>
+                          <div className="p-5 space-y-1.5 text-slate-700 leading-5">
+                            <div><span className="text-slate-400 select-none mr-4">01</span>{"{"}</div>
+                            <div><span className="text-slate-400 select-none mr-4">02</span>  <span className="text-slate-900 font-bold">{"\"project_name\""}</span>: <span className="text-slate-700">{"\""}{activeProject.title.split(" — ")[0].split(" - ")[0]}{"\""}</span>,</div>
+                            <div><span className="text-slate-400 select-none mr-4">03</span>  <span className="text-slate-900 font-bold">{"\"status\""}</span>: <span className="text-slate-700">{"\""}{activeProject.status || "live"}{"\""}</span>,</div>
+                            <div><span className="text-slate-400 select-none mr-4">04</span>  <span className="text-slate-900 font-bold">{"\"open_source\""}</span>: <span className="text-slate-700 italic">{activeProject.tags?.includes("open-source") ? "true" : "false"}</span>,</div>
+                            <div><span className="text-slate-400 select-none mr-4">05</span>  <span className="text-slate-900 font-bold">{"\"core_technologies\""}</span>: [</div>
                             {activeProject.tech.slice(0, 3).map((tech, idx, arr) => (
                               <div key={tech}>
-                                <span className="text-black/20 select-none mr-4">{`0${6 + idx}`}</span>
-                                {"    "}<span className="text-black/70">{"\""}{tech}{"\""}</span>{idx < arr.length - 1 ? "," : ""}
+                                <span className="text-slate-400 select-none mr-4">{`0${6 + idx}`}</span>
+                                {"    "}<span className="text-slate-700">{"\""}{tech}{"\""}</span>{idx < arr.length - 1 ? "," : ""}
                               </div>
                             ))}
-                            <div><span className="text-black/20 select-none mr-4">09</span>  ],</div>
-                            <div><span className="text-black/20 select-none mr-4">10</span>  <span className="text-black font-bold">{"\"repository_configured\""}</span>: <span className="text-black/70 italic">{activeProject.githubUrl ? "true" : "false"}</span></div>
-                            <div><span className="text-black/20 select-none mr-4">11</span>{"}"}</div>
+                            <div><span className="text-slate-400 select-none mr-4">09</span>  ],</div>
+                            <div><span className="text-slate-400 select-none mr-4">10</span>  <span className="text-slate-900 font-bold">{"\"repository_configured\""}</span>: <span className="text-slate-700 italic">{activeProject.githubUrl ? "true" : "false"}</span></div>
+                            <div><span className="text-slate-400 select-none mr-4">11</span>{"}"}</div>
                           </div>
                         </div>
 
                         {/* Interactive Project Core Highlights */}
-                        <div className="bg-gradient-to-br from-primary-500/5 to-accent-500/5 rounded-xl border border-white/5 p-4 flex flex-col justify-center">
-                          <div className="flex items-center gap-3 mb-2 text-black font-bold text-sm">
-                            <Sparkles size={16} className="text-primary-400" />
+                        <div className="bg-[#e2e8f0] rounded-3xl border border-white/60 p-5 shadow-[8px_8px_16px_rgba(163,177,198,0.5),-8px_-8px_16px_rgba(255,255,255,0.95)] flex flex-col justify-center">
+                          <div className="flex items-center gap-2.5 mb-2 text-slate-800 font-bold text-sm">
+                            <Sparkles size={16} className="text-slate-700" />
                             <span>Quick Insights</span>
                           </div>
-                          <p className="text-xs text-black/70 leading-relaxed font-sans">
+                          <p className="text-xs text-slate-600 leading-relaxed font-sans">
                             This project showcases hands-on expertise in building structured {activeProject.tech.slice(0, 2).join(" & ")} architectures, aiming to deliver scalable results with clean developer interfaces.
                           </p>
                         </div>
@@ -541,13 +541,13 @@ export default function Projects() {
       <div className="block md:hidden space-y-6">
         
         {/* Category Tab Selector */}
-        <div className="flex gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl">
+        <div className="flex gap-2 p-1.5 bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/50 rounded-2xl">
           <button
             onClick={() => setActiveCategoryMobile("featured")}
             className={`flex-grow py-2.5 text-xs font-mono font-bold rounded-xl transition-all ${
               activeCategoryMobile === "featured"
-                ? "bg-gradient-to-r from-primary-500 to-accent-500 text-black shadow-[0_0_15px_rgba(0,212,255,0.2)]"
-                : "text-black/70 hover:text-black"
+                ? "bg-[#e2e8f0] shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] text-slate-900 border border-white/60"
+                : "text-slate-600 hover:text-black"
             }`}
           >
             Featured ({featuredProjects.length})
@@ -556,8 +556,8 @@ export default function Projects() {
             onClick={() => setActiveCategoryMobile("creations")}
             className={`flex-grow py-2.5 text-xs font-mono font-bold rounded-xl transition-all ${
               activeCategoryMobile === "creations"
-                ? "bg-gradient-to-r from-primary-500 to-accent-500 text-black shadow-[0_0_15px_rgba(0,212,255,0.2)]"
-                : "text-black/70 hover:text-black"
+                ? "bg-[#e2e8f0] shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] text-slate-900 border border-white/60"
+                : "text-slate-600 hover:text-black"
             }`}
           >
             Creations ({otherProjects.length})
@@ -572,8 +572,8 @@ export default function Projects() {
               <div
                 key={p.title}
                 className={`
-                  rounded-2xl border transition-all duration-300 overflow-hidden
-                  ${isExpanded ? "border-primary-500/30 bg-black/50 shadow-[0_0_20px_rgba(0,212,255,0.08)]" : "border-white/10 bg-black/25"}
+                  rounded-3xl border border-white/50 transition-all duration-300 overflow-hidden bg-[#e2e8f0]
+                  ${isExpanded ? "shadow-[inset_2px_2px_5px_rgba(163,177,198,0.5),inset_-2px_-2px_5px_rgba(255,255,255,0.95)]" : "shadow-[8px_8px_16px_rgba(163,177,198,0.5),-8px_-8px_16px_rgba(255,255,255,0.95)]"}
                 `}
               >
                 {/* Header (always visible) */}
@@ -582,26 +582,22 @@ export default function Projects() {
                   className="p-5 flex items-center justify-between cursor-pointer select-none"
                 >
                   <div className="flex-1 min-w-0 pr-4">
-                    <span className={`text-[9px] font-bold font-mono tracking-wider px-2.5 py-0.5 rounded-full border mb-2 inline-block ${
-                      activeCategoryMobile === "featured" 
-                        ? "bg-accent-500/10 text-black font-bold border-accent-500/20" 
-                        : "bg-primary-500/10 text-primary-400 border-primary-500/20"
-                    }`}>
+                    <span className="text-[9px] font-bold font-mono tracking-wider px-3 py-1 rounded-full border border-white/40 mb-2 inline-block bg-[#e2e8f0] shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] text-slate-700">
                       {p.status?.toUpperCase() || "LIVE"}
                     </span>
-                    <h3 className="text-base font-bold text-black truncate font-sans">
+                    <h3 className="text-base font-bold text-slate-800 truncate font-sans">
                       {p.title.split(" — ")[0].split(" - ")[0]}
                     </h3>
                   </div>
-                  <div className="text-black/70 shrink-0">
+                  <div className="text-slate-600 shrink-0">
                     {isExpanded ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                   </div>
                 </div>
 
                 {/* Expanded content */}
                 {isExpanded && (
-                  <div className="border-t border-white/5 bg-black/10 p-5 space-y-4">
-                    <p className="text-xs text-black/80 leading-relaxed font-sans">
+                  <div className="border-t border-white/40 p-5 space-y-4">
+                    <p className="text-xs text-slate-700 leading-relaxed font-sans">
                       {p.description}
                     </p>
 
@@ -610,7 +606,7 @@ export default function Projects() {
                       {p.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-2.5 py-1 bg-white text-black rounded-full text-[10px] font-semibold border border-black/20 shadow-sm"
+                          className="px-3 py-1 bg-[#e2e8f0] text-slate-700 rounded-full text-[10px] font-semibold border border-white/50 shadow-[2px_2px_5px_rgba(163,177,198,0.4),-2px_-2px_5px_rgba(255,255,255,0.9)]"
                         >
                           {t}
                         </span>
@@ -624,7 +620,7 @@ export default function Projects() {
                           href={p.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs font-semibold text-black transition hover:bg-white/10"
+                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-[#e2e8f0] border border-white/60 rounded-full text-xs font-bold text-slate-800 shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] active:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] transition"
                         >
                           <Github size={13} />
                           Code
@@ -635,10 +631,10 @@ export default function Projects() {
                           href={p.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 text-black rounded-xl text-xs font-bold shadow-[0_0_10px_rgba(0,212,255,0.15)] transition"
+                          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-[#e2e8f0] border border-white/60 rounded-full text-xs font-bold text-slate-800 shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] active:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] transition"
                         >
                           <ExternalLink size={13} />
-                          Demo
+                          Live Demo
                         </a>
                       )}
                     </div>
