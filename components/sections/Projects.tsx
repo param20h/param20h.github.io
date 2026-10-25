@@ -20,51 +20,27 @@ import {
   Menu
 } from "lucide-react";
 import { projects } from "@/data/portfolio";
-import type { Project } from "@/types";
-
-// User-requested main featured projects
-const FEATURED_TITLES = [
-  "ZenithFlow — Productivity & Wellness Ecosystem",
-  "Vesta AI — Investment Research Agent",
-  "ParkControl Sentinel — AI Parking Congestion Intelligence",
-  "RAG PDF Assistant",
-  "DeepFake Detector — AI Media Forensics System",
-  "Weather App - Next.js Real-time Weather Application"
-];
 
 export default function Projects() {
-  // Categorize projects based on titles
-  const featuredProjects = useMemo(() => {
-    return projects.filter((p) => FEATURED_TITLES.includes(p.title));
-  }, []);
-
-  const otherProjects = useMemo(() => {
-    return projects.filter((p) => !FEATURED_TITLES.includes(p.title));
-  }, []);
-
-  // UI state
-
   // Mobile layout state
-  const [activeCategoryMobile, setActiveCategoryMobile] = useState<"featured" | "creations">("featured");
-  const [expandedProjectMobile, setExpandedProjectMobile] = useState<string | null>("RAG PDF Assistant");
+  const [expandedProjectMobile, setExpandedProjectMobile] = useState<string | null>("ZenithFlow — Productivity & Wellness Ecosystem");
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeProjectId, setActiveProjectId] = useState<string | null>("RAG PDF Assistant");
+  const [activeProjectId, setActiveProjectId] = useState<string | null>("ZenithFlow — Productivity & Wellness Ecosystem");
   const [openTabs, setOpenTabs] = useState<string[]>([
+    "ZenithFlow — Productivity & Wellness Ecosystem",
     "RAG PDF Assistant",
     "DeepFake Detector — AI Media Forensics System",
-    "Weather App - Next.js Real-time Weather Application"
+    "CampusIQ — Smart Campus Event Management & Analytics Platform"
   ]);
 
-  const [isFeaturedExpanded, setIsFeaturedExpanded] = useState(true);
-  const [isArchiveExpanded, setIsArchiveExpanded] = useState(false);
+  const [isProjectsExpanded, setIsProjectsExpanded] = useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(true);
 
   // Automatically expand folders if there is a search query
   useEffect(() => {
     if (searchQuery.trim() !== "") {
-      setIsFeaturedExpanded(true);
-      setIsArchiveExpanded(true);
+      setIsProjectsExpanded(true);
     }
   }, [searchQuery]);
 
@@ -75,25 +51,15 @@ export default function Projects() {
   }, [activeProjectId]);
 
   // Filter projects based on search query (title or tech stack)
-  const filteredFeatured = useMemo(() => {
-    if (!searchQuery.trim()) return featuredProjects;
+  const filteredProjects = useMemo(() => {
+    if (!searchQuery.trim()) return projects;
     const query = searchQuery.toLowerCase();
-    return featuredProjects.filter(
+    return projects.filter(
       (p) =>
         p.title.toLowerCase().includes(query) ||
         p.tech.some((t) => t.toLowerCase().includes(query))
     );
-  }, [searchQuery, featuredProjects]);
-
-  const filteredOthers = useMemo(() => {
-    if (!searchQuery.trim()) return otherProjects;
-    const query = searchQuery.toLowerCase();
-    return otherProjects.filter(
-      (p) =>
-        p.title.toLowerCase().includes(query) ||
-        p.tech.some((t) => t.toLowerCase().includes(query))
-    );
-  }, [searchQuery, otherProjects]);
+  }, [searchQuery]);
 
   // Handle opening a project tab
   const handleOpenProject = (projectTitle: string) => {
@@ -120,12 +86,6 @@ export default function Projects() {
     }
   };
 
-  // Helper to get color code for file icons based on project type
-  const getFileIconColor = (project: Project) => {
-    const isFeatured = FEATURED_TITLES.includes(project.title);
-    return isFeatured ? "text-black font-bold" : "text-primary-400";
-  };
-
   // Get project display name for tabs (truncated)
   const getTabDisplayName = (title: string) => {
     const cleanTitle = title.split(" — ")[0].split(" - ")[0];
@@ -133,7 +93,7 @@ export default function Projects() {
   };
 
   return (
-    <Section id="projects" title="Featured Projects Workspace" className="bg-white/5 relative">
+    <Section id="projects" title="Projects" className="bg-white/5 relative">
       
       {/* Background glow effects */}
 
@@ -203,29 +163,29 @@ export default function Projects() {
             {/* Folder Navigation Directory Tree */}
             <div className="flex-1 overflow-y-auto p-2 font-mono text-xs text-black/80 select-none">
               
-              {/* FEATURED PROJECTS FOLDER */}
+              {/* PROJECTS FOLDER */}
               <div className="mb-2">
                 <button
-                  onClick={() => setIsFeaturedExpanded(!isFeaturedExpanded)}
-                  className="flex items-center gap-1.5 w-full hover:bg-white/5 px-2 py-1.5 rounded transition text-left group"
+                  onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
+                  className="flex items-center gap-1.5 w-full hover:bg-white/20 px-2 py-1.5 rounded-xl transition text-left group"
                 >
-                  {isFeaturedExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-                  {isFeaturedExpanded ? (
-                    <FolderOpen size={14} className="text-accent-500/80 fill-accent-500/20" />
+                  {isProjectsExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                  {isProjectsExpanded ? (
+                    <FolderOpen size={14} className="text-slate-800 fill-slate-800/20" />
                   ) : (
-                    <Folder size={14} className="text-accent-500/80 fill-accent-500/20" />
+                    <Folder size={14} className="text-slate-800 fill-slate-800/20" />
                   )}
-                  <span className="font-semibold text-black/90 group-hover:text-black font-bold">
-                    Featured
+                  <span className="font-semibold text-slate-800 group-hover:text-black">
+                    Projects
                   </span>
-                  <span className="text-[10px] text-black/70 ml-auto font-sans">
-                    ({filteredFeatured.length})
+                  <span className="text-[10px] text-slate-500 ml-auto font-sans font-medium">
+                    ({filteredProjects.length})
                   </span>
                 </button>
 
-                {isFeaturedExpanded && (
+                {isProjectsExpanded && (
                   <div className="pl-4 mt-1 space-y-1 border-l border-white/20 ml-3.5">
-                    {filteredFeatured.map((p) => {
+                    {filteredProjects.map((p) => {
                       const isActive = activeProjectId === p.title;
                       return (
                         <button
@@ -237,61 +197,13 @@ export default function Projects() {
                               : "hover:bg-white/40 text-slate-600 hover:text-slate-900"
                           }`}
                         >
-                          <FileCode size={14} className={getFileIconColor(p)} />
+                          <FileCode size={14} className="text-slate-700" />
                           <span className="truncate">{p.title.split(" — ")[0].split(" - ")[0]}</span>
                         </button>
                       );
                     })}
-                    {filteredFeatured.length === 0 && (
+                    {filteredProjects.length === 0 && (
                       <p className="text-[10px] text-slate-400 pl-6 py-1 italic">
-                        No matches found
-                      </p>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {/* OTHER CREATIONS FOLDER */}
-              <div>
-                <button
-                  onClick={() => setIsArchiveExpanded(!isArchiveExpanded)}
-                  className="flex items-center gap-1.5 w-full hover:bg-white/20 px-2 py-1.5 rounded-xl transition text-left group"
-                >
-                  {isArchiveExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-                  {isArchiveExpanded ? (
-                    <FolderOpen size={14} className="text-slate-700" />
-                  ) : (
-                    <Folder size={14} className="text-slate-700" />
-                  )}
-                  <span className="font-semibold text-slate-700 group-hover:text-black">
-                    Creations
-                  </span>
-                  <span className="text-[10px] text-slate-500 ml-auto font-sans font-medium">
-                    ({filteredOthers.length})
-                  </span>
-                </button>
-
-                {isArchiveExpanded && (
-                  <div className="pl-4 mt-1 space-y-1 border-l border-white/20 ml-3.5">
-                    {filteredOthers.map((p) => {
-                      const isActive = activeProjectId === p.title;
-                      return (
-                        <button
-                          key={p.title}
-                          onClick={() => handleOpenProject(p.title)}
-                          className={`flex items-center gap-2 w-full px-3 py-1.5 rounded-xl transition text-left text-xs ${
-                            isActive
-                              ? "bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] text-slate-900 font-bold border border-white/40"
-                              : "hover:bg-white/40 text-slate-600 hover:text-slate-900"
-                          }`}
-                        >
-                          <FileCode size={14} className={getFileIconColor(p)} />
-                          <span className="truncate text-ellipsis overflow-hidden">{p.title.split(" — ")[0].split(" - ")[0]}</span>
-                        </button>
-                      );
-                    })}
-                    {filteredOthers.length === 0 && (
-                      <p className="text-[10px] text-black/70 pl-6 py-1 italic">
                         No matches found
                       </p>
                     )}
@@ -324,7 +236,7 @@ export default function Projects() {
                       }
                     `}
                   >
-                    <FileCode size={12} className={getFileIconColor(project)} />
+                    <FileCode size={12} className={isActive ? "text-slate-900" : "text-slate-500"} />
                     <span>{getTabDisplayName(tabTitle)}</span>
                     <button
                       onClick={(e) => handleCloseTab(e, tabTitle)}
@@ -506,7 +418,7 @@ export default function Projects() {
                     </p>
 
                     {/* Stats or shortcut hints */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-lg w-full mt-4 font-sans text-left">
+                    <div className="grid grid-cols-2 gap-4 max-w-sm w-full mt-4 font-sans text-left">
                       <div className="p-4 bg-white/5 border border-white/5 rounded-xl text-center">
                         <p className="text-2xl font-black text-black">{projects.length}</p>
                         <p className="text-[10px] font-bold text-black/70 uppercase tracking-wider mt-1">
@@ -514,13 +426,9 @@ export default function Projects() {
                         </p>
                       </div>
                       <div className="p-4 bg-white/5 border border-white/5 rounded-xl text-center">
-                        <p className="text-2xl font-black text-black">3</p>
-                        <p className="text-[10px] font-bold text-black/70 uppercase tracking-wider mt-1">
-                          Featured
+                        <p className="text-2xl font-black text-black">
+                          {projects.filter(p => p.tags?.includes("open-source") || p.githubUrl).length}
                         </p>
-                      </div>
-                      <div className="p-4 bg-white/5 border border-white/5 rounded-xl text-center col-span-2 md:col-span-1">
-                        <p className="text-2xl font-black text-black">93%</p>
                         <p className="text-[10px] font-bold text-black/70 uppercase tracking-wider mt-1">
                           Open Source
                         </p>
@@ -538,35 +446,10 @@ export default function Projects() {
       </div>
 
       {/* MOBILE LAYOUT (hidden on desktop) */}
-      <div className="block md:hidden space-y-6">
-        
-        {/* Category Tab Selector */}
-        <div className="flex gap-2 p-1.5 bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/50 rounded-2xl">
-          <button
-            onClick={() => setActiveCategoryMobile("featured")}
-            className={`flex-grow py-2.5 text-xs font-mono font-bold rounded-xl transition-all ${
-              activeCategoryMobile === "featured"
-                ? "bg-[#e2e8f0] shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] text-slate-900 border border-white/60"
-                : "text-slate-600 hover:text-black"
-            }`}
-          >
-            Featured ({featuredProjects.length})
-          </button>
-          <button
-            onClick={() => setActiveCategoryMobile("creations")}
-            className={`flex-grow py-2.5 text-xs font-mono font-bold rounded-xl transition-all ${
-              activeCategoryMobile === "creations"
-                ? "bg-[#e2e8f0] shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] text-slate-900 border border-white/60"
-                : "text-slate-600 hover:text-black"
-            }`}
-          >
-            Creations ({otherProjects.length})
-          </button>
-        </div>
-
+      <div className="block md:hidden space-y-4">
         {/* Projects Accordion Stack */}
         <div className="space-y-4">
-          {(activeCategoryMobile === "featured" ? featuredProjects : otherProjects).map((p) => {
+          {projects.map((p) => {
             const isExpanded = expandedProjectMobile === p.title;
             return (
               <div

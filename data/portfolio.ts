@@ -66,6 +66,25 @@ export const projects: Project[] = [
         tags: ["open-source"],
     },
     {
+        title: "DeepFake Detector — AI Media Forensics System",
+        description: "Comprehensive deepfake detection system with multiple interfaces: a Next.js web dashboard, Chrome browser extension, and FastAPI REST API backend. Analyzes images and video files using PyTorch deep learning models with configurable confidence thresholds. The browser extension enables instant scanning of images on any website, while the API provides programmatic access for integration.",
+        iconName: "brain",
+        tech: ["Next.js", "TypeScript", "FastAPI", "PyTorch", "OpenCV", "Chrome Extension", "Python"],
+        liveUrl: "https://deep-fake-mu.vercel.app",
+        githubUrl: "https://github.com/param20h/Deep-Fake",
+        status: "live",
+    },
+    {
+        title: "CampusIQ — Smart Campus Event Management & Analytics Platform",
+        description: "Full-stack smart campus event management and real-time analytics platform engineered to resolve data modeling, concurrency control, and analytical bottlenecks in university administration. Demonstrates MongoDB document-oriented design across two isolated layers: a Next.js 14 production platform and an academic PyMongo engine. Features hybrid referencing with selective counter denormalization, zero-overbooking guarantees via single-document atomic conditional updates ($expr & $inc), ESR compound indexing, and sub-10ms institutional analytics using multi-stage aggregation pipelines ($match → $lookup → $unwind → $group → $project) with 19 automated Pytest test cases.",
+        iconName: "brain",
+        tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "MongoDB Atlas", "PyMongo", "Python", "Recharts", "Node.js Driver", "REST API", "Pytest"],
+        liveUrl: "https://campusiq-orpin.vercel.app/",
+        githubUrl: "https://github.com/param20h/campusiq",
+        status: "live",
+        tags: ["open-source"],
+    },
+    {
         title: "Vesta AI — Investment Research Agent",
         description: "Full-stack investment research platform using Next.js (App Router), TypeScript, Tailwind CSS, and LangGraph.js. Orchestrates a 3-node agentic workflow — Ticker Resolution & Research, Structured Signal Extraction, and Grounded Decisioning — to deliver an Invest/Watch/Pass verdict with confidence scores and pros/cons. Features premium glassmorphic UI with radial mesh gradients, real-time NDJSON streaming, and interactive SVG charts for 5-year financials. 100% free-tier stack using Gemini 2.5 Flash, Tavily, and FMP APIs.",
         iconName: "brain",
@@ -92,16 +111,6 @@ export const projects: Project[] = [
         tech: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Knex.js", "PostgreSQL", "JWT"],
         liveUrl: "https://spreetail-six.vercel.app/",
         githubUrl: "https://github.com/param20h/Spreetail",
-        status: "live",
-
-    },
-    {
-        title: "DeepFake Detector — AI Media Forensics System",
-        description: "Comprehensive deepfake detection system with multiple interfaces: a Next.js web dashboard, Chrome browser extension, and FastAPI REST API backend. Analyzes images and video files using PyTorch deep learning models with configurable confidence thresholds. The browser extension enables instant scanning of images on any website, while the API provides programmatic access for integration.",
-        iconName: "brain",
-        tech: ["Next.js", "TypeScript", "FastAPI", "PyTorch", "OpenCV", "Chrome Extension", "Python"],
-        liveUrl: "https://deep-fake-mu.vercel.app",
-        githubUrl: "https://github.com/param20h/Deep-Fake",
         status: "live",
 
     },
