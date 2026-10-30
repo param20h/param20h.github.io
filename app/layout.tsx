@@ -13,10 +13,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://param20h.me"),
   title: {
-    default: "Paramjit Singh | Python Developer LPU | AI Machine Learning Expert | Web3 Blockchain Developer Portfolio",
+    default: "Paramjit Singh | AI Engineer • Backend Architect • Systems Builder | Portfolio",
     template: "%s | Paramjit Singh Portfolio"
   },
-  description: "Paramjit Singh - Expert Python Developer from Lovely Professional University (LPU). Specializing in Artificial Intelligence, Machine Learning, Web3 Blockchain Development, Unity Game Development. 2+ years experience, 10+ projects including Depression Biomarker Discovery research (p=0.0112 statistical significance), MOOC Feedback Mining for Smart India Hackathon 2021. Proficient in TensorFlow, PyTorch, React, Next.js, Node.js, FastAPI, and Scikit-learn.",
+  description: "Paramjit Singh — AI Engineer, Backend Developer, and Systems Builder from Lovely Professional University (LPU). Specializing in AI agents, LangGraph.js, RAG pipelines, PyTorch forensics, high-concurrency MongoDB document architecture, and scalable Next.js production platforms.",
   applicationName: "Paramjit Singh Portfolio",
   referrer: "origin-when-cross-origin",
   keywords: [
@@ -25,64 +25,54 @@ export const metadata: Metadata = {
     "Paramjit Singh LPU",
     "Paramjit Singh Portfolio",
     "param20h",
+    "AI Systems Builder",
+    "AI Engineer",
+    "Backend Architect",
     
-    // Programming Languages
-    "Python Developer",
-    "JavaScript Developer",
-    "TypeScript Developer",
-    "C++ Developer",
-    
-    // AI/ML Keywords
-    "AI Developer",
-    "Machine Learning Engineer",
-    "Deep Learning",
-    "Artificial Intelligence",
-    "TensorFlow",
+    // AI/ML & Agentic Keywords
+    "AI Agent Architecture",
+    "LangGraph.js",
+    "RAG Pipelines",
+    "Retrieval-Augmented Generation",
+    "Vector Search FAISS",
+    "DeepFake Forensics",
     "PyTorch",
-    "Keras",
+    "TensorFlow",
     "Scikit-learn",
-    "K-Means Clustering",
-    "PCA Principal Component Analysis",
-    "Unsupervised Learning",
-    "Supervised Learning",
-    "Neural Networks",
+    "OpenAI API",
+    "Google Gemini API",
+    "Groq Llama 3",
     "Computer Vision",
-    "OpenCV",
     "Natural Language Processing",
-    "NLP",
-    "BERT",
-    "Statistical Analysis",
     
-    // Web Development
-    "Web3 Developer",
-    "Blockchain Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "Full Stack Developer",
-    "Frontend Developer",
-    "Backend Developer",
+    // Backend & Database Architecture
+    "MongoDB Atlas",
+    "PyMongo",
+    "Concurrency Control $expr $inc",
+    "ESR Compound Indexing",
+    "MongoDB Aggregation Pipelines",
+    "PostgreSQL Row Level Security",
     "FastAPI",
+    "Flask",
+    "Node.js",
     "Express.js",
+    "TypeScript",
+    "Next.js 14",
+    "React",
     "Tailwind CSS",
-    "MongoDB",
-    "PostgreSQL",
-    
-    // Game Development
-    "Unity Game Developer",
-    "Unity 3D",
-    "Game Development",
-    
-    // Tools & Technologies
     "Docker",
     "Git",
-    "GitHub",
-    "AWS",
-    "Cloud Computing",
     
-    // Education & Location
-    "LPU",
-    "Lovely Professional University",
+    // Flagship Systems
+    "CampusIQ Smart Campus",
+    "ZenithFlow SaaS",
+    "RAG PDF Assistant",
+    "DeepFake Detector",
+    "Vesta AI Investment Agent",
+    "ParkControl Sentinel",
+    "FlatMate Shared Expenses",
+
+    // Education & Region
     "LPU Student",
     "India Developer",
     
@@ -102,7 +92,7 @@ export const metadata: Metadata = {
     "AI/ML Engineer",
     "Data Scientist",
     "Research Developer",
-    "Tech Enthusiast",
+    "Tech Enthusiast"
   ],
   authors: [{ name: "Paramjit Singh", url: "https://param20h.me" }],
   creator: "Paramjit Singh",
@@ -116,15 +106,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://param20h.me",
-    title: "Paramjit Singh | Expert Python Developer from LPU | AI ML Web3 Specialist",
-    description: "🚀 Paramjit Singh - Expert Python Developer from LPU with 2+ years experience. Specializing in AI/ML, Web3 Blockchain, Unity Game Development. Featured projects: Depression Biomarker Discovery (p=0.0112), MOOC Feedback Mining (87% accuracy), Real-time Chat App. Proficient in TensorFlow, PyTorch, React, Next.js, FastAPI.",
+    title: "Paramjit Singh | AI Engineer & Backend Architect Portfolio",
+    description: "Personal engineering portfolio of Paramjit Singh. Specializing in AI agents, RAG, PyTorch forensics, high-concurrency MongoDB databases, and Next.js 14 production systems.",
     siteName: "Paramjit Singh Portfolio",
     images: [
       {
-        url: "/media/profile.png",
+        url: "/media/circle-photo.png",
         width: 1200,
         height: 630,
-        alt: "Paramjit Singh - Python Developer & AI/ML Expert Portfolio",
+        alt: "Paramjit Singh - AI Engineer & Backend Architect Portfolio",
         type: "image/png",
       },
     ],
@@ -133,10 +123,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@param20h",
     creator: "@param20h",
-    title: "Paramjit Singh | Expert Python Developer from LPU",
-    description: "🚀 Expert Python Developer specializing in AI/ML, Web3 Blockchain, Unity Game Development. 2+ years experience, 10+ projects including Depression Biomarker Discovery research.",
+    title: "Paramjit Singh | AI Engineer & Backend Architect",
+    description: "Specializing in AI agents, RAG pipelines, PyTorch forensics, and high-concurrency database systems.",
     images: {
-      url: "/media/profile.png",
+      url: "/media/circle-photo.png",
       alt: "Paramjit Singh Portfolio",
     },
   },
@@ -294,6 +284,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="alternate" type="text/plain" href="https://param20h.me/llms.txt" title="LLM Documentation" />
+        <link rel="alternate" type="application/json" href="https://param20h.me/resume.json" title="JSON Resume" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

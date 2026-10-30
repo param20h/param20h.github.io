@@ -528,6 +528,22 @@ export default function Projects() {
           })}
         </div>
       </div>
+
+      {/* CRAWLER & LLM-FRIENDLY STATIC OUTLINE (Accessible to non-JS scrapers & screen readers) */}
+      <div className="sr-only" aria-label="Structured Projects Directory for Screen Readers and Web Crawlers">
+        <h3>Full Project Catalog & Technical Architecture Outlines</h3>
+        {projects.map((p) => (
+          <article key={p.title}>
+            <h4>{p.title}</h4>
+            <p>{p.description}</p>
+            <div>
+              <strong>Technologies Used:</strong> {p.tech.join(", ")}
+            </div>
+            {p.liveUrl && <p><a href={p.liveUrl} rel="noopener noreferrer">Production Deployment</a></p>}
+            {p.githubUrl && <p><a href={p.githubUrl} rel="noopener noreferrer">Source Code Repository</a></p>}
+          </article>
+        ))}
+      </div>
     </Section>
   );
 }

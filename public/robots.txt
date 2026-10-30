@@ -1,0 +1,38 @@
+# robots.txt for https://param20h.me
+# Optimized for Search Engines & Generative AI Agents
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Explicitly permit AI Search and Knowledge Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Canonical Sitemaps & LLM Discovery
+Sitemap: https://param20h.me/sitemap.xml
+
+# Machine-Readable Profiles
+# LLM Manifest: https://param20h.me/llms.txt
+# Full Technical Spec: https://param20h.me/llms-full.txt
+# Machine Resume: https://param20h.me/resume.json
+# Markdown Bio: https://param20h.me/bio.md

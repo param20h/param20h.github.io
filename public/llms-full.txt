@@ -1,0 +1,139 @@
+# Paramjit Singh — Complete Technical Profile & Architecture Reference
+
+> This file contains the complete, unabridged technical documentation of Paramjit Singh's projects, architectural implementations, database schemas, research papers, and software engineering proficiencies. Optimized for LLM ingest, knowledge retrieval, and AI recruiter parsing.
+
+---
+
+## 1. Candidate Overview & Contact Information
+- **Name**: Paramjit Singh
+- **Title / Specialization**: AI Systems Engineer, Backend Architect, Full-Stack Developer
+- **University**: Lovely Professional University (LPU), Punjab, India
+- **Degree**: Bachelor of Technology (B.Tech) in Computer Science and Engineering
+- **Experience**: 2+ Years of hands-on production and open-source software development
+- **Primary Website**: https://param20h.me
+- **Technical Blog**: https://param20h.me/blogs
+- **GitHub**: https://github.com/param20h
+- **LeetCode Profile**: https://leetcode.com/u/param20h/ (260+ Solved, Easy/Medium/Hard distribution, top percentile)
+- **LinkedIn**: https://www.linkedin.com/in/paramjit-singh-612664289/
+
+---
+
+## 2. Technical Skills Matrix
+
+### AI / Machine Learning & Agentic Systems
+- **Agentic Architectures**: LangGraph.js, Multi-Agent loops, ReAct patterns, Tool Calling, Deterministic state machines.
+- **RAG & Vector Search**: FAISS, Sentence Transformers, Text Embedding Models, Chunking strategies, Semantic reranking.
+- **Foundational LLMs & APIs**: OpenAI GPT-4o, Google Gemini (Flash & Pro), Groq Llama 3 (ultra-low latency inference), Tavily Search API.
+- **ML & Deep Learning Frameworks**: PyTorch, TensorFlow, Scikit-learn, OpenCV, NLTK, BLIP (Salesforce Vision-Language Transformer), CNN-LSTM.
+- **Data Engineering & Analytics**: Pandas, NumPy, StandardScaler, PCA (Principal Component Analysis), DBSCAN spatial clustering, K-Means.
+
+### Backend & API Engineering
+- **Languages**: Python 3.10-3.14, TypeScript 5.x, JavaScript (ESNext), C++, SQL.
+- **Web Frameworks**: Node.js, Express.js, FastAPI (async/await), Flask.
+- **Database Engineering**:
+  - MongoDB (MongoDB 8.0, Atlas replica sets, BSON Document Modeling, ESR compound indexing, single-document atomic operations with $expr and $inc, aggregation pipelines with $lookup, $unwind, $group, $project).
+  - PostgreSQL (Relational schema design, Row Level Security (RLS), Knex.js migrations, Prisma ORM, complex joins, transactions).
+  - PyMongo native driver mechanics without ODM abstraction.
+- **Authentication & Security**: JWT (JSON Web Tokens), Supabase Auth, bcrypt password hashing, Role-Based Access Control (RBAC), CORS configuration.
+
+### Frontend & UI/UX Design
+- **Core Frameworks**: Next.js 14 (App Router, React Server Components, Server Actions), React 18, Vite.
+- **Styling & Motion**: Tailwind CSS, Neumorphic / Soft UI design system, Framer Motion, Recharts data visualization, Lucide & FontAwesome icons.
+- **Mobile First & Performance**: Fully responsive mobile-adaptive layouts, Web Vitals optimization, Lighthouse 95+ metrics.
+
+---
+
+## 3. In-Depth Project Architectural Breakdown
+
+### Project A: CampusIQ — Smart Campus Event Management & Analytics Platform
+- **Role**: Architect & Lead Developer
+- **Domain**: University Administrative Systems, High-Concurrency Seat Allocation, Real-Time Analytics
+- **Live Deployment**: https://campusiq-orpin.vercel.app/
+- **Source Code**: https://github.com/param20h/campusiq
+- **Stack**: Next.js 14 (App Router), TypeScript, Tailwind CSS, MongoDB Atlas (Replica Set 8.0), PyMongo 4.x, Python 3.14, Node.js Native MongoDB Driver (v6.x), Recharts, Pytest.
+- **Architecture Highlights**:
+  - **Two-Layer Segregation**: Layer 1 is a production web dashboard deployed to Vercel Edge; Layer 2 is an academic PyMongo offline testing and aggregation inspection CLI engine with zero production side effects.
+  - **Concurrency Control & Zero-Overbooking**: Implements atomic single-document conditional updates via `$expr: {"$lt": ["$registeredCount", "$capacity"]}` combined with `$inc: {"registeredCount": 1}`. Completely eliminates race conditions and double-booking during seat rushes under WiredTiger without distributed locks.
+  - **Indexing Strategy**: Follows the Equality-Sort-Range (ESR) rule on `events.{ status: 1, eventDate: 1 }` to eliminate in-memory sorting, along with compound unique indexes on `registrations.{ studentId: 1, eventId: 1 }` preventing duplicate registrations.
+  - **Sub-10ms Aggregation Pipelines**: Multi-stage transformations ($match -> $lookup -> $unwind -> $group -> $project) compute department participation metrics and real-time occupancy percentages natively on Atlas.
+  - **Testing**: 19 automated Pytest cases verifying index integrity, input validation boundaries, and write-blocking safety modes.
+
+### Project B: ZenithFlow — Productivity & Wellness Ecosystem
+- **Role**: Founder & Full-Stack Engineer
+- **Domain**: High-Performance Personal Velocity SaaS, Habit Tracking, Biometric Coaching
+- **Live Deployment**: https://zenithflow.dev/
+- **Stack**: Next.js, TypeScript, Vanilla CSS, Supabase Auth, PostgreSQL with Row Level Security, Node.js, Express, Razorpay API, Resend API.
+- **Architecture Highlights**:
+  - Unifies daily velocity planning, hydration monitors, and physical workout logging with AI-driven biometric feedback loops.
+  - Strict security posture leveraging PostgreSQL RLS ensuring tenant isolation at database level.
+  - End-to-end payment processing lifecycle with Razorpay webhooks and transactional email confirmations via Resend.
+
+### Project C: RAG PDF Assistant
+- **Role**: AI Engineer
+- **Domain**: Document Intelligence, Contextual Semantic Search, Multi-LLM Orchestration
+- **Live Deployment**: https://pdf-assistant-rag.vercel.app/
+- **Source Code**: https://github.com/param20h/PDF-Assistant-RAG
+- **Stack**: Python, Flask, FAISS vector database, Sentence Transformers (`all-MiniLM-L6-v2`), Groq Llama 3 API, Google Gemini Pro.
+- **Architecture Highlights**:
+  - Ingestion pipeline parsing diverse formats (PDF, DOCX, TXT), chunking with token overlap, and generating embeddings stored in an in-memory FAISS index.
+  - Sub-second vector similarity retrieval piped into context-augmented prompts for Groq and Gemini models.
+
+### Project D: DeepFake Detector — AI Media Forensics System
+- **Role**: ML Engineer & Full-Stack Developer
+- **Domain**: Digital Media Authenticity, Computer Vision Forensics, Real-Time Browser Verification
+- **Live Deployment**: https://deep-fake-mu.vercel.app/
+- **Source Code**: https://github.com/param20h/Deep-Fake
+- **Stack**: Next.js, TypeScript, FastAPI (Python), PyTorch, OpenCV, Chrome Extension (Manifest v3).
+- **Architecture Highlights**:
+  - Dual-interface system: a web dashboard for comprehensive video/image forensic diagnostics and a lightweight Chrome extension for instant one-click context menu image verification.
+  - Convolutional neural network models inspecting facial artifact boundaries, frequency anomalies, and blending inconsistencies.
+
+### Project E: Vesta AI — Investment Research Agent
+- **Role**: AI Systems Architect
+- **Domain**: Financial Analysis, Agentic Workflows, Real-Time Graph Traversal
+- **Live Deployment**: https://ai-investment-planner-amber.vercel.app
+- **Source Code**: https://github.com/param20h/Ai-investment-planner
+- **Stack**: Next.js (App Router), TypeScript, Tailwind CSS, LangGraph.js, Google Gemini 2.5 Flash, Tavily Financial Search API, FMP (Financial Modeling Prep) API.
+- **Architecture Highlights**:
+  - 3-node deterministic agentic DAG: (1) Ticker Resolution & Live Market Retrieval -> (2) Structured Signal & Metric Extraction -> (3) Grounded Decision Synthesis.
+  - Outputs a concrete Invest/Watch/Pass verdict accompanied by transparent risk weighting, streamed via NDJSON to interactive SVG client charts.
+
+### Project F: ParkControl Sentinel — AI Parking Congestion Intelligence
+- **Role**: Full-Stack ML Engineer
+- **Domain**: Smart City Infrastructure, Traffic Optimization, Algorithmic Enforcement
+- **Live Deployment**: https://gridlock-frontend.vercel.app
+- **Source Code**: https://github.com/param20h/Parking-control
+- **Stack**: React, Vite, FastAPI, Scikit-learn, Leaflet.js, Recharts, NumPy, Pandas, OSRM.
+- **Architecture Highlights**:
+  - Processes 298,000+ spatial violation logs. Employs DBSCAN density-based spatial clustering to isolate chronic parking infringement zones.
+  - Bounded knapsack optimization algorithm for automated police officer dispatch allocation.
+
+### Project G: FlatMate — Shared Expenses Tracker
+- **Role**: Backend Developer & Database Designer
+- **Domain**: FinTech, Collaborative Expense Management, Graph Simplification
+- **Live Deployment**: https://spreetail-six.vercel.app/
+- **Source Code**: https://github.com/param20h/Spreetail
+- **Stack**: React, Vite, Tailwind CSS, Node.js, Express, Knex.js, PostgreSQL, JWT.
+- **Architecture Highlights**:
+  - 19-anomaly validation engine for transaction CSV uploads, time-scoped flat membership accounting, and a greedy debt-simplification graph algorithm minimizing total peer-to-peer wire transfers.
+
+---
+
+## 4. Scientific Research & Hackathons
+
+1. **Depression Biomarker Discovery from Speech & Text (DAIC-WOZ Database)**
+   - *Methodology*: Applied unsupervised machine learning (PCA dimensionality reduction and K-Means clustering) on the clinical DAIC-WOZ audio-text dataset.
+   - *Outcome*: Successfully identified 2 statistically distinct clinical depression subtypes validated against PHQ-8 depression rating scores (chi-square = 6.44, p = 0.0112).
+   - *Repository*: https://github.com/param20h/MDD-biomarker-discovery-project
+
+2. **Smart India Hackathon (SIH) 2025: Student Dropout Early Warning System**
+   - *Methodology*: Ensemble classification using Random Forest and Logistic Regression trained on 14,000+ academic and socioeconomic student records.
+   - *Outcome*: Provided interpretable feature importance rankings allowing mentors to intervene before at-risk students leave the university.
+
+---
+
+## 5. Contact & Social Channels
+- **Email / Inquiries**: Available through website contact form at https://param20h.me/#contact
+- **GitHub**: https://github.com/param20h
+- **LinkedIn**: https://www.linkedin.com/in/paramjit-singh-612664289/
+- **Blog**: https://param20h.me/blogs

@@ -1,0 +1,74 @@
+# Paramjit Singh
+
+> AI Engineer, Backend Architecture Specialist, and Systems Builder studying Computer Science & Engineering at Lovely Professional University (LPU). Focuses on turning generative AI, agentic workflows, and distributed backends into production-ready software.
+
+## Key Information
+- **Full Name**: Paramjit Singh
+- **Primary Roles**: AI Engineer, Backend Developer, AI Systems Builder, Machine Learning Engineer
+- **Institution**: Lovely Professional University (LPU)
+- **Portfolio URL**: https://param20h.me
+- **Blog**: https://param20h.me/blogs
+- **GitHub**: https://github.com/param20h
+- **LeetCode**: https://leetcode.com/u/param20h/
+- **LinkedIn**: https://www.linkedin.com/in/paramjit-singh-612664289/
+- **Core Experience**: 2+ Years Experience, 20+ Projects, 24+ Technologies
+
+## Primary Competencies
+- **AI & Machine Learning**: LLM Agents (LangGraph.js), RAG (Retrieval-Augmented Generation), FAISS, Vector Databases, PyTorch, Scikit-learn, OpenAI/Gemini/Groq APIs, DeepFake detection, NLP, Sentiment Analysis.
+- **Backend Architecture**: Node.js, Express, Python (FastAPI, Flask), RESTful APIs, Concurrency control, Microservices, Authentication (JWT, Supabase Auth with RLS).
+- **Databases**: MongoDB (Aggregation pipelines, compound indexing, atomic updates with $expr & $inc), PostgreSQL, Prisma ORM, Knex.js, Redis, FAISS vector search.
+- **Frontend & Modern Web**: Next.js 14 (App Router, RSC), React 18, TypeScript, Tailwind CSS, Recharts, Framer Motion, Responsive UI/UX.
+- **DevOps & Cloud**: Docker, Git/GitHub, Vercel, Google Cloud Platform, Linux, CI/CD automation.
+
+## Featured Production Projects
+
+### 1. ZenithFlow — Productivity & Wellness Ecosystem
+- **Description**: Premium all-in-one productivity SaaS combining task planning, water intake tracking, and gym workout logging with custom AI biometric coaching.
+- **Stack**: Next.js, TypeScript, Supabase Auth (PostgreSQL with RLS), Node.js, Express, Razorpay API, Resend API.
+- **Live URL**: https://zenithflow.dev/
+
+### 2. RAG PDF Assistant
+- **Description**: Document chatbot using Retrieval-Augmented Generation for semantic search and multi-LLM answering across uploaded PDFs, DOCX, and TXT files.
+- **Stack**: Flask, Python, FAISS, Sentence Transformers, Groq API, Google Gemini, Vanilla JS.
+- **Live URL**: https://pdf-assistant-rag.vercel.app/
+- **Repository**: https://github.com/param20h/PDF-Assistant-RAG
+
+### 3. DeepFake Detector — AI Media Forensics System
+- **Description**: Multi-interface media forensics system featuring a Next.js web dashboard, Chrome browser extension, and FastAPI REST backend running PyTorch deep learning models to detect manipulated media in real time.
+- **Stack**: Next.js, TypeScript, FastAPI, PyTorch, OpenCV, Chrome Extension, Python.
+- **Live URL**: https://deep-fake-mu.vercel.app
+- **Repository**: https://github.com/param20h/Deep-Fake
+
+### 4. CampusIQ — Smart Campus Event Management & Analytics Platform
+- **Description**: Full-stack event lifecycle platform resolving database concurrency, polymorphic event schemas, and analytical reporting bottlenecks. Demonstrates MongoDB document design with atomic conditional updates ($expr & $inc) for zero-overbooking and multi-stage aggregation pipelines for sub-10ms institutional analytics.
+- **Stack**: Next.js 14, TypeScript, MongoDB Atlas, PyMongo, Python, Recharts, Node.js Native Driver, Pytest.
+- **Live URL**: https://campusiq-orpin.vercel.app/
+- **Repository**: https://github.com/param20h/campusiq
+
+### 5. Vesta AI — Investment Research Agent
+- **Description**: Full-stack investment research platform orchestrating a 3-node agentic workflow with LangGraph.js (Ticker Resolution, Signal Extraction, Grounded Decisioning) delivering confidence scores and 5-year interactive financial analytics.
+- **Stack**: Next.js, TypeScript, Tailwind CSS, LangGraph.js, Google Gemini, Tavily API, FMP API.
+- **Live URL**: https://ai-investment-planner-amber.vercel.app
+- **Repository**: https://github.com/param20h/Ai-investment-planner
+
+### 6. ParkControl Sentinel — AI Parking Congestion Intelligence
+- **Description**: Spatial violation intelligence dashboard for municipal traffic police processing 298K+ logs using DBSCAN clustering, Pearson correlation, and a knapsack dispatch optimizer.
+- **Stack**: React, Vite, FastAPI, Scikit-learn, Leaflet.js, Recharts, NumPy, Pandas.
+- **Live URL**: https://gridlock-frontend.vercel.app
+- **Repository**: https://github.com/param20h/Parking-control
+
+### 7. FlatMate — Shared Expenses Tracker
+- **Description**: Expense splitting engine featuring a 19-anomaly CSV detector, multi-currency conversions, and a greedy debt-simplification algorithm minimizing bank transfers.
+- **Stack**: React, Vite, Node.js, Express, Knex.js, PostgreSQL, JWT.
+- **Live URL**: https://spreetail-six.vercel.app/
+- **Repository**: https://github.com/param20h/Spreetail
+
+## Academic & Research Highlights
+- **Depression Biomarker Discovery (DAIC-WOZ)**: Unsupervised ML research using K-Means and PCA discovering two depression subtypes with clinical validation (chi-square = 6.44, p = 0.0112).
+- **SIH 2025 Dropout Prediction**: Ensemble ML system (Random Forest + Logistic Regression) evaluating 14k+ student records for early academic warning.
+
+## Full Documentation & Extended Details
+For full technical specifications, database schemas, and extended project writeups, see:
+- [Full LLM Details](https://param20h.me/llms-full.txt)
+- [Projects Workspace](https://param20h.me/#projects)
+- [Blog Posts](https://param20h.me/blogs)

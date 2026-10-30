@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Paramjit Singh",
+    "label": "AI Engineer & Backend Architect",
+    "image": "https://param20h.me/media/circle-photo.png",
+    "url": "https://param20h.me",
+    "summary": "Computer Science student at Lovely Professional University focused on AI agents, RAG pipelines, distributed backends, and production systems engineering.",
+    "location": {
+      "countryCode": "IN",
+      "region": "Punjab"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "param20h",
+        "url": "https://github.com/param20h"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "paramjit-singh-612664289",
+        "url": "https://www.linkedin.com/in/paramjit-singh-612664289/"
+      },
+      {
+        "network": "LeetCode",
+        "username": "param20h",
+        "url": "https://leetcode.com/u/param20h/"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Lovely Professional University",
+      "url": "https://www.lpu.in",
+      "area": "Computer Science and Engineering",
+      "studyType": "Bachelor of Technology"
+    }
+  ],
+  "skills": [
+    {
+      "name": "AI & Machine Learning",
+      "level": "Advanced",
+      "keywords": ["LangGraph.js", "RAG", "FAISS", "PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "OpenAI API", "Google Gemini", "Groq"]
+    },
+    {
+      "name": "Backend Engineering",
+      "level": "Advanced",
+      "keywords": ["Node.js", "Express", "FastAPI", "Flask", "Python", "REST APIs", "Concurrency Control", "JWT"]
+    },
+    {
+      "name": "Databases & Storage",
+      "level": "Advanced",
+      "keywords": ["MongoDB", "MongoDB Atlas", "PyMongo", "PostgreSQL", "Supabase", "Prisma ORM", "Knex.js", "Redis"]
+    },
+    {
+      "name": "Frontend & Full Stack",
+      "level": "Advanced",
+      "keywords": ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Framer Motion", "Recharts"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "ZenithFlow",
+      "description": "Productivity & wellness ecosystem with AI biometric coaching, Supabase PostgreSQL RLS, and Razorpay billing.",
+      "url": "https://zenithflow.dev/",
+      "keywords": ["Next.js", "TypeScript", "Supabase", "Node.js", "Express", "Razorpay"]
+    },
+    {
+      "name": "RAG PDF Assistant",
+      "description": "Retrieval-Augmented Generation document chat using FAISS semantic search and Groq/Gemini LLMs.",
+      "url": "https://pdf-assistant-rag.vercel.app/",
+      "keywords": ["Python", "Flask", "FAISS", "Sentence Transformers", "Groq", "Gemini"]
+    },
+    {
+      "name": "DeepFake Detector",
+      "description": "Media forensics system with a Next.js web dashboard and Chrome extension utilizing PyTorch deep learning models.",
+      "url": "https://deep-fake-mu.vercel.app",
+      "keywords": ["Next.js", "FastAPI", "PyTorch", "OpenCV", "Chrome Extension"]
+    },
+    {
+      "name": "CampusIQ",
+      "description": "Smart campus event platform with MongoDB concurrency guarantees ($expr & $inc zero-overbooking) and aggregation pipelines.",
+      "url": "https://campusiq-orpin.vercel.app/",
+      "keywords": ["Next.js 14", "TypeScript", "MongoDB Atlas", "PyMongo", "Python", "Recharts"]
+    },
+    {
+      "name": "Vesta AI",
+      "description": "Investment research agent utilizing a 3-node LangGraph.js workflow for signal extraction and financial decisioning.",
+      "url": "https://ai-investment-planner-amber.vercel.app",
+      "keywords": ["Next.js", "LangGraph.js", "Google Gemini", "Tavily API", "Tailwind CSS"]
+    }
+  ]
+}
