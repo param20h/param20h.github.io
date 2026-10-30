@@ -117,7 +117,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-sm text-slate-500 font-medium">Location</div>
-                <div className="text-slate-800 font-semibold">Available for Remote Work</div>
+                <div className="text-slate-800 font-semibold">Punjab, India (Available for Remote & Hybrid)</div>
               </div>
             </div>
           </div>

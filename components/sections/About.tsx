@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket, faLightbulb, faBullseye } from "@fortawesome/free-solid-svg-icons";
 
 const stats = [
-  { label: "Years Experience", value: "2+" },
-  { label: "Projects", value: "20+" },
-  { label: "Technologies", value: "24+" },
+  { label: "Production & Open Source Projects", value: "8+" },
+  { label: "Algorithms Solved (LeetCode)", value: "260+" },
+  { label: "Client Platforms Shipped", value: "3" },
 ];
 
 export default function About() {
@@ -28,7 +28,7 @@ export default function About() {
             </motion.div>
             <h3 className="text-3xl font-extrabold mb-2 text-slate-800">Paramjit Singh</h3>
             <p className="text-slate-600 text-base md:text-lg font-medium">
-              AI Engineer • Backend Developer • AI Systems Builder • ML eng
+              Backend & AI Engineer
             </p>
           </div>
 

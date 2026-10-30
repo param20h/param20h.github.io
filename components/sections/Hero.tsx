@@ -101,12 +101,11 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-              <strong>Expert Python Developer </strong> passionate about{" "}
-              <span className="text-primary-400">Artificial Intelligence</span>,{" "}
-              <span className="text-primary-400">Machine Learning</span>,{" "}
-              <span className="text-primary-400">Web3 Blockchain</span>, and creating{" "}
-              <span className="text-primary-400">innovative solutions</span>
+            <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto mb-12 leading-relaxed">
+              <strong>Backend & AI Engineer</strong> building intelligent systems, reliable microservices, and production web applications.
+              Focused on <span className="text-slate-900 font-semibold">agentic workflows</span>,{" "}
+              <span className="text-slate-900 font-semibold">RAG pipelines</span>, and{" "}
+              <span className="text-slate-900 font-semibold">high-concurrency architectures</span>.
             </p>
 
             <div className="flex flex-wrap gap-6 justify-center">
@@ -128,19 +127,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Floating Quote & Coffee Button */}
-      <motion.a
-        href="https://www.buymeacoffee.com/param20h"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-24 right-6 bg-gradient-to-r from-red-700 to-blue-400 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all z-40 hidden md:flex items-center gap-2"
-        whileHover={{ scale: 1.05, y: -2 }}
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        ☕ Buy me a coffee
-      </motion.a>
     </section>
   );
 }

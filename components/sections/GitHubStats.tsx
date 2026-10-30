@@ -24,13 +24,44 @@ interface StreakStats {
 
 export default function GitHubStats() {
   const [stats, setStats] = useState<Stats>({
-    repos: 0,
-    stars: 0,
-    forks: 0,
-    followers: 0,
+    repos: 77,
+    stars: 258,
+    forks: 105,
+    followers: 66,
   });
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [repos, setRepos] = useState<GitHubRepo[]>([
+    {
+      id: 1,
+      name: "CampusIQ",
+      description: "Smart campus placement & analytics engine with $expr conditional atomic updates and ESR indexing.",
+      html_url: "https://github.com/param20h/campusiq",
+      language: "Python",
+      stargazers_count: 14,
+      forks_count: 4,
+      updated_at: "2026-03-01T00:00:00Z",
+    },
+    {
+      id: 2,
+      name: "ParkControl-Sentinel",
+      description: "Real-time edge automated parking guidance platform processing spatial log telemetry with DBSCAN density clustering.",
+      html_url: "https://github.com/param20h/Parking-control",
+      language: "Python",
+      stargazers_count: 8,
+      forks_count: 2,
+      updated_at: "2026-02-15T00:00:00Z",
+    },
+    {
+      id: 3,
+      name: "FlatMate-Expense-Engine",
+      description: "Collaborative expense engine with 19-anomaly detection rules and 24 integration test cases.",
+      html_url: "https://github.com/param20h/Spreetail",
+      language: "TypeScript",
+      stargazers_count: 6,
+      forks_count: 1,
+      updated_at: "2026-01-20T00:00:00Z",
+    },
+  ]);
+  const [, setLoading] = useState(false);
 
   // GitHub Streak State
   const [streak, setStreak] = useState<StreakStats>({
@@ -40,7 +71,6 @@ export default function GitHubStats() {
   });
 
   // LeetCode Stats State
-  // LeetCode Stats State
   const [leetcode, setLeetcode] = useState<LeetCodeStats>({
     totalSolved: 260,
     easySolved: 99,
@@ -49,7 +79,7 @@ export default function GitHubStats() {
     ranking: 610828,
     acceptanceRate: 79.4,
   });
-  const [lcLoading, setLcLoading] = useState(true);
+  const [lcLoading, setLcLoading] = useState(false);
 
   const username = "param20h";
 
@@ -247,7 +277,7 @@ export default function GitHubStats() {
             <Card className="text-center p-4 min-h-[120px] flex flex-col justify-center">
               <stat.icon className={`w-6 h-6 mx-auto mb-2 ${stat.color}`} />
               <div className="text-2xl font-bold text-slate-800 mb-0.5">
-                {loading ? "--" : stat.value}
+                {stat.value}
               </div>
               <div className="text-slate-500 text-[10px] uppercase tracking-wider font-semibold">{stat.label}</div>
             </Card>
@@ -316,7 +346,7 @@ export default function GitHubStats() {
                   <div className="relative w-16 h-16 rounded-full bg-[#e2e8f0] shadow-[3px_3px_7px_rgba(163,177,198,0.55),-3px_-3px_7px_rgba(255,255,255,0.95)] flex flex-col items-center justify-center text-center border border-white/60">
                     <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500 mb-0.5" />
                     <span className="text-xl font-black text-slate-800 leading-none">
-                      {loading ? "--" : streak.currentStreak}
+                      {streak.currentStreak}
                     </span>
                     <span className="text-[7px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">
                       Day Streak
@@ -332,7 +362,7 @@ export default function GitHubStats() {
                   <div className="flex justify-between text-xs font-mono mb-1">
                     <span className="text-amber-600 font-extrabold">Current Streak</span>
                     <span className="text-slate-700 font-bold">
-                      {streak.currentStreak} <span className="text-slate-400 font-normal">/ Days</span>
+                      {streak.currentStreak} <span className="text-slate-400 font-normal">Days Active</span>
                     </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
@@ -348,7 +378,7 @@ export default function GitHubStats() {
                   <div className="flex justify-between text-xs font-mono mb-1">
                     <span className="text-cyan-600 font-extrabold">Longest Streak</span>
                     <span className="text-slate-700 font-bold">
-                      {streak.longestStreak} <span className="text-slate-400 font-normal">/ Days</span>
+                      {streak.longestStreak} <span className="text-slate-400 font-normal">Days Max</span>
                     </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
@@ -364,7 +394,7 @@ export default function GitHubStats() {
                   <div className="flex justify-between text-xs font-mono mb-1">
                     <span className="text-emerald-600 font-extrabold">Contributions</span>
                     <span className="text-slate-700 font-bold">
-                      {streak.totalContributions.toLocaleString()} <span className="text-slate-400 font-normal">/ Total</span>
+                      {streak.totalContributions.toLocaleString()} <span className="text-slate-400 font-normal">Total Commits</span>
                     </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
@@ -382,7 +412,7 @@ export default function GitHubStats() {
               <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
                 <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">TOTAL CONTRIBUTIONS</span>
                 <span className="text-slate-800 font-black text-sm md:text-base font-mono">
-                  {loading ? "--" : streak.totalContributions.toLocaleString()}
+                  {streak.totalContributions.toLocaleString()}
                 </span>
               </div>
               <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
@@ -457,7 +487,7 @@ export default function GitHubStats() {
                   {/* Center Extruded Dial Knob */}
                   <div className="relative w-16 h-16 rounded-full bg-[#e2e8f0] shadow-[3px_3px_7px_rgba(163,177,198,0.55),-3px_-3px_7px_rgba(255,255,255,0.95)] flex flex-col items-center justify-center text-center border border-white/60">
                     <span className="text-xl font-black text-slate-800 leading-none">
-                      {lcLoading ? "--" : leetcode.totalSolved}
+                      {leetcode.totalSolved}
                     </span>
                     <span className="text-[8px] text-slate-500 uppercase font-bold tracking-wider mt-1">
                       Solved
@@ -473,7 +503,7 @@ export default function GitHubStats() {
                   <div className="flex justify-between text-xs font-mono mb-1">
                     <span className="text-emerald-600 font-extrabold">Easy</span>
                     <span className="text-slate-700 font-bold">
-                      {leetcode.easySolved} <span className="text-slate-400 font-normal">/ 800+</span>
+                      {leetcode.easySolved} <span className="text-slate-400 font-normal">Solved</span>
                     </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
@@ -489,7 +519,7 @@ export default function GitHubStats() {
                   <div className="flex justify-between text-xs font-mono mb-1">
                     <span className="text-amber-600 font-extrabold">Medium</span>
                     <span className="text-slate-700 font-bold">
-                      {leetcode.mediumSolved} <span className="text-slate-400 font-normal">/ 1700+</span>
+                      {leetcode.mediumSolved} <span className="text-slate-400 font-normal">Solved</span>
                     </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
@@ -505,7 +535,7 @@ export default function GitHubStats() {
                   <div className="flex justify-between text-xs font-mono mb-1">
                     <span className="text-rose-600 font-extrabold">Hard</span>
                     <span className="text-slate-700 font-bold">
-                      {leetcode.hardSolved} <span className="text-slate-400 font-normal">/ 700+</span>
+                      {leetcode.hardSolved} <span className="text-slate-400 font-normal">Solved</span>
                     </span>
                   </div>
                   <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full shadow-[inset_1px_1px_3px_rgba(163,177,198,0.6),inset_-1px_-1px_3px_rgba(255,255,255,0.95)] overflow-hidden p-0.5 border border-white/30">
@@ -524,13 +554,13 @@ export default function GitHubStats() {
               <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
                 <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">GLOBAL RANK</span>
                 <span className="text-slate-800 font-black text-sm md:text-base font-mono">
-                  {lcLoading ? "--" : leetcode.ranking.toLocaleString()}
+                  {leetcode.ranking.toLocaleString()}
                 </span>
               </div>
               <div className="py-2.5 px-3 bg-[#e2e8f0] rounded-2xl shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 text-center">
                 <span className="text-slate-500 block text-[9px] uppercase tracking-wider font-bold mb-0.5 font-mono">ACCEPTANCE</span>
                 <span className="text-amber-600 font-black text-sm md:text-base font-mono">
-                  {lcLoading ? "--" : `${leetcode.acceptanceRate}%`}
+                  {`${leetcode.acceptanceRate}%`}
                 </span>
               </div>
             </div>
@@ -543,10 +573,7 @@ export default function GitHubStats() {
       <div>
         <h3 className="text-xl font-bold text-center mb-6 gradient-text">Recent Repositories</h3>
         <div className="grid md:grid-cols-3 gap-6">
-          {loading ? (
-            <div className="col-span-3 text-center text-white/60 font-mono text-xs py-10">Loading...</div>
-          ) : (
-            repos.map((repo, index) => (
+          {repos.map((repo, index) => (
               <motion.div
                 key={repo.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -589,7 +616,7 @@ export default function GitHubStats() {
                 </a>
               </motion.div>
             ))
-          )}
+          }
         </div>
       </div>
     </Section>

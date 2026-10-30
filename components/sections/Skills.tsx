@@ -29,7 +29,7 @@ export default function Skills() {
     },
     {
       id: "frameworks",
-      title: "Frameworks & Web",
+      title: "Backend & Web Systems",
       icon: Code2,
       color: "from-purple-500/20 to-pink-500/20",
       borderColor: "group-hover/card:border-purple-500/30",
@@ -38,7 +38,7 @@ export default function Skills() {
     },
     {
       id: "ai",
-      title: "AI & Machine Learning",
+      title: "AI Systems & Machine Learning",
       icon: Brain,
       color: "from-amber-500/20 to-orange-500/20",
       borderColor: "group-hover/card:border-amber-500/30",
@@ -47,7 +47,7 @@ export default function Skills() {
     },
     {
       id: "tools",
-      title: "Tools & Infrastructure",
+      title: "Databases & Infrastructure",
       icon: Database,
       color: "from-emerald-500/20 to-teal-500/20",
       borderColor: "group-hover/card:border-emerald-500/30",
@@ -83,40 +83,46 @@ export default function Skills() {
                 </h3>
               </div>
 
-              {/* Skills Icons Flow */}
-              <div className="flex flex-wrap gap-3.5">
+              {/* Skills Grid with Real Context & Evidence */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {cat.skills.map((skill) => {
                   const iconData = simpleIconsMap[skill.icon];
 
                   return (
                     <motion.div
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ y: -2 }}
                       key={skill.name}
                       style={{
                         "--brand-color": iconData ? `#${iconData.hex}` : "#1e293b",
                       } as React.CSSProperties}
-                      className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-2xl bg-[#e2e8f0] shadow-[4px_4px_8px_rgba(163,177,198,0.5),-4px_-4px_8px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] transition-all duration-200 cursor-pointer relative group border border-white/40"
+                      className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-[#e2e8f0] shadow-[3px_3px_6px_rgba(163,177,198,0.5),-3px_-3px_6px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] transition-all duration-200 border border-white/40"
                     >
-                      {iconData ? (
-                        <svg
-                          role="img"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="w-5 h-5 fill-[var(--brand-color)] transition-all duration-300"
-                        >
-                          <title>{iconData.title}</title>
-                          <path d={iconData.path} />
-                        </svg>
-                      ) : (
-                        <span className="text-[10px] text-slate-700 uppercase font-bold">
-                          {skill.name.substring(0, 2)}
-                        </span>
-                      )}
+                      <div className="w-8 h-8 rounded-xl bg-[#e2e8f0] shadow-[inset_1px_1px_3px_rgba(163,177,198,0.5),inset_-1px_-1px_3px_rgba(255,255,255,0.9)] flex items-center justify-center flex-shrink-0">
+                        {iconData ? (
+                          <svg
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4 fill-[var(--brand-color)]"
+                          >
+                            <path d={iconData.path} />
+                          </svg>
+                        ) : (
+                          <span className="text-[10px] text-slate-700 uppercase font-bold">
+                            {skill.name.substring(0, 2)}
+                          </span>
+                        )}
+                      </div>
 
-                      {/* Smooth Tooltip */}
-                      <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-slate-900 text-white text-[10px] font-mono tracking-wide rounded-full opacity-0 pointer-events-none group-hover:opacity-100 group-hover:-top-11 transition-all duration-200 shadow-[4px_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap z-50">
-                        {skill.name}
+                      <div className="min-w-0 flex-1">
+                        <div className="text-xs font-bold text-slate-800 font-mono truncate">
+                          {skill.name}
+                        </div>
+                        {skill.context && (
+                          <div className="text-[10px] text-slate-500 font-sans truncate">
+                            {skill.context}
+                          </div>
+                        )}
                       </div>
                     </motion.div>
                   );

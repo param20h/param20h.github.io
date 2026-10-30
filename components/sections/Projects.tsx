@@ -13,7 +13,6 @@ import {
   X,
   ChevronRight,
   ChevronDown,
-  Code,
   Terminal,
   Sparkles,
   ArrowLeft,
@@ -327,10 +326,10 @@ export default function Projects() {
                     <div className="grid lg:grid-cols-12 gap-8 mt-6">
                       
                       {/* Left Block: Description & Tech Stack */}
-                      <div className="lg:col-span-7 flex flex-col gap-6">
+                      <div className="lg:col-span-8 flex flex-col gap-6">
                         <div>
                           <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-2.5 font-mono">
-                            {"// PROJECT DESCRIPTION"}
+                            {"// PROJECT ARCHITECTURE & IMPACT"}
                           </h4>
                           <p className="text-slate-700 leading-relaxed text-sm md:text-base whitespace-pre-line bg-[#e2e8f0] p-6 rounded-3xl shadow-[8px_8px_16px_rgba(163,177,198,0.5),-8px_-8px_16px_rgba(255,255,255,0.95)] border border-white/60">
                             {activeProject.description}
@@ -339,7 +338,7 @@ export default function Projects() {
 
                         <div>
                           <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-3 font-mono">
-                            {"// TECH STACK & TOOLING"}
+                            {"// CORE TECHNOLOGIES & TOOLS"}
                           </h4>
                           <div className="flex flex-wrap gap-2.5">
                             {activeProject.tech.map((t) => (
@@ -354,43 +353,43 @@ export default function Projects() {
                         </div>
                       </div>
 
-                      {/* Right Block: Dynamic Mock Editor Code Output */}
-                      <div className="lg:col-span-5 flex flex-col gap-6">
-                        <div className="w-full rounded-3xl border border-white/50 bg-[#e2e8f0] shadow-[inset_3px_3px_8px_rgba(163,177,198,0.55),inset_-3px_-3px_8px_rgba(255,255,255,0.95)] overflow-hidden font-mono text-[11px] md:text-xs">
-                          {/* File header */}
-                          <div className="bg-[#e2e8f0] px-5 py-2.5 text-slate-600 border-b border-white/40 flex items-center justify-between font-semibold">
-                            <span>meta_info.json</span>
-                            <Code size={12} />
+                      {/* Right Block: Engineering Highlights & Links */}
+                      <div className="lg:col-span-4 flex flex-col gap-6">
+                        <div className="bg-[#e2e8f0] rounded-3xl border border-white/60 p-6 shadow-[8px_8px_16px_rgba(163,177,198,0.5),-8px_-8px_16px_rgba(255,255,255,0.95)] flex flex-col justify-between h-full">
+                          <div>
+                            <div className="flex items-center gap-2.5 mb-3 text-slate-800 font-bold text-sm">
+                              <Sparkles size={16} className="text-slate-700" />
+                              <span>Key Architecture Takeaways</span>
+                            </div>
+                            <p className="text-xs text-slate-600 leading-relaxed font-sans mb-4">
+                              Engineered with focus on reliable execution, strict typing, and high availability. Utilizes clean architectural patterns and verifiable automated testing.
+                            </p>
                           </div>
-                          
-                          {/* Code Lines layout */}
-                          <div className="p-5 space-y-1.5 text-slate-700 leading-5">
-                            <div><span className="text-slate-400 select-none mr-4">01</span>{"{"}</div>
-                            <div><span className="text-slate-400 select-none mr-4">02</span>  <span className="text-slate-900 font-bold">{"\"project_name\""}</span>: <span className="text-slate-700">{"\""}{activeProject.title.split(" — ")[0].split(" - ")[0]}{"\""}</span>,</div>
-                            <div><span className="text-slate-400 select-none mr-4">03</span>  <span className="text-slate-900 font-bold">{"\"status\""}</span>: <span className="text-slate-700">{"\""}{activeProject.status || "live"}{"\""}</span>,</div>
-                            <div><span className="text-slate-400 select-none mr-4">04</span>  <span className="text-slate-900 font-bold">{"\"open_source\""}</span>: <span className="text-slate-700 italic">{activeProject.tags?.includes("open-source") ? "true" : "false"}</span>,</div>
-                            <div><span className="text-slate-400 select-none mr-4">05</span>  <span className="text-slate-900 font-bold">{"\"core_technologies\""}</span>: [</div>
-                            {activeProject.tech.slice(0, 3).map((tech, idx, arr) => (
-                              <div key={tech}>
-                                <span className="text-slate-400 select-none mr-4">{`0${6 + idx}`}</span>
-                                {"    "}<span className="text-slate-700">{"\""}{tech}{"\""}</span>{idx < arr.length - 1 ? "," : ""}
-                              </div>
-                            ))}
-                            <div><span className="text-slate-400 select-none mr-4">09</span>  ],</div>
-                            <div><span className="text-slate-400 select-none mr-4">10</span>  <span className="text-slate-900 font-bold">{"\"repository_configured\""}</span>: <span className="text-slate-700 italic">{activeProject.githubUrl ? "true" : "false"}</span></div>
-                            <div><span className="text-slate-400 select-none mr-4">11</span>{"}"}</div>
-                          </div>
-                        </div>
 
-                        {/* Interactive Project Core Highlights */}
-                        <div className="bg-[#e2e8f0] rounded-3xl border border-white/60 p-5 shadow-[8px_8px_16px_rgba(163,177,198,0.5),-8px_-8px_16px_rgba(255,255,255,0.95)] flex flex-col justify-center">
-                          <div className="flex items-center gap-2.5 mb-2 text-slate-800 font-bold text-sm">
-                            <Sparkles size={16} className="text-slate-700" />
-                            <span>Quick Insights</span>
+                          <div className="pt-4 border-t border-white/40 flex flex-col gap-2.5">
+                            {activeProject.liveUrl && (
+                              <a
+                                href={activeProject.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold text-slate-800 bg-[#e2e8f0] border border-white/60 shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] transition"
+                              >
+                                <ExternalLink size={13} />
+                                Live Demo
+                              </a>
+                            )}
+                            {activeProject.githubUrl && (
+                              <a
+                                href={activeProject.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold text-slate-800 bg-[#e2e8f0] border border-white/60 shadow-[3px_3px_8px_rgba(163,177,198,0.5),-3px_-3px_8px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_4px_rgba(163,177,198,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.95)] transition"
+                              >
+                                <Github size={13} />
+                                Source Code
+                              </a>
+                            )}
                           </div>
-                          <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                            This project showcases hands-on expertise in building structured {activeProject.tech.slice(0, 2).join(" & ")} architectures, aiming to deliver scalable results with clean developer interfaces.
-                          </p>
                         </div>
                       </div>
 

@@ -5,13 +5,19 @@ import Footer from "@/components/Footer";
 import BackgroundEffects from "@/components/BackgroundEffects";
 
 export const metadata: Metadata = {
-  title: "Professional Experience | Paramjit Singh",
-  description: "Explore Paramjit Singh's professional journey — full-stack development roles, AI/ML engineering, and freelance work. 2+ years building scalable applications with React, Next.js, Node.js, Python, and more.",
+  title: "Engineering & Leadership Experience | Paramjit Singh",
+  description: "Explore Paramjit Singh's engineering career — backend microservices at FounDev Studio, AI model evaluation at Outlier, and cloud community leadership with AWS Cloud Club.",
   openGraph: {
-    title: "Professional Experience | Paramjit Singh",
-    description: "2+ years of professional experience in Full Stack Development, AI Engineering, and freelance software development.",
+    title: "Engineering & Leadership Experience | Paramjit Singh",
+    description: "Backend microservices, LLM evaluation, and developer advocacy. Track record across production software engineering and technical communities.",
     url: "https://param20h.me/experience",
-    images: [{ url: "https://param20h.me/media/profile.png", width: 1200, height: 630 }],
+    images: [{ url: "https://param20h.me/media/circle-photo.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering & Leadership Experience | Paramjit Singh",
+    description: "Backend microservices, LLM evaluation, and developer advocacy. Track record across production software engineering and technical communities.",
+    images: ["https://param20h.me/media/circle-photo.png"],
   },
   alternates: { canonical: "https://param20h.me/experience" },
 };

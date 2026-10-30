@@ -15,6 +15,7 @@ export interface Skill {
   name: string;
   icon: string;
   category: 'language' | 'framework' | 'tool' | 'ai';
+  context?: string;
 }
 
 export interface GitHubRepo {

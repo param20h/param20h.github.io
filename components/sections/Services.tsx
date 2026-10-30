@@ -71,7 +71,8 @@ const caseStudies = [
   {
     title: "Auto Care On Wheels",
     subtitle: "Car Service Booking Platform",
-    description: "A complete, full-stack car service booking application deployed on Hostinger. Features advanced scheduling, authentication, and admin dashboards.",
+    description: "Complete full-stack car service booking application deployed for a real commercial mechanic business. Automated customer scheduling, booking confirmations, and administrative service dispatch.",
+    outcome: "Eliminated manual booking bottlenecks by providing online date/time appointment reservation with automated dashboard notifications.",
     tech: ["React 18", "Vite", "Node.js", "Express", "Prisma ORM", "MySQL"],
     url: "https://autocareonwheels.com.au",
     images: [
@@ -79,12 +80,13 @@ const caseStudies = [
       "/media/autocare/2.png",
       "/media/autocare/3.png",
     ],
-    highlights: ["FullCalendar.io Integration", "Secure Admin Portal", "Automated Workflows"]
+    highlights: ["Interactive Calendar Booking", "Administrative Control Portal", "Live Production on Hostinger"]
   },
   {
     title: "ZenithFlow",
     subtitle: "Productivity & Wellness Ecosystem",
-    description: "A premium, all-in-one productivity and wellness ecosystem with AI-powered biometric coaching and Razorpay integration.",
+    description: "All-in-one productivity and wellness platform designed to combine velocity planning with biometric habit analytics.",
+    outcome: "Built complete SaaS payments lifecycle using Razorpay webhooks and tenant-isolated PostgreSQL with Row Level Security.",
     tech: ["Next.js", "Supabase Auth", "Node.js", "Razorpay API", "PostgreSQL"],
     url: "https://zenithflow.dev/",
     images: [
@@ -93,12 +95,13 @@ const caseStudies = [
       "/media/zenith/3.png",
       "/media/zenith/4.png"
     ],
-    highlights: ["Subscription Management", "Habit Analytics", "Real-time Sync"]
+    highlights: ["Automated Subscription Webhooks", "Real-time Habit Data Sync", "Production Next.js 14"]
   },
   {
     title: "Star Computer Center",
     subtitle: "Educational Institution Portal",
-    description: "A modern digital presence for an educational center, highlighting courses, admissions, and institutional information with a responsive design.",
+    description: "Digital web portal for an educational training center, featuring interactive course catalogs, student admissions inquiries, and responsive syllabus viewing.",
+    outcome: "Increased digital student intake inquiries through direct automated web forms replacing paper brochures.",
     tech: ["React", "Tailwind CSS", "Node.js", "Express"],
     url: "https://www.starcomputercenter.in/",
     images: [
@@ -106,7 +109,7 @@ const caseStudies = [
       "/media/starcomputer/2.png",
       "/media/starcomputer/3.png"
     ],
-    highlights: ["Course Management", "Responsive UI", "Student Inquiry Flow"]
+    highlights: ["Instant Inquiry Submission", "High-Performance Mobile UX", "Live Institutional Domain"]
   }
 ];
 
@@ -114,8 +117,6 @@ export default function Services() {
   return (
     <div className="w-full relative">
       
-      {/* Background glow effects */}
-
       {/* Hero Header */}
       <div className="pt-12 pb-16">
         <motion.h1 
@@ -123,18 +124,18 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-black mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-slate-900 mb-6"
         >
-          What We Do Best
+          Engineering Services & Client Work
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-black/60 text-xl max-w-2xl leading-relaxed"
+          className="text-slate-600 text-lg md:text-xl max-w-2xl leading-relaxed"
         >
-          We craft digital products that combine stunning design with powerful functionality. From concept to launch, we&apos;re your partner in building remarkable experiences.
+          I design, engineer, and deploy high-performance web applications, scalable REST APIs, and integrated AI capabilities for clients and businesses.
         </motion.p>
       </div>
 
@@ -206,10 +207,18 @@ export default function Services() {
             <div className={`lg:w-1/3 flex flex-col gap-6 ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}>
               <div>
                 <h4 className="text-accent-400 font-bold uppercase tracking-wider text-xs mb-2">{study.subtitle}</h4>
-                <h3 className="text-3xl font-extrabold text-black mb-4">{study.title}</h3>
-                <p className="text-black/70 leading-relaxed text-sm">
+                <h3 className="text-3xl font-extrabold text-black mb-3">{study.title}</h3>
+                <p className="text-black/70 leading-relaxed text-sm mb-4">
                   {study.description}
                 </p>
+                <div className="p-4 rounded-2xl bg-[#e2e8f0] shadow-[inset_2px_2px_5px_rgba(163,177,198,0.5),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/40 mb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                    Client Outcome & Delivery
+                  </span>
+                  <p className="text-xs font-medium text-slate-800 leading-relaxed">
+                    {study.outcome}
+                  </p>
+                </div>
               </div>
 
               <div>
@@ -288,6 +297,27 @@ export default function Services() {
           </motion.div>
         ))}
       </div>
+
+      {/* Direct Contact & Inquiry CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center p-8 md:p-12 bg-[#e2e8f0] border border-white/60 rounded-[2.5rem] shadow-[12px_12px_24px_rgba(163,177,198,0.55),-12px_-12px_24px_rgba(255,255,255,0.95)] max-w-3xl mx-auto mb-20"
+      >
+        <h3 className="text-2xl md:text-3xl font-black text-slate-800 mb-3">
+          Have an engineering or web project in mind?
+        </h3>
+        <p className="text-slate-600 text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+          Whether you need a full-stack platform built from scratch, backend API integration, or an AI agent workflow, I deliver clean, production-ready code.
+        </p>
+        <a
+          href="/#contact"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 !text-white font-bold rounded-full shadow-[6px_6px_14px_rgba(163,177,198,0.6),-4px_-4px_10px_rgba(255,255,255,0.85)] hover:bg-slate-800 hover:shadow-[8px_8px_18px_rgba(163,177,198,0.7)] active:scale-95 transition-all text-sm uppercase tracking-wider"
+        >
+          Start a Conversation →
+        </a>
+      </motion.div>
 
     </div>
   );

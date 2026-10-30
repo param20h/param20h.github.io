@@ -13,87 +13,12 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://param20h.me"),
   title: {
-    default: "Paramjit Singh | AI Engineer • Backend Architect • Systems Builder | Portfolio",
-    template: "%s | Paramjit Singh Portfolio"
+    default: "Paramjit Singh | Backend & AI Engineer | Portfolio",
+    template: "%s | Paramjit Singh"
   },
-  description: "Paramjit Singh — AI Engineer, Backend Developer, and Systems Builder from Lovely Professional University (LPU). Specializing in AI agents, LangGraph.js, RAG pipelines, PyTorch forensics, high-concurrency MongoDB document architecture, and scalable Next.js production platforms.",
+  description: "Paramjit Singh — Backend & AI Engineer from Lovely Professional University. Specializing in AI agents, RAG pipelines, high-concurrency database architectures (MongoDB, PostgreSQL), and production web platforms.",
   applicationName: "Paramjit Singh Portfolio",
   referrer: "origin-when-cross-origin",
-  keywords: [
-    // Personal Branding
-    "Paramjit Singh",
-    "Paramjit Singh LPU",
-    "Paramjit Singh Portfolio",
-    "param20h",
-    "AI Systems Builder",
-    "AI Engineer",
-    "Backend Architect",
-    
-    // AI/ML & Agentic Keywords
-    "AI Agent Architecture",
-    "LangGraph.js",
-    "RAG Pipelines",
-    "Retrieval-Augmented Generation",
-    "Vector Search FAISS",
-    "DeepFake Forensics",
-    "PyTorch",
-    "TensorFlow",
-    "Scikit-learn",
-    "OpenAI API",
-    "Google Gemini API",
-    "Groq Llama 3",
-    "Computer Vision",
-    "Natural Language Processing",
-    
-    // Backend & Database Architecture
-    "MongoDB Atlas",
-    "PyMongo",
-    "Concurrency Control $expr $inc",
-    "ESR Compound Indexing",
-    "MongoDB Aggregation Pipelines",
-    "PostgreSQL Row Level Security",
-    "FastAPI",
-    "Flask",
-    "Node.js",
-    "Express.js",
-    "TypeScript",
-    "Next.js 14",
-    "React",
-    "Tailwind CSS",
-    "Docker",
-    "Git",
-    
-    // Flagship Systems
-    "CampusIQ Smart Campus",
-    "ZenithFlow SaaS",
-    "RAG PDF Assistant",
-    "DeepFake Detector",
-    "Vesta AI Investment Agent",
-    "ParkControl Sentinel",
-    "FlatMate Shared Expenses",
-
-    // Education & Region
-    "LPU Student",
-    "India Developer",
-    
-    // Projects & Research
-    "Depression Biomarker Research",
-    "Clinical Depression Analysis",
-    "DAIC-WOZ Database",
-    "Mental Health AI",
-    "MOOC Feedback Mining",
-    "Smart India Hackathon 2021",
-    "Sentiment Analysis",
-    "Data Science",
-    "Machine Learning Research",
-    
-    // Job Titles & Roles
-    "Software Engineer",
-    "AI/ML Engineer",
-    "Data Scientist",
-    "Research Developer",
-    "Tech Enthusiast"
-  ],
   authors: [{ name: "Paramjit Singh", url: "https://param20h.me" }],
   creator: "Paramjit Singh",
   publisher: "Paramjit Singh",
@@ -106,15 +31,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://param20h.me",
-    title: "Paramjit Singh | AI Engineer & Backend Architect Portfolio",
-    description: "Personal engineering portfolio of Paramjit Singh. Specializing in AI agents, RAG, PyTorch forensics, high-concurrency MongoDB databases, and Next.js 14 production systems.",
+    title: "Paramjit Singh | Backend & AI Engineer",
+    description: "Personal engineering portfolio of Paramjit Singh. Focused on AI agents, RAG, and high-concurrency database systems.",
     siteName: "Paramjit Singh Portfolio",
     images: [
       {
         url: "/media/circle-photo.png",
         width: 1200,
         height: 630,
-        alt: "Paramjit Singh - AI Engineer & Backend Architect Portfolio",
+        alt: "Paramjit Singh - Backend & AI Engineer",
         type: "image/png",
       },
     ],
@@ -123,8 +48,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@param20h",
     creator: "@param20h",
-    title: "Paramjit Singh | AI Engineer & Backend Architect",
-    description: "Specializing in AI agents, RAG pipelines, PyTorch forensics, and high-concurrency database systems.",
+    title: "Paramjit Singh | Backend & AI Engineer",
+    description: "Specializing in AI agents, RAG pipelines, and high-concurrency database systems.",
     images: {
       url: "/media/circle-photo.png",
       alt: "Paramjit Singh Portfolio",
@@ -169,10 +94,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "rGdcFzK0eh-XpNo99wPLrU_Vv2-_aJG97ciG-mrUVF4",
-    yandex: "yandex-verification-code",
-    other: {
-      "msvalidate.01": "bing-verification-code",
-    },
   },
   category: "Technology",
   classification: "Portfolio Website",
@@ -191,6 +112,7 @@ const jsonLd = {
       "name": "Paramjit Singh",
       "alternateName": "param20h",
       "url": "https://param20h.me",
+      "email": "mailto:parambrar862@gmail.com",
       "image": {
         "@type": "ImageObject",
         "url": "https://param20h.me/media/profile.png",
@@ -202,10 +124,10 @@ const jsonLd = {
         "https://linkedin.com/in/param20h",
         "https://param20h.github.io/blogs/",
       ],
-      "jobTitle": "Full Stack Developer & AI Engineer",
+      "jobTitle": "Backend & AI Engineer",
       "worksFor": {
         "@type": "Organization",
-        "name": "Freelance",
+        "name": "Software Engineer & Builder",
       },
       "alumniOf": {
         "@type": "EducationalOrganization",
@@ -213,18 +135,18 @@ const jsonLd = {
         "alternateName": "LPU",
       },
       "knowsAbout": [
-        "Python", "JavaScript", "TypeScript", "React", "Next.js", "Node.js",
-        "Artificial Intelligence", "Machine Learning", "Web3", "Blockchain",
-        "FastAPI", "TensorFlow", "PyTorch", "Docker", "AWS", "Unity Game Development",
+        "Python", "TypeScript", "FastAPI", "Node.js", "Express", "Next.js",
+        "MongoDB", "PostgreSQL", "Docker", "PyTorch", "LangGraph", "Retrieval-Augmented Generation (RAG)",
+        "Distributed Systems", "Database Indexing & Concurrency",
       ],
-      "description": "Full Stack Developer and AI Engineer from LPU with 2+ years of experience building scalable web applications and AI-powered systems.",
+      "description": "Backend & AI Engineer specializing in high-concurrency database systems, autonomous AI agents, and production web platforms.",
     },
     {
       "@type": "WebSite",
       "@id": "https://param20h.me/#website",
       "url": "https://param20h.me",
       "name": "Paramjit Singh Portfolio",
-      "description": "Full Stack Developer & AI Engineer portfolio showcasing projects, freelance services, and professional experience.",
+      "description": "Backend & AI Engineer portfolio showcasing projects, client platforms, and professional engineering experience.",
       "author": { "@id": "https://param20h.me/#person" },
       "publisher": { "@id": "https://param20h.me/#person" },
       "inLanguage": "en-US",
@@ -238,7 +160,7 @@ const jsonLd = {
       "@type": "ProfilePage",
       "@id": "https://param20h.me/#profilepage",
       "url": "https://param20h.me",
-      "name": "Paramjit Singh - Full Stack Developer Portfolio",
+      "name": "Paramjit Singh - Backend & AI Engineer Portfolio",
       "isPartOf": { "@id": "https://param20h.me/#website" },
       "about": { "@id": "https://param20h.me/#person" },
       "mainEntity": { "@id": "https://param20h.me/#person" },

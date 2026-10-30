@@ -1,17 +1,18 @@
 # Paramjit Singh
 
-> AI Engineer, Backend Architecture Specialist, and Systems Builder studying Computer Science & Engineering at Lovely Professional University (LPU). Focuses on turning generative AI, agentic workflows, and distributed backends into production-ready software.
+> Backend & AI Engineer studying Computer Science & Engineering at Lovely Professional University (LPU). Focuses on turning generative AI, agentic workflows, and high-concurrency backends into robust production software.
 
 ## Key Information
 - **Full Name**: Paramjit Singh
-- **Primary Roles**: AI Engineer, Backend Developer, AI Systems Builder, Machine Learning Engineer
+- **Primary Role**: Backend & AI Engineer
+- **Email**: parambrar862@gmail.com
 - **Institution**: Lovely Professional University (LPU)
 - **Portfolio URL**: https://param20h.me
 - **Blog**: https://param20h.me/blogs
 - **GitHub**: https://github.com/param20h
 - **LeetCode**: https://leetcode.com/u/param20h/
 - **LinkedIn**: https://www.linkedin.com/in/paramjit-singh-612664289/
-- **Core Experience**: 2+ Years Experience, 20+ Projects, 24+ Technologies
+- **Core Focus**: High-concurrency database architectures ($expr atomic updates, ESR indexing), autonomous multi-agent DAGs, and production web platforms.
 
 ## Primary Competencies
 - **AI & Machine Learning**: LLM Agents (LangGraph.js), RAG (Retrieval-Augmented Generation), FAISS, Vector Databases, PyTorch, Scikit-learn, OpenAI/Gemini/Groq APIs, DeepFake detection, NLP, Sentiment Analysis.
