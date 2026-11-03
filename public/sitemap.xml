@@ -63,9 +63,17 @@
   <!-- Standalone: Experience Page -->
   <url>
     <loc>https://param20h.me/experience</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
+  </url>
+
+  <!-- Standalone: All Projects Directory Page -->
+  <url>
+    <loc>https://param20h.me/projects</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <!-- Standalone: Services & Client Work Page -->

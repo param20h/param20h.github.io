@@ -16,7 +16,7 @@ const navItems = [
   { name: "About", href: "/#about" },
   { name: "Experience", href: "/experience" },
   { name: "Skills", href: "/#skills" },
-  { name: "Projects", href: "/#projects" },
+  { name: "Projects", href: "/projects" },
   { name: "Services", href: "/services" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -25,7 +25,7 @@ const mobileNavItems = [
   { name: "Home", href: "/#home", id: "home", icon: Home },
   { name: "Experience", href: "/experience", id: "experience", icon: Briefcase },
   { name: "Skills", href: "/#skills", id: "skills", icon: Code2 },
-  { name: "Projects", href: "/#projects", id: "projects", icon: Folder },
+  { name: "Projects", href: "/projects", id: "projects", icon: Folder },
   { name: "Services", href: "/services", id: "services", icon: Briefcase },
   { name: "Contact", href: "/#contact", id: "contact", icon: MessageSquare },
 ];
@@ -53,6 +53,11 @@ export default function Navigation() {
       
       if (window.location.pathname.startsWith("/services")) {
         setActiveSection("services");
+        return;
+      }
+
+      if (window.location.pathname.startsWith("/projects")) {
+        setActiveSection("projects");
         return;
       }
 

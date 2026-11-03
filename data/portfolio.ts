@@ -169,3 +169,6 @@ export const experiences: ExperienceItem[] = [
         category: "community",
     },
 ];
+
+export { allProjects } from "./allProjects";
+export type { DetailedProject } from "./allProjects";

@@ -528,6 +528,17 @@ export default function Projects() {
         </div>
       </div>
 
+      {/* Complete Archive & Tech Filter CTA */}
+      <div className="mt-12 text-center">
+        <a
+          href="/projects"
+          className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#e2e8f0] text-slate-800 font-bold text-sm rounded-full shadow-[6px_6px_14px_rgba(163,177,198,0.55),-6px_-6px_14px_rgba(255,255,255,0.95)] hover:shadow-[inset_2px_2px_5px_rgba(163,177,198,0.6),inset_-2px_-2px_5px_rgba(255,255,255,0.95)] border border-white/60 active:scale-95 transition-all group"
+        >
+          <span>Explore All 17+ Projects Directory & Tech Stack Filters</span>
+          <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+
       {/* CRAWLER & LLM-FRIENDLY STATIC OUTLINE (Accessible to non-JS scrapers & screen readers) */}
       <div className="sr-only" aria-label="Structured Projects Directory for Screen Readers and Web Crawlers">
         <h3>Full Project Catalog & Technical Architecture Outlines</h3>
